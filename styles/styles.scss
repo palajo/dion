@@ -1,0 +1,47 @@
+// libraries
+@import './libraries/bootstrap/bootstrap';
+@import './libraries/swiper/swiper';
+
+// default
+@import './fonts';
+@import './const';
+
+// general
+@import './global';
+
+// header
+@import './components/header/header';
+
+// footer
+@import './components/footer/footer';
+
+// sections
+@import './components/sections/hero-banner';
+@import './components/sections/popular-products';
+@import './components/sections/product-benefits';
+@import './components/sections/product-slider';
+@import './components/sections/about-company';
+@import './components/sections/contacts';
+@import './components/sections/products-category';
+@import './components/sections/breadcrumbs';
+@import './components/sections/product';
+@import './components/sections/client-infromation';
+
+// blocks
+@import './components/blocks/benefit-block';
+@import './components/blocks/statistic-block';
+@import './components/blocks/form-block';
+@import './components/blocks/frame-block';
+@import './components/blocks/contact-block';
+@import './components/blocks/map-block';
+@import './components/blocks/product-block';
+
+// form
+@import './components/form/form';
+
+// tables
+@import './components/tables/specifications-table';
+
+// sliders
+@import './components/sliders/products-slider';
+@import './components/sliders/variations-slider';

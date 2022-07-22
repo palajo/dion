@@ -1,0 +1,44 @@
+table.specifications-table {
+  margin-top: 30px;
+
+  width: 100%;
+
+  tbody {
+    tr {
+      th {
+        position: relative;
+        width: 60%;
+
+        span {
+          color: $gray;
+          font-weight: 400;
+
+          background: $white;
+          padding: 10px 20px 10px 0;
+
+          &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+
+            top: 50%;
+
+            width: 100%;
+            height: 1px;
+
+            background: $lightgray;
+          }
+        }
+      }
+
+      td {
+        width: 40%;
+
+        padding: 10px 0 10px 20px;
+
+        color: $black;
+        font-weight: 500;
+      }
+    }
+  }
+}

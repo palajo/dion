@@ -1,0 +1,161 @@
+section.product {
+  padding-bottom: 100px;
+
+  .product-gallery {
+    display: flex;
+    flex-shrink: 0;
+
+    .gallery-thumbnails {
+      display: flex;
+      flex-direction: column;
+
+      .thumbnail-block {
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 120px;
+        height: 150px;
+
+        border: 1px solid $lightgray;
+        border-radius: 15px;
+
+        margin-bottom: 15px;
+
+        transition: 0.1s ease;
+
+        img {
+          width: 80px;
+          height: 110px;
+
+          object-fit: contain;
+          object-position: center;
+        }
+
+        &:hover {
+          border-color: $blueHover;
+        }
+
+        &.active {
+          border-color: $blue;
+
+          &:hover {
+            border-color: $blueHover;
+          }
+        }
+      }
+    }
+
+    .gallery-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 320px;
+      height: 500px;
+
+      border: 1px solid $lightgray;
+      border-radius: 15px;
+
+      margin-left: 20px;
+
+      img {
+        width: 240px;
+        height: 400px;
+
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+  }
+
+  .product-content {
+    .product-title {
+      font-size: 30px;
+      color: $black;
+
+      span {
+        font-weight: 500;
+      }
+
+      margin-bottom: 10px;
+    }
+
+    .product-headline {
+      padding: 10px 20px;
+
+      font-size: 14px;
+      font-weight: 500;
+      color: $blue;
+
+      background: rgba($blue, 0.15);
+      border-radius: 15px;
+
+    }
+
+    .product-description {
+      margin-top: 40px;
+      max-width: 540px;
+    }
+
+    .product-variations {
+      margin-top: 40px;
+
+      .variations-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: $black;
+
+        margin-bottom: 10px;
+      }
+    }
+
+    .product-price {
+      margin-top: 40px;
+
+      .price-label {
+        font-size: 14px;
+        color: $gray;
+      }
+
+      .price-number {
+        font-size: 24px;
+        font-weight: 500;
+        color: $black;
+      }
+    }
+
+    .product-specifications {
+      margin-top: 100px;
+    }
+
+    .product-benefits {
+      margin-top: 100px;
+    }
+  }
+
+  .product-order {
+    .order-title {
+      font-size: 24px;
+      font-weight: 500;
+      color: $black;
+
+      margin-bottom: 30px;
+    }
+
+    .order-price {
+      .price-label {
+        font-size: 14px;
+        color: $gray;
+      }
+
+      .price-number {
+        font-size: 24px;
+        font-weight: 500;
+        color: $black;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+header {
+  padding: 30px 0;
+
+  ul.nav {
+    li.nav-item {
+      a.nav-link {
+        padding: 10px 20px;
+
+        font-size: 14px;
+        color: $darkgray;
+
+        transition: 0.1s ease;
+
+        &.active {
+          color: $blue;
+          font-weight: 500;
+        }
+
+        &:hover {
+          color: $blueHover;
+        }
+      }
+    }
+  }
+}
