@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_homepage_contacts_contacts",
+  "info": {
+    "displayName": "Contacts",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Contacts": {
+      "displayName": "HomepageContacts",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage-contacts.homepage-contacts"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_order_information_order_informations",
+  "info": {
+    "displayName": "Order information",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "OrderDate": {
+      "type": "date"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_homepage_product_benefits_product_benefits",
+  "info": {
+    "displayName": "Product Benefits",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Benefits": {
+      "displayName": "Benefits",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage-benefits.benefits"
+    }
+  }
+}

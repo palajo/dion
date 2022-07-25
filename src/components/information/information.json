@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_information_information",
+  "info": {
+    "displayName": "Information",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Model": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Димохідна",
+        "Парапетна"
+      ]
+    },
+    "Volume": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Price": {
+      "type": "integer"
+    },
+    "ImageGallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "RelatedProducts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    }
+  }
+}

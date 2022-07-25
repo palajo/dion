@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_homepage_about_company_about_companies",
+  "info": {
+    "displayName": "About Company",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Statistics": {
+      "displayName": "Statistics",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage-statistics.statistics"
+    }
+  }
+}

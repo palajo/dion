@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_product_products",
+  "info": {
+    "displayName": "Product",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "Model": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Димохідна",
+        "Парапетна"
+      ]
+    },
+    "Volume": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "integer"
+    },
+    "Description": {
+      "type": "richtext"
+    }
+  }
+}

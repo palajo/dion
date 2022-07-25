@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_homepage_hero_banner_hero_banners",
+  "info": {
+    "displayName": "Hero Banner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "ButtonTitle": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_homepage_contacts_homepage_contacts",
+  "info": {
+    "displayName": "HomepageContacts"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "Icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Value": {
+      "type": "string"
+    }
+  }
+}

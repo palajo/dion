@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_safety_safeties",
+  "info": {
+    "displayName": "Safety",
+    "icon": "umbrella",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Table": {
+      "type": "component",
+      "repeatable": true,
+      "component": "table.table-row"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

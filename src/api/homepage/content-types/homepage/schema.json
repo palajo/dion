@@ -1,0 +1,58 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroBanner": {
+      "displayName": "Hero Banner",
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage-hero-banner.hero-banner"
+    },
+    "PopularProducts": {
+      "displayName": "Popular products",
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage-popular-products.popular-products"
+    },
+    "ProductBenefits": {
+      "displayName": "Product Benefits",
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage-product-benefits.product-benefits"
+    },
+    "Slider": {
+      "displayName": "Slider",
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage-slider.slider"
+    },
+    "AboutCompany": {
+      "displayName": "About Company",
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage-about-company.about-company"
+    },
+    "Contacts": {
+      "displayName": "Contacts",
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage-contacts.contacts"
+    },
+    "Form": {
+      "displayName": "Form",
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage-form.form"
+    }
+  }
+}

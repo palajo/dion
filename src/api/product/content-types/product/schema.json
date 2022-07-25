@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Specifications": {
+      "displayName": "Specifications",
+      "type": "component",
+      "repeatable": false,
+      "component": "specifications.specifications"
+    },
+    "Safety": {
+      "displayName": "Safety",
+      "type": "component",
+      "repeatable": false,
+      "component": "safety.safety"
+    },
+    "Information": {
+      "displayName": "Information",
+      "type": "component",
+      "repeatable": false,
+      "component": "information.information"
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Преміум",
+        "Люкс",
+        "З фото-панеллю",
+        "Турбо"
+      ]
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Model": {
+      "type": "string"
+    },
+    "FeaturedImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Price": {
+      "type": "integer"
+    },
+    "Slug": {
+      "type": "string"
+    }
+  }
+}

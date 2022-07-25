@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_specifications_specifications",
+  "info": {
+    "displayName": "Specifications",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Table": {
+      "displayName": "TableRow",
+      "type": "component",
+      "repeatable": true,
+      "component": "table.table-row"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
