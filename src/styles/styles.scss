@@ -26,6 +26,8 @@
 @import './components/sections/breadcrumbs';
 @import './components/sections/product';
 @import './components/sections/client-infromation';
+@import './components/sections/loading';
+@import './components/sections/error';
 
 // blocks
 @import './components/blocks/benefit-block';
@@ -45,3 +47,7 @@
 // sliders
 @import './components/sliders/products-slider';
 @import './components/sliders/variations-slider';
+
+// modals
+@import './components/modals/modal';
+

@@ -1,14 +1,17 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import _ from 'lodash';
 
 import DefaultLayout from '../../layouts/DefaultLayout';
 
 import WaterheaterBranch from '../../images/waterheaters/branch.png';
-import Fire from '../../images/icons/fire.svg';
+import { CatalogConfig, fetchContent, HomepageConfig, strapiImage } from '../../api';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-export default function Catalog() {
+export default function Catalog({ data }) {
+
+  console.log(data);
+
   return (
     <>
       <Head>
@@ -21,66 +24,65 @@ export default function Catalog() {
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-8 text-center">
-                <h1>
-                  Обирай нижче!<br />
-                  Доставка в межах 3-5 днів.
-                </h1>
-                <p>
-                  Дизайн на будь-який смак. Так, доволі просто, проте наша ціль — ваш комфорт при щоденному використанні.
-                </p>
+                <h1 dangerouslySetInnerHTML={{__html: data.HeroBanner.Title}} />
+                <p dangerouslySetInnerHTML={{__html: data.HeroBanner.Description}} />
                 <button className="btn btn-primary">
-                  Потрібна консультація
+                  {data.HeroBanner.ButtonTitle}
                 </button>
               </div>
             </div>
           </div>
         </section>
         {
-          _.times(4, (categoryIndex) => (
+          data.Category.map((category, categoryIndex) => (
             <section className="products-category" key={categoryIndex}>
               <div className="container">
                 <div className="row">
                   <div className="col-12 pb-4">
                     <div className="title-with-icon">
                       <div className="icon">
-                        <Image src={Fire} alt="Fire Icon" />
+                        <Image src={strapiImage(category.Icon.data.attributes.url)} width={18} height={18} alt="Fire Icon"/>
                       </div>
                       <h4 className="title">
-                        Преміум
+                        {category.Title}
                       </h4>
                     </div>
                   </div>
                   <div className="col-12">
-                    <div className="row">
+                    <Swiper
+                      spaceBetween={24}
+                      slidesPerView={5}
+                      speed={800}
+                      className="products-slider"
+                    >
                       {
-                        _.times(6, (productIndex) => (
-                          <div className="col-2" key={productIndex}>
+                        category.Products.data.map((product, productIndex) => (
+                          <SwiperSlide key={productIndex}>
                             <div className="product-block">
                               <div className="block-image">
-                                <Link href="/catalog/photo-panel/branch">
+                                <Link href={`/catalog/product/${product.id}`}>
                                   <a>
-                                    <Image src={WaterheaterBranch} alt="Waterheater Branch" />
+                                    <Image src={strapiImage(product.attributes.FeaturedImage.data.attributes.url)} width={180} height={300} alt="Waterheater Index" />
                                   </a>
                                 </Link>
                               </div>
                               <div className="block-content">
                                 <div className="block-title">
-                                  <Link href="/catalog/photo-panel/branch">
+                                  <Link href={`/catalog/product/${product.id}`}>
                                     <a>
-                                      Dion JSD-10,
-                                      <span>Гілочка</span>
+                                      {product.attributes.Model}, <span>{product.attributes.Title}</span>
                                     </a>
                                   </Link>
                                 </div>
                                 <div className="block-price">
-                                  4000 грн
+                                  {product.attributes.Price} грн
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </SwiperSlide>
                         ))
                       }
-                    </div>
+                    </Swiper>
                   </div>
                 </div>
               </div>
@@ -91,3 +93,21 @@ export default function Catalog() {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  try {
+    const data = await fetchContent('catalog', CatalogConfig);
+
+    return {
+      props: {
+        data,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+  }
+
+  return {
+    props: {},
+  };
+};

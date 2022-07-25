@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import LogoWhite from '../../images/logo-white.svg';
+import CallbackModal from '../modals/CallbackModal';
 
 function Footer() {
   return (
@@ -10,7 +11,9 @@ function Footer() {
         <div className="row">
           <div className="col-12">
             <Link href="/">
-              <Image src={LogoWhite} alt="Dion - газові водонагрівачі"/>
+              <a>
+                <Image src={LogoWhite} alt="Dion - газові водонагрівачі"/>
+              </a>
             </Link>
           </div>
           <div className="col-12">

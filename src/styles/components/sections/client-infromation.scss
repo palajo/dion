@@ -19,6 +19,12 @@ section.client-information {
     padding: 20px 70px 20px 0;
   }
 
+  .right-column {
+    position: relative;
+    min-height: 375px;
+    padding: 20px 0 20px 70px;
+  }
+
   &.reverse {
     .left-column {
       order: 2;
@@ -27,6 +33,7 @@ section.client-information {
 
     .right-column {
       order: 1;
+      padding: 20px 70px 20px 0;
     }
   }
 }
