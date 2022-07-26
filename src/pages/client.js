@@ -20,7 +20,7 @@ export default function Client({ data }) {
         <section className="hero-banner">
           <div className="container">
             <div className="row justify-content-center">
-              <div className="col-8 text-center">
+              <div className="col-12 col-xl-8 text-center">
                 <h1 dangerouslySetInnerHTML={{__html: data.HeroBanner.Title}} />
                 <p dangerouslySetInnerHTML={{__html: data.HeroBanner.Description}} />
                 <button className="btn btn-primary">
@@ -35,9 +35,9 @@ export default function Client({ data }) {
             <section className={`client-information ${sectionIndex % 2 && 'reverse'}`}>
               <div className="container">
                 <div className="row justify-content-center">
-                  <div className="col-10">
-                    <div className="row">
-                      <div className="col-6 left-column">
+                  <div className="col-12 col-xl-10">
+                    <div className="row gy-5">
+                      <div className="col-12 col-xl-6 left-column">
                         <div className="row">
                           <div className="col-12 pb-4">
                             <div className="title-with-icon">
@@ -54,9 +54,9 @@ export default function Client({ data }) {
                           </div>
                         </div>
                       </div>
-                      <div className="col-6 right-column">
+                      <div className="col-12 col-xl-6 right-column">
                         <div className="client-information-image">
-                          <Image src={strapiImage(section.Image.data.attributes.url)} layout="fill" alt="Infromation Image"/>
+                          <Image src={strapiImage(section.Image.data.attributes.url)} layout="fill" objectFit="cover" alt="Infromation Image"/>
                         </div>
                       </div>
                     </div>

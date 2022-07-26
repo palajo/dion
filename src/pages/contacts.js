@@ -20,11 +20,11 @@ export default function Contacts({ data }) {
       <DefaultLayout>
         <section className="contacts">
           <div className="container">
-            <div className="row gx-5">
-              <div className="col-8">
+            <div className="row gx-xl-5 gy-5">
+              <div className="col-12 col-xl-8">
                 <div className="frame-block h-100">
-                  <div className="row h-100">
-                    <div className="col-6">
+                  <div className="row h-100 gy-5">
+                    <div className="col-12 col-xl-6">
                       <h3>
                         {data.ContactsSection.Title}
                       </h3>
@@ -52,7 +52,7 @@ export default function Contacts({ data }) {
                         }
                       </div>
                     </div>
-                    <div className="col-6 h-100">
+                    <div className="col-12 col-xl-6 h-100">
                       <div className="map-block">
                         <Image src={Map} alt="Map Image"/>
                       </div>
@@ -60,7 +60,7 @@ export default function Contacts({ data }) {
                   </div>
                 </div>
               </div>
-              <div className="col-4">
+              <div className="col-12 col-xl-4">
                 <div className="frame-block">
                   <h3>
                     {data.Form.Title}

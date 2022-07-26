@@ -1,3 +1,10 @@
 section.popular-products {
   padding-bottom: 100px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  section.popular-products {
+    padding-bottom: 70px;
+  }
 }

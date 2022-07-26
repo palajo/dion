@@ -9,9 +9,6 @@ import Map from '../images/placeholders/map.jpg';
 import { fetchContent, HomepageConfig, strapiImage } from '../api';
 
 export default function Home({ data }) {
-
-  console.log(data);
-
   return (
     <>
       <Head>
@@ -23,7 +20,7 @@ export default function Home({ data }) {
         <section className="hero-banner">
           <div className="container">
             <div className="row justify-content-center">
-              <div className="col-8 text-center">
+              <div className="col-12 col-xl-8 text-center">
                 <h1 dangerouslySetInnerHTML={{__html: data.HeroBanner.Title}} />
                 <p dangerouslySetInnerHTML={{__html: data.HeroBanner.Description}} />
                 <Link href="/catalog">
@@ -51,8 +48,13 @@ export default function Home({ data }) {
               <div className="col-12">
                 <Swiper
                   spaceBetween={24}
-                  slidesPerView={5}
+                  slidesPerView={1.5}
                   speed={800}
+                  breakpoints={{
+                    768: {
+                      slidesPerView: 5,
+                    },
+                  }}
                   className="products-slider"
                 >
                   {
@@ -96,11 +98,11 @@ export default function Home({ data }) {
                 </h3>
                 <p dangerouslySetInnerHTML={{__html: data.ProductBenefits.Description}} />
               </div>
-              <div className="col-8">
+              <div className="col-12 col-xl-8">
                 <div className="row g-4">
                   {
                     data.ProductBenefits.Benefits.map((benefit, benefitIndex) => (
-                      <div className="col-6" key={benefitIndex}>
+                      <div className="col-12 col-xl-6" key={benefitIndex}>
                         <div className="benefit-block">
                           <div className="block-icon">
                             <Image src={strapiImage(benefit.Icon.data.attributes.url)} layout="fixed" width={48} height={48} alt="Fire Icon" />
@@ -139,11 +141,12 @@ export default function Home({ data }) {
                 spaceBetween={0}
                 slidesPerView={1}
                 speed={800}
+                className="homepage-slider"
               >
                 {
                   data.Slider.Slides.data.map((slide, slideIndex) => (
-                    <SwiperSlide key={slideIndex} style={{width: '100%', height: '600px', position: 'relative'}}>
-                      <Image src={strapiImage(slide.attributes.url)} layout="fill" alt="Slider Slide 1"/>
+                    <SwiperSlide key={slideIndex}>
+                      <Image src={strapiImage(slide.attributes.url)} layout="fill" objectFit="cover" objectPosition="center" alt="Slider Slide 1"/>
                     </SwiperSlide>
                   ))
                 }
@@ -160,11 +163,11 @@ export default function Home({ data }) {
                 </h3>
                 <p dangerouslySetInnerHTML={{__html: data.AboutCompany.Description}} />
               </div>
-              <div className="col-8">
-                <div className="row justify-content-center">
+              <div className="col-12 col-xl-8">
+                <div className="row justify-content-center g-4">
                   {
                     data.AboutCompany.Statistics.map((statistics, statisticsIndex) => (
-                      <div className="col-auto" key={statisticsIndex}>
+                      <div className="col-6 col-xl-auto" key={statisticsIndex}>
                         <div className="statistic-block">
                           <div className="block-icon">
                             <Image src={strapiImage(statistics.Icon.data.attributes.url)} layout="fixed" width={48} height={48} alt="Fire Icon" />
@@ -189,11 +192,11 @@ export default function Home({ data }) {
         </section>
         <section className="contacts">
           <div className="container">
-            <div className="row gx-5">
-              <div className="col-8">
+            <div className="row gx-xl-5 gy-5">
+              <div className="col-12 col-xl-8">
                 <div className="frame-block h-100">
-                  <div className="row h-100">
-                    <div className="col-6">
+                  <div className="row h-100 gy-5">
+                    <div className="col-12 col-xl-6">
                       <h3>
                         {data.Contacts.Title}
                       </h3>
@@ -221,7 +224,7 @@ export default function Home({ data }) {
                         }
                       </div>
                     </div>
-                    <div className="col-6 h-100">
+                    <div className="col-12 col-xl-6 h-100">
                       <div className="map-block">
                         <Image src={Map} alt="Map Image"/>
                       </div>
@@ -229,7 +232,7 @@ export default function Home({ data }) {
                   </div>
                 </div>
               </div>
-              <div className="col-4">
+              <div className="col-12 col-xl-4">
                 <div className="frame-block">
                   <h3>
                     {data.Form.Title}

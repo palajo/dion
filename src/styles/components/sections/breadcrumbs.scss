@@ -54,3 +54,9 @@ section.breadcrumbs {
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  section.breadcrumbs {
+    padding-bottom: 15px;
+  }
+}

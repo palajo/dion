@@ -14,3 +14,9 @@ section.about-company {
     margin-top: 50px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  section.about-company {
+    padding-bottom: 70px;
+  }
+}

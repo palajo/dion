@@ -10,6 +10,9 @@ table.specifications-table {
         width: 60%;
 
         span {
+          display: block;
+          width: fit-content;
+
           color: $gray;
           font-weight: 400;
 
@@ -19,7 +22,7 @@ table.specifications-table {
           &::before {
             content: '';
             position: absolute;
-            z-index: -1;
+            z-index: -22;
 
             top: 50%;
 
@@ -38,6 +41,22 @@ table.specifications-table {
 
         color: $black;
         font-weight: 500;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  table.specifications-table {
+    tbody {
+      tr {
+        th {
+          width: 50%;
+        }
+
+        td {
+          width: 50%;
+        }
       }
     }
   }

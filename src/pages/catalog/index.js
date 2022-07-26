@@ -23,7 +23,7 @@ export default function Catalog({ data }) {
         <section className="hero-banner">
           <div className="container">
             <div className="row justify-content-center">
-              <div className="col-8 text-center">
+              <div className="col-12 col-xl-8 text-center">
                 <h1 dangerouslySetInnerHTML={{__html: data.HeroBanner.Title}} />
                 <p dangerouslySetInnerHTML={{__html: data.HeroBanner.Description}} />
                 <button className="btn btn-primary">
@@ -51,8 +51,13 @@ export default function Catalog({ data }) {
                   <div className="col-12">
                     <Swiper
                       spaceBetween={24}
-                      slidesPerView={5}
+                      slidesPerView={1.5}
                       speed={800}
+                      breakpoints={{
+                        768: {
+                          slidesPerView: 5,
+                        },
+                      }}
                       className="products-slider"
                     >
                       {

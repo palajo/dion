@@ -10,3 +10,9 @@ section.product-benefits {
     margin: 0 auto 40px auto;
   }
 }
+
+@media screen and (max-width: 767px) {
+  section.product-benefits {
+    padding-bottom: 70px;
+  }
+}

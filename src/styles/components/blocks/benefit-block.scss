@@ -38,3 +38,12 @@
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .benefit-block {
+    &:hover {
+      transform: none;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+}

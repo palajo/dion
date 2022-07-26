@@ -76,9 +76,9 @@ export default function Product({ data }) {
         <section className="product">
           <div className="container">
             <div className="row justify-content-between">
-              <div className="col-9">
-                <div className="row gx-5">
-                  <div className="col-auto">
+              <div className="col-12 col-xl-9">
+                <div className="row gx-xl-5">
+                  <div className="col-12 col-xl-auto">
                     <div className="product-gallery">
                       <div className="gallery-thumbnails">
                         {
@@ -88,17 +88,21 @@ export default function Product({ data }) {
                               key={index}
                               onClick={() => handleImageChange(index)}
                             >
-                              <Image src={strapiImage(image.attributes.url)} width="80" height="110" alt="Waterheater Index"/>
+                              <div className="block-image">
+                                <Image src={strapiImage(image.attributes.url)} layout="fill" objectFit="contain" alt="Waterheater Index"/>
+                              </div>
                             </div>
                           ))
                         }
                       </div>
                       <div className="gallery-image">
-                        <Image src={strapiImage(data.Information.ImageGallery.data[displayedImageId].attributes.url)} width="240" height="400" alt="Waterheater Index"/>
+                        <div className="block-image">
+                          <Image src={strapiImage(data.Information.ImageGallery.data[displayedImageId].attributes.url)} layout="fill" objectFit="contain" alt="Waterheater Index"/>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className="col-6">
+                  <div className="col-12 col-xl-6">
                     <div className="product-content">
                       <div className="row">
                         <div className="col-12">
@@ -120,7 +124,7 @@ export default function Product({ data }) {
                             </div>
                           </div>
                         </div>
-                        <div className="col-12">
+                        <div className="col-12 product-information-block">
                           <div className="product-description">
                             <p>
                               {data.Information.Description}
@@ -153,7 +157,9 @@ export default function Product({ data }) {
                                     <SwiperSlide key={productIndex}>
                                       <Link href={`/catalog/product/${product.id}`}>
                                         <div className="variation-block">
-                                          <Image src={strapiImage(product.attributes.FeaturedImage.data.attributes.url)} width="80" height="110" alt="Waterheater Index"/>
+                                          <div className="block-image">
+                                            <Image src={strapiImage(product.attributes.FeaturedImage.data.attributes.url)} layout="fill" objectFit="contain" alt="Waterheater Index"/>
+                                          </div>
                                         </div>
                                       </Link>
                                     </SwiperSlide>
@@ -170,14 +176,27 @@ export default function Product({ data }) {
                               </div>
                             </div>
                           </div>
-                          <div className="product-price">
-                            <div className="price-label">
-                              Вартість:
+                          <div className="row align-items-center product-price-action">
+                            <div className="col-auto d-xl-none">
+                              <div className="product-purchase d-xl-none">
+                                <button className="btn btn-primary">
+                                  Оформити замовлення
+                                </button>
+                              </div>
                             </div>
-                            <div className="price-number">
-                              {data.Information.Price} грн
+                            <div className="col-auto">
+                              <div className="product-price">
+                                <div className="price-label">
+                                  Вартість:
+                                </div>
+                                <div className="price-number">
+                                  {data.Information.Price} грн
+                                </div>
+                              </div>
                             </div>
                           </div>
+                        </div>
+                        <div className="col-12">
                           <div className="product-specifications">
                             <div className="title-with-icon">
                               <div className="icon">
@@ -244,7 +263,7 @@ export default function Product({ data }) {
                   </div>
                 </div>
               </div>
-              <div className="col-3">
+              <div className="col-3 d-none d-xl-block">
                 <div className="frame-block product-order">
                   <div className="order-title">
                     Оформити замовлення

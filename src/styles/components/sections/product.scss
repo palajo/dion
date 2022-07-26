@@ -26,12 +26,11 @@ section.product {
 
         transition: 0.1s ease;
 
-        img {
+        .block-image {
+          position: relative;
+
           width: 80px;
           height: 110px;
-
-          object-fit: contain;
-          object-position: center;
         }
 
         &:hover {
@@ -61,17 +60,19 @@ section.product {
 
       margin-left: 20px;
 
-      img {
+      .block-image {
+        position: relative;
+
         width: 240px;
         height: 400px;
-
-        object-fit: contain;
-        object-position: center;
       }
     }
   }
 
   .product-content {
+    display: flex;
+    flex-direction: column;
+
     .product-title {
       font-size: 30px;
       color: $black;
@@ -112,9 +113,11 @@ section.product {
       }
     }
 
-    .product-price {
+    .product-price-action {
       margin-top: 40px;
+    }
 
+    .product-price {
       .price-label {
         font-size: 14px;
         color: $gray;
@@ -155,6 +158,78 @@ section.product {
         font-size: 24px;
         font-weight: 500;
         color: $black;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  section.product {
+    .product-gallery {
+      .gallery-thumbnails {
+        order: 2;
+        margin-left: 15px;
+
+        .thumbnail-block {
+          width: 90px;
+          height: 120px;
+
+          margin-bottom: 0;
+
+          .block-image {
+            width: 70px;
+            height: 90px;
+          }
+        }
+      }
+
+      .gallery-image {
+        order: 1;
+
+        width: 100%;
+        height: 400px;
+
+        margin-left: 0;
+
+        .block-image {
+          width: 240px;
+          height: 300px;
+        }
+      }
+    }
+
+    .product-content {
+      display: flex;
+      flex-direction: row;
+      margin-top: 30px;
+
+      .product-title {
+        font-size: 24px;
+      }
+
+      .product-information-block {
+        display: flex;
+        flex-direction: column;
+
+        .product-description {
+          order: 1;
+        }
+
+        .product-variations {
+          order: 3;
+        }
+
+        .product-price-action {
+          order: 2;
+        }
+      }
+
+      .product-specifications {
+        margin-top: 70px;
+      }
+
+      .product-benefits {
+        margin-top: 70px;
       }
     }
   }

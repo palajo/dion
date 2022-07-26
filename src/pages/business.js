@@ -14,7 +14,7 @@ export default function Business() {
         <section className="hero-banner">
           <div className="container">
             <div className="row justify-content-center">
-              <div className="col-8 text-center">
+              <div className="col-12 col-xl-8 text-center">
                 <h1>
                   Ми відкриті до різного<br />
                   виду партнерства.

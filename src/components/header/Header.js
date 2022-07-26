@@ -23,14 +23,14 @@ function Header() {
       <header>
         <div className="container">
           <div className="row justify-content-between align-items-center">
-            <div className="col-3">
+            <div className="col-6 col-xl-3">
               <Link href="/">
                 <a>
                   <Image src={Logo} alt="Dion - газові водонагрівачі"/>
                 </a>
               </Link>
             </div>
-            <div className="col-6">
+            <div className="col-6 d-none d-xl-block">
               <ul className="nav justify-content-center">
                 <li className="nav-item">
                   <Link href="/">
@@ -69,10 +69,17 @@ function Header() {
                 </li>
               </ul>
             </div>
-            <div className="col-3 text-end">
+            <div className="col-3 d-none d-xl-block text-end">
               <button className="btn btn-primary" onClick={handleShowCallbackModal}>
                 Зворотній виклик
               </button>
+            </div>
+            <div className="col-6 d-xl-none">
+              <div className="row justify-content-end">
+                <div className="col-auto">
+                  burger
+                </div>
+              </div>
             </div>
           </div>
         </div>
