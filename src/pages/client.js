@@ -1,14 +1,13 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import DefaultLayout from '../layouts/DefaultLayout';
 
 import { ClientConfig, fetchContent, strapiImage } from '../api';
+import { Button, Col, Container, Row } from 'react-bootstrap';
+import HelpModal from '../components/modals/HelpModal';
 
 export default function Client({ data }) {
-  console.log(data);
-
   return (
     <>
       <Head>
@@ -18,28 +17,26 @@ export default function Client({ data }) {
       </Head>
       <DefaultLayout>
         <section className="hero-banner">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-12 col-xl-8 text-center">
+          <Container>
+            <Row className="justify-content-center">
+              <Col xl={10} xxl={8} className="text-center">
                 <h1 dangerouslySetInnerHTML={{__html: data.HeroBanner.Title}} />
                 <p dangerouslySetInnerHTML={{__html: data.HeroBanner.Description}} />
-                <button className="btn btn-primary">
-                  {data.HeroBanner.ButtonTitle}
-                </button>
-              </div>
-            </div>
-          </div>
+                <HelpModal buttonTitle={data.HeroBanner.ButtonTitle} />
+              </Col>
+            </Row>
+          </Container>
         </section>
         {
           data.ClientSection.map((section, sectionIndex) => (
             <section className={`client-information ${sectionIndex % 2 && 'reverse'}`}>
-              <div className="container">
-                <div className="row justify-content-center">
-                  <div className="col-12 col-xl-10">
-                    <div className="row gy-5">
-                      <div className="col-12 col-xl-6 left-column">
-                        <div className="row">
-                          <div className="col-12 pb-4">
+              <Container>
+                <Row className="justify-content-center">
+                  <Col xl={10}>
+                    <Row className="gy-5">
+                      <Col xl={6} className="left-column">
+                        <Row className="row">
+                          <Col xs={12} className="pb-4">
                             <div className="title-with-icon">
                               <div className="icon">
                                 <Image src={strapiImage(section.Icon.data.attributes.url)} width={18} height={18} alt="Fire Icon"/>
@@ -48,21 +45,21 @@ export default function Client({ data }) {
                                 {section.Title}
                               </h4>
                             </div>
-                          </div>
-                          <div className="col-12">
+                          </Col>
+                          <Col xs={12}>
                             <p dangerouslySetInnerHTML={{__html: section.Description}} />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-12 col-xl-6 right-column">
+                          </Col>
+                        </Row>
+                      </Col>
+                      <Col xl={6} className="right-column">
                         <div className="client-information-image">
                           <Image src={strapiImage(section.Image.data.attributes.url)} layout="fill" objectFit="cover" alt="Infromation Image"/>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+              </Container>
             </section>
           ))
         }

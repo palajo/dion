@@ -1,0 +1,22 @@
+.modal.order-modal {
+  .order-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: $black;
+
+    margin-bottom: 30px;
+  }
+
+  .order-price {
+    .price-label {
+      font-size: 14px;
+      color: $gray;
+    }
+
+    .price-number {
+      font-size: 24px;
+      font-weight: 500;
+      color: $black;
+    }
+  }
+}

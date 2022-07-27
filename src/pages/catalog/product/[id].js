@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 
@@ -6,13 +6,15 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { fetchContent, HomepageConfig, ProductConfig, RelatedProductsConfig, strapiImage } from '../../../api';
+import { fetchContent, headers, ProductConfig, strapiImage } from '../../../api';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 
-import Fire from '../../../images/icons/fire.svg';
 import InputArrowLeft from '../../../images/icons/input-arrow-left.svg';
 import InputArrowRight from '../../../images/icons/input-arrow-right.svg';
+import OrderModal from '../../../components/modals/OrderModal';
+import OrderForm from './components/OrderForm';
 
 
 export default function Product({ data }) {
@@ -36,9 +38,9 @@ export default function Product({ data }) {
       </Head>
       <DefaultLayout>
         <section className="breadcrumbs">
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
+          <Container>
+            <Row>
+              <Col xs={12}>
                 <ul className="nav">
                   <li className="nav-item">
                     <Link href="/">
@@ -69,16 +71,16 @@ export default function Product({ data }) {
                     </Link>
                   </li>
                 </ul>
-              </div>
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Container>
         </section>
         <section className="product">
-          <div className="container">
-            <div className="row justify-content-between">
-              <div className="col-12 col-xl-9">
-                <div className="row gx-xl-5">
-                  <div className="col-12 col-xl-auto">
+          <Container>
+            <Row className="justify-content-between">
+              <Col xl={9}>
+                <Row className="gx-xl-5">
+                  <Col xl="auto">
                     <div className="product-gallery">
                       <div className="gallery-thumbnails">
                         {
@@ -101,30 +103,30 @@ export default function Product({ data }) {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-12 col-xl-6">
+                  </Col>
+                  <Col xl={6}>
                     <div className="product-content">
-                      <div className="row">
-                        <div className="col-12">
+                      <Row className="row">
+                        <Col xs={12}>
                           <div className="product-title">
                             {data.Information.Model}, <span>{data.Information.Title}</span>
                           </div>
-                        </div>
-                        <div className="col-12">
-                          <div className="row gx-3">
-                            <div className="col-auto">
+                        </Col>
+                        <Col xs={12}>
+                          <Row className="gx-3">
+                            <Col xs="auto">
                               <div className="product-headline">
                                 {data.Information.Volume}
                               </div>
-                            </div>
-                            <div className="col-auto">
+                            </Col>
+                            <Col xs="auto">
                               <div className="product-headline">
                                 {data.Information.Type}
                               </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-12 product-information-block">
+                            </Col>
+                          </Row>
+                        </Col>
+                        <Col xs={12} className="product-information-block">
                           <div className="product-description">
                             <p>
                               {data.Information.Description}
@@ -176,15 +178,13 @@ export default function Product({ data }) {
                               </div>
                             </div>
                           </div>
-                          <div className="row align-items-center product-price-action">
-                            <div className="col-auto d-xl-none">
+                          <Row className="align-items-center product-price-action">
+                            <Col xs="auto" className="d-xl-none">
                               <div className="product-purchase d-xl-none">
-                                <button className="btn btn-primary">
-                                  Оформити замовлення
-                                </button>
+                                <OrderModal product={data.Information} buttonTitle="Оформити замовлення" />
                               </div>
-                            </div>
-                            <div className="col-auto">
+                            </Col>
+                            <Col xs="auto">
                               <div className="product-price">
                                 <div className="price-label">
                                   Вартість:
@@ -193,17 +193,21 @@ export default function Product({ data }) {
                                   {data.Information.Price} грн
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-12">
+                            </Col>
+                          </Row>
+                        </Col>
+                        <Col xs="auto">
                           <div className="product-specifications">
                             <div className="title-with-icon">
                               <div className="icon">
-                                <Image src={Fire} alt="Fire Icon"/>
+                                {
+                                  data.Specifications.Icon.data && (
+                                    <Image src={strapiImage(data.Specifications.Icon.data.attributes.url)} width={18} height={18} alt="Fire Icon"/>
+                                  )
+                                }
                               </div>
                               <h4 className="title">
-                                Характеристики
+                                {data.Specifications.Title}
                               </h4>
                             </div>
                             <table className="specifications-table">
@@ -228,10 +232,14 @@ export default function Product({ data }) {
                           <div className="product-benefits">
                             <div className="title-with-icon">
                               <div className="icon">
-                                <Image src={Fire} alt="Fire Icon"/>
+                                {
+                                  data.Safety.Icon.data && (
+                                    <Image src={strapiImage(data.Safety.Icon.data.attributes.url)} width={18} height={18} alt="Fire Icon"/>
+                                  )
+                                }
                               </div>
                               <h4 className="title">
-                                Безпека
+                                {data.Safety.Title}
                               </h4>
                             </div>
                             <table className="specifications-table">
@@ -257,125 +265,18 @@ export default function Product({ data }) {
                               </tbody>
                             </table>
                           </div>
-                        </div>
-                      </div>
+                        </Col>
+                      </Row>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-3 d-none d-xl-block">
-                <div className="frame-block product-order">
-                  <div className="order-title">
-                    Оформити замовлення
-                  </div>
-                  <form action="#">
-                    <div className="row gy-4">
-                      <div className="col-12">
-                        <label htmlFor="name" className="form-label required">
-                          Повне ім’я (ПІБ)
-                        </label>
-                        <input type="text" className="form-control" name="name" placeholder="Олександр" required/>
-                      </div>
-                      <div className="col-12">
-                        <label htmlFor="phone" className="form-label required">
-                          Контактний телефон
-                        </label>
-                        <input type="text" className="form-control" name="phone" placeholder="+38 (000) 00 00 000"
-                               required/>
-                      </div>
-                      <div className="col-12">
-                        <label htmlFor="question" className="form-label required">
-                          Адреса доставки (Нова Пошта)
-                        </label>
-                        <select name="delivery-address" className="form-select">
-                          <option value="Оберіть відділення" selected>Оберіть відділення</option>
-                          <option value="Відділення 2">Відділення 1</option>
-                          <option value="Відділення 2">Відділення 2</option>
-                          <option value="Відділення 2">Відділення 3</option>
-                        </select>
-                      </div>
-                      <div className="col-12 pt-3 pb-3">
-                        <div className="row align-items-center gx-5">
-                          <div className="col-auto">
-                            <div className="order-price">
-                              <div className="price-label">
-                                Вартість:
-                              </div>
-                              <div className="price-number">
-                                4000 грн
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-auto">
-                            <div className="input-with-arrows">
-                              <div className="arrow-button">
-                                <Image src={InputArrowLeft} alt="Input Arrow Left"/>
-                              </div>
-                              <input type="text" className="form-control" min="1" step="1" max="10" defaultValue="1"
-                                     readOnly/>
-                              <div className="arrow-button">
-                                <Image src={InputArrowRight} alt="Input Arrow Right"/>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-12">
-                        <button className="btn btn-primary" type="submit">
-                          Підтвердити замовлення
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
+                  </Col>
+                </Row>
+              </Col>
+              <Col xs={3} className="d-none d-xl-block">
+                <OrderForm product={data.Information} />
+              </Col>
+            </Row>
+          </Container>
         </section>
-        {
-          1 === 0 && (
-            <>
-              <section className="loading">
-                <div className="container">
-                  <div className="row justify-content-center align-items-center">
-                    <div className="col-auto">
-                      <div className="spinner-border text-primary" role="status">
-                        <span className="visually-hidden">Завантаження...</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <section className="error">
-                <div className="container">
-                  <div className="row justify-content-center align-items-center">
-                    <div className="col-auto">
-                      <div className="error-block">
-                        <div className="block-icon">
-                          icon
-                        </div>
-                        <div className="block-content">
-                          <div className="block-title">
-                            Отакої.. Виникла помилка!
-                          </div>
-                          <div className="block-description">
-                            Роботу сторінки буде відновлено незабаром.<br />
-                            А поки – перегляньте інші товари або ж дізнйтесь про нас більше.
-                          </div>
-                          <div className="block-actions">
-                            <button className="btn btn-primary">
-                              Повернутись на головну
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </>
-          )
-        }
       </DefaultLayout>
     </>
   );

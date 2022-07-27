@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Formik } from 'formik';
 import { Button, Col, Modal, Row } from 'react-bootstrap';
+import { Formik } from 'formik';
 import axios from 'axios';
 import { headers } from '../../api';
 import InputMask from 'react-input-mask';
 import * as Yup from 'yup';
 
-function CallbackModal({ buttonTitle }) {
+function PartnerModal({ buttonTitle }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -21,7 +21,7 @@ function CallbackModal({ buttonTitle }) {
         <Modal.Header closeButton />
         <Modal.Body>
           <h3>
-            Зворотній виклик
+            Партнерство
           </h3>
           <p>
             Потрібна допомога з вибором газового водонагрівача?
@@ -31,7 +31,9 @@ function CallbackModal({ buttonTitle }) {
             initialValues={{
               name: '',
               phone: '',
-              question: ''
+              email: '',
+              website: '',
+              offer: ''
             }}
             validationSchema={
               Yup.object().shape({
@@ -43,10 +45,12 @@ function CallbackModal({ buttonTitle }) {
               const data = {
                 Name: values.name,
                 Phone: values.phone,
-                Question: values.question,
+                Email: values.email,
+                Website: values.website,
+                Offer: values.offer
               }
 
-              axios.post(`http://localhost:1337/api/contact-forms`, { data }, { headers: headers })
+              axios.post(`http://localhost:1337/api/partnerships`, { data }, { headers: headers })
                 .then((res) => console.log(res))
                 .catch((err) => console.log(err));
             }}
@@ -99,19 +103,53 @@ function CallbackModal({ buttonTitle }) {
                     </div>
                   </Col>
                   <Col xs={12}>
-                    <label htmlFor="question" className="form-label">
-                      Ваше запитання
+                    <label htmlFor="email" className="form-label required">
+                      E-mail
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      name="email"
+                      placeholder="sales@dion.lviv.ua"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.email}
+                    />
+                    <div className="form-error">
+                      {errors.email && touched.email && errors.email}
+                    </div>
+                  </Col>
+                  <Col xs={12}>
+                    <label htmlFor="website" className="form-label">
+                      Ваш сайт
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="website"
+                      placeholder="https://dion.lviv.ua"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.website}
+                    />
+                    <div className="form-error">
+                      {errors.website && touched.website && errors.website}
+                    </div>
+                  </Col>
+                  <Col xs={12}>
+                    <label htmlFor="offer" className="form-label">
+                      Вид партнерства
                     </label>
                     <textarea
                       className="form-control"
-                      name="question"
-                      placeholder="Опишіть коротко вашу проблему"
+                      name="offer"
+                      placeholder="Як ми можемо допомогти одне одному"
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.question}
+                      value={values.offer}
                     />
                     <div className="form-error">
-                      {errors.question && touched.question && errors.question}
+                      {errors.offer && touched.offer && errors.offer}
                     </div>
                   </Col>
                   <Col xs={12}>
@@ -129,4 +167,4 @@ function CallbackModal({ buttonTitle }) {
   );
 }
 
-export default CallbackModal;
+export default PartnerModal;

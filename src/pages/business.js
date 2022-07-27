@@ -1,6 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import DefaultLayout from '../layouts/DefaultLayout';
+import { Button, Col, Container, Row } from 'react-bootstrap';
+import PartnerModal from '../components/modals/PartnerModal';
 
 export default function Business() {
   return (
@@ -12,9 +14,9 @@ export default function Business() {
       </Head>
       <DefaultLayout>
         <section className="hero-banner">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-12 col-xl-8 text-center">
+          <Container>
+            <Row className="justify-content-center">
+              <Col xl={8} className="col-12 col-xl-8 text-center">
                 <h1>
                   Ми відкриті до різного<br />
                   виду партнерства.
@@ -23,12 +25,10 @@ export default function Business() {
                   Оптова торгівля разом з Dion — це просто.
                   Також відкриті до комісійного виду співпраці.
                 </p>
-                <button className="btn btn-primary">
-                  Стати партнером
-                </button>
-              </div>
-            </div>
-          </div>
+                <PartnerModal buttonTitle="Стати партнером" />
+              </Col>
+            </Row>
+          </Container>
         </section>
       </DefaultLayout>
     </>

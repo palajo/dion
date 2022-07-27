@@ -3,15 +3,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import DefaultLayout from '../../layouts/DefaultLayout';
+import ConsultationModal from '../../components/modals/ConsultationModal';
 
-import WaterheaterBranch from '../../images/waterheaters/branch.png';
-import { CatalogConfig, fetchContent, HomepageConfig, strapiImage } from '../../api';
+import { CatalogConfig, fetchContent, strapiImage } from '../../api';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Col, Container, Row } from 'react-bootstrap';
+
 
 export default function Catalog({ data }) {
-
-  console.log(data);
-
   return (
     <>
       <Head>
@@ -21,24 +20,22 @@ export default function Catalog({ data }) {
       </Head>
       <DefaultLayout>
         <section className="hero-banner">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-12 col-xl-8 text-center">
+          <Container>
+            <Row className="justify-content-center">
+              <Col xl={10} xxl={8} className="text-center">
                 <h1 dangerouslySetInnerHTML={{__html: data.HeroBanner.Title}} />
                 <p dangerouslySetInnerHTML={{__html: data.HeroBanner.Description}} />
-                <button className="btn btn-primary">
-                  {data.HeroBanner.ButtonTitle}
-                </button>
-              </div>
-            </div>
-          </div>
+                <ConsultationModal buttonTitle={data.HeroBanner.ButtonTitle} />
+              </Col>
+            </Row>
+          </Container>
         </section>
         {
           data.Category.map((category, categoryIndex) => (
             <section className="products-category" key={categoryIndex}>
-              <div className="container">
-                <div className="row">
-                  <div className="col-12 pb-4">
+              <Container>
+                <Row>
+                  <Col xs={12} className="pb-4">
                     <div className="title-with-icon">
                       <div className="icon">
                         <Image src={strapiImage(category.Icon.data.attributes.url)} width={18} height={18} alt="Fire Icon"/>
@@ -47,8 +44,8 @@ export default function Catalog({ data }) {
                         {category.Title}
                       </h4>
                     </div>
-                  </div>
-                  <div className="col-12">
+                  </Col>
+                  <Col xs={12}>
                     <Swiper
                       spaceBetween={24}
                       slidesPerView={1.5}
@@ -88,9 +85,9 @@ export default function Catalog({ data }) {
                         ))
                       }
                     </Swiper>
-                  </div>
-                </div>
-              </div>
+                  </Col>
+                </Row>
+              </Container>
             </section>
           ))
         }

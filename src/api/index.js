@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const headers = {
+export const headers = {
   'Content-Type': 'application/json',
   'Authorization': 'Bearer 8cf71596d2cb6e89a92b67edba3f3032a2c7d8aaf0b95c5788538a57838c1a18cd6d070cfcfec6b1dd8b6431f06251cb7584cb34dddad27fd602a0944cfde0dc2e9cba75075fa329dbd5f56dab92eaf44f8ae6f898c8c4557d95bec65ca20cd059454341a7f3c13b3d12e1c3fbdc19c21e260140e9c19d88808520d5ded0c91a'
 };
@@ -40,8 +40,10 @@ export const ProductConfig = {
     'populate[1]': 'Information.RelatedProducts.FeaturedImage',
     'populate[4]': 'Information.ImageGallery',
     'populate[2]': 'Specifications',
+    'populate[7]': 'Specifications.Icon',
     'populate[5]': 'Specifications.Table',
     'populate[3]': 'Safety',
+    'populate[8]': 'Safety.Icon',
     'populate[6]': 'Safety.Table',
   }
 }

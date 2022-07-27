@@ -4,12 +4,15 @@ import Link from 'next/link';
 
 import DefaultLayout from '../layouts/DefaultLayout';
 
-import Map from '../images/placeholders/map.jpg';
-import { ContactsConfig, fetchContent, strapiImage } from '../api';
+import { ContactsConfig, fetchContent, headers, strapiImage } from '../api';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Formik } from 'formik';
+import axios from 'axios';
+import React from 'react';
+import InputMask from 'react-input-mask';
+import * as Yup from 'yup';
 
 export default function Contacts({ data }) {
-  console.log(data);
-
   return (
     <>
       <Head>
@@ -19,19 +22,19 @@ export default function Contacts({ data }) {
       </Head>
       <DefaultLayout>
         <section className="contacts">
-          <div className="container">
-            <div className="row gx-xl-5 gy-5">
-              <div className="col-12 col-xl-8">
+          <Container>
+            <Row className="gx-xl-5 gy-5 gy-xl-0">
+              <Col xl={8}>
                 <div className="frame-block h-100">
-                  <div className="row h-100 gy-5">
-                    <div className="col-12 col-xl-6">
+                  <Row className="h-100 gy-5 gy-xxl-0">
+                    <Col xl={6}>
                       <h3>
                         {data.ContactsSection.Title}
                       </h3>
-                      <div className="row gy-4">
+                      <Row className="gy-4">
                         {
                           data.ContactsSection.Contacts.map((contact, contactIndex) => (
-                            <div className="col-12" key={contactIndex}>
+                            <Col xs={12} key={contactIndex}>
                               <div className="contact-block">
                                 <div className="block-title">
                                   {contact.Label}
@@ -47,56 +50,130 @@ export default function Contacts({ data }) {
                                   </div>
                                 </div>
                               </div>
-                            </div>
+                            </Col>
                           ))
                         }
-                      </div>
-                    </div>
-                    <div className="col-12 col-xl-6 h-100">
+                      </Row>
+                    </Col>
+                    <Col xl={6} className="h-100">
                       <div className="map-block">
-                        <Image src={Map} alt="Map Image"/>
+                        <iframe
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.457310669429!2d23.988310315883016!3d49.852653738137874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add95b7309467%3A0xb1954af61f9b389f!2z0LLRg9C70LjRhtGPINCc0L7RgNC40L3QtdGG0YzQutCwLCDQm9GM0LLRltCyLCDQm9GM0LLRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1sru!2sua!4v1658936612130!5m2!1sru!2sua"
+                          allowFullScreen
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                        />
                       </div>
-                    </div>
-                  </div>
+                    </Col>
+                  </Row>
                 </div>
-              </div>
-              <div className="col-12 col-xl-4">
+              </Col>
+              <Col xl={4}>
                 <div className="frame-block">
                   <h3>
                     {data.Form.Title}
                   </h3>
                   <p dangerouslySetInnerHTML={{__html: data.Form.Description}} />
-                  <form action="#">
-                    <div className="row gy-4">
-                      <div className="col-12">
-                        <label htmlFor="name" className="form-label required">
-                          Ім’я
-                        </label>
-                        <input type="text" className="form-control" name="name" placeholder="Олександр" required />
-                      </div>
-                      <div className="col-12">
-                        <label htmlFor="phone" className="form-label required">
-                          Контактний телефон
-                        </label>
-                        <input type="text" className="form-control" name="phone" placeholder="+38 (000) 00 00 000" required />
-                      </div>
-                      <div className="col-12">
-                        <label htmlFor="question" className="form-label">
-                          Ваше запитання
-                        </label>
-                        <textarea className="form-control" name="question" placeholder="Опишіть коротко вашу проблему" />
-                      </div>
-                      <div className="col-12">
-                        <button className="btn btn-primary" type="submit">
-                          Зворотній виклик
-                        </button>
-                      </div>
-                    </div>
-                  </form>
+                  <Formik
+                    initialValues={{
+                      name: '',
+                      phone: '',
+                      question: ''
+                    }}
+                    validationSchema={
+                      Yup.object().shape({
+                        name: Yup.string().required(`Обов'язкове поле`),
+                        phone: Yup.string().required(`Обов'язкове поле`),
+                      })
+                    }
+                    onSubmit={(values ) => {
+                      const data = {
+                        Name: values.name,
+                        Phone: values.phone,
+                        Question: values.question,
+                      }
+
+                      axios.post(`http://localhost:1337/api/contact-forms`, { data }, { headers: headers })
+                        .then((res) => console.log(res))
+                        .catch((err) => console.log(err));
+                    }}
+                  >
+                    {({
+                        values,
+                        errors,
+                        touched,
+                        handleChange,
+                        handleBlur,
+                        handleSubmit,
+                        isSubmitting,
+                        /* and other goodies */
+                      }) => (
+                      <form onSubmit={handleSubmit}>
+                        <Row className="gy-4">
+                          <Col xs={12}>
+                            <label htmlFor="name" className="form-label required">
+                              Ім’я
+                            </label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              name="name"
+                              placeholder="Олександр"
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              value={values.name}
+                            />
+                            <div className="form-error">
+                              {errors.name && touched.name && errors.name}
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <label htmlFor="phone" className="form-label required">
+                              Контактний телефон
+                            </label>
+                            <InputMask
+                              type="text"
+                              className="form-control"
+                              name="phone"
+                              placeholder="+38 (000) 00 00 000"
+                              mask="+38 (999) 99 99 999"
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              value={values.phone}
+                            />
+                            <div className="form-error">
+                              {errors.phone && touched.phone && errors.phone}
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <label htmlFor="question" className="form-label">
+                              Ваше запитання
+                            </label>
+                            <textarea
+                              className="form-control"
+                              name="question"
+                              placeholder="Опишіть коротко вашу проблему"
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              value={values.question}
+                            />
+                            <div className="form-error">
+                              {errors.question && touched.question && errors.question}
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <button className="btn btn-primary" type="submit">
+                              Надіслати запит
+                            </button>
+                          </Col>
+                        </Row>
+                      </form>
+                    )}
+                  </Formik>
                 </div>
-              </div>
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Container>
         </section>
       </DefaultLayout>
     </>

@@ -5,8 +5,13 @@ import Head from 'next/head';
 import Image from 'next/image';
 import DefaultLayout from '../layouts/DefaultLayout';
 
-import Map from '../images/placeholders/map.jpg';
-import { fetchContent, HomepageConfig, strapiImage } from '../api';
+import { fetchContent, headers, HomepageConfig, strapiImage } from '../api';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Formik } from 'formik';
+import axios from 'axios';
+import React from 'react';
+import InputMask from 'react-input-mask';
+import * as Yup from 'yup';
 
 export default function Home({ data }) {
   return (
@@ -18,24 +23,24 @@ export default function Home({ data }) {
       </Head>
       <DefaultLayout>
         <section className="hero-banner">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-12 col-xl-8 text-center">
+          <Container>
+            <Row className="justify-content-center">
+              <Col xl={10} xxl={8} className="text-center">
                 <h1 dangerouslySetInnerHTML={{__html: data.HeroBanner.Title}} />
                 <p dangerouslySetInnerHTML={{__html: data.HeroBanner.Description}} />
                 <Link href="/catalog">
-                  <button className="btn btn-primary">
+                  <Button variant="primary">
                     {data.HeroBanner.ButtonTitle}
-                  </button>
+                  </Button>
                 </Link>
-              </div>
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Container>
         </section>
         <section className="popular-products">
-          <div className="container">
-            <div className="row">
-              <div className="col-12 pb-4">
+          <Container>
+            <Row>
+              <Col xs={12} className="pb-4">
                 <div className="title-with-icon">
                   <div className="icon">
                     <Image src={strapiImage(data.PopularProducts.Icon.data.attributes.url)} width={18} height={18} alt="Fire Icon" />
@@ -44,8 +49,8 @@ export default function Home({ data }) {
                     {data.PopularProducts.Title}
                   </h4>
                 </div>
-              </div>
-              <div className="col-12">
+              </Col>
+              <Col xs={12}>
                 <Swiper
                   spaceBetween={24}
                   slidesPerView={1.5}
@@ -85,20 +90,20 @@ export default function Home({ data }) {
                     ))
                   }
                 </Swiper>
-              </div>
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Container>
         </section>
         <section className="product-benefits">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-12 text-center">
+          <Container>
+            <Row className="justify-content-center">
+              <Col xs={12} className="text-center">
                 <h3>
                   {data.ProductBenefits.Title}
                 </h3>
                 <p dangerouslySetInnerHTML={{__html: data.ProductBenefits.Description}} />
-              </div>
-              <div className="col-12 col-xl-8">
+              </Col>
+              <Col xl={10} xxl={8}>
                 <div className="row g-4">
                   {
                     data.ProductBenefits.Benefits.map((benefit, benefitIndex) => (
@@ -120,23 +125,23 @@ export default function Home({ data }) {
                     ))
                   }
                 </div>
-              </div>
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Container>
         </section>
         <section className="product-slider">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-12 text-center">
+          <Container>
+            <Row className="justify-content-center">
+              <Col xs={12} className="text-center">
                 <h3>
                   {data.Slider.Title}
                 </h3>
                 <p dangerouslySetInnerHTML={{__html: data.Slider.Description}} />
-              </div>
-            </div>
-          </div>
-          <div className="container-fluid p-0">
-            <div className="col-12">
+              </Col>
+            </Row>
+          </Container>
+          <Container fluid className="p-0">
+            <Col xs={12}>
               <Swiper
                 spaceBetween={0}
                 slidesPerView={1}
@@ -151,20 +156,20 @@ export default function Home({ data }) {
                   ))
                 }
               </Swiper>
-            </div>
-          </div>
+            </Col>
+          </Container>
         </section>
         <section className="about-company">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-12 text-center">
+          <Container>
+            <Row className="justify-content-center">
+              <Col xs={12} className="text-center">
                 <h3>
                   {data.AboutCompany.Title}
                 </h3>
                 <p dangerouslySetInnerHTML={{__html: data.AboutCompany.Description}} />
-              </div>
-              <div className="col-12 col-xl-8">
-                <div className="row justify-content-center g-4">
+              </Col>
+              <Col xl={10} xxl={8}>
+                <Row className="justify-content-center g-4">
                   {
                     data.AboutCompany.Statistics.map((statistics, statisticsIndex) => (
                       <div className="col-6 col-xl-auto" key={statisticsIndex}>
@@ -180,30 +185,32 @@ export default function Home({ data }) {
                       </div>
                     ))
                   }
-                </div>
-              </div>
-              <div className="col-12 text-center">
-                <button className="btn btn-primary">
-                  Стати партнером
-                </button>
-              </div>
-            </div>
-          </div>
+                </Row>
+              </Col>
+              <Col xs={12} className="text-center">
+                <Link href="/business">
+                  <Button variant="primary">
+                    {data.AboutCompany.ButtonTitle}
+                  </Button>
+                </Link>
+              </Col>
+            </Row>
+          </Container>
         </section>
         <section className="contacts">
-          <div className="container">
-            <div className="row gx-xl-5 gy-5">
-              <div className="col-12 col-xl-8">
+          <Container>
+            <Row className="gx-xl-4 gx-xxl-5 gy-5">
+              <Col xl={7} xxl={8}>
                 <div className="frame-block h-100">
-                  <div className="row h-100 gy-5">
-                    <div className="col-12 col-xl-6">
+                  <Row className="h-100 gy-5 gy-xxl-0">
+                    <Col xxl={6}>
                       <h3>
                         {data.Contacts.Title}
                       </h3>
-                      <div className="row gy-4">
+                      <Row className="gy-4">
                         {
                           data.Contacts.Contacts.map((contact, contactIndex) => (
-                            <div className="col-12" key={contactIndex}>
+                            <Col xs={12} key={contactIndex}>
                               <div className="contact-block">
                                 <div className="block-title">
                                   {contact.Label}
@@ -219,56 +226,130 @@ export default function Home({ data }) {
                                   </div>
                                 </div>
                               </div>
-                            </div>
+                            </Col>
                           ))
                         }
-                      </div>
-                    </div>
-                    <div className="col-12 col-xl-6 h-100">
+                      </Row>
+                    </Col>
+                    <Col xxl={6}>
                       <div className="map-block">
-                        <Image src={Map} alt="Map Image"/>
+                        <iframe
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.457310669429!2d23.988310315883016!3d49.852653738137874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add95b7309467%3A0xb1954af61f9b389f!2z0LLRg9C70LjRhtGPINCc0L7RgNC40L3QtdGG0YzQutCwLCDQm9GM0LLRltCyLCDQm9GM0LLRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1sru!2sua!4v1658936612130!5m2!1sru!2sua"
+                          allowFullScreen
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                        />
                       </div>
-                    </div>
-                  </div>
+                    </Col>
+                  </Row>
                 </div>
-              </div>
-              <div className="col-12 col-xl-4">
+              </Col>
+              <Col xl={5} xxl={4}>
                 <div className="frame-block">
                   <h3>
                     {data.Form.Title}
                   </h3>
                   <p dangerouslySetInnerHTML={{__html: data.Form.Description}} />
-                  <form action="#">
-                    <div className="row gy-4">
-                      <div className="col-12">
-                        <label htmlFor="name" className="form-label required">
-                          Ім’я
-                        </label>
-                        <input type="text" className="form-control" name="name" placeholder="Олександр" required />
-                      </div>
-                      <div className="col-12">
-                        <label htmlFor="phone" className="form-label required">
-                          Контактний телефон
-                        </label>
-                        <input type="text" className="form-control" name="phone" placeholder="+38 (000) 00 00 000" required />
-                      </div>
-                      <div className="col-12">
-                        <label htmlFor="question" className="form-label">
-                          Ваше запитання
-                        </label>
-                        <textarea className="form-control" name="question" placeholder="Опишіть коротко вашу проблему" />
-                      </div>
-                      <div className="col-12">
-                        <button className="btn btn-primary" type="submit">
-                          Зворотній виклик
-                        </button>
-                      </div>
-                    </div>
-                  </form>
+                  <Formik
+                    initialValues={{
+                      name: '',
+                      phone: '',
+                      question: ''
+                    }}
+                    validationSchema={
+                      Yup.object().shape({
+                        name: Yup.string().required(`Обов'язкове поле`),
+                        phone: Yup.string().required(`Обов'язкове поле`),
+                      })
+                    }
+                    onSubmit={(values ) => {
+                      const data = {
+                        Name: values.name,
+                        Phone: values.phone,
+                        Question: values.question,
+                      }
+
+                      axios.post(`http://localhost:1337/api/contact-forms`, { data }, { headers: headers })
+                        .then((res) => console.log(res))
+                        .catch((err) => console.log(err));
+                    }}
+                  >
+                    {({
+                        values,
+                        errors,
+                        touched,
+                        handleChange,
+                        handleBlur,
+                        handleSubmit,
+                        isSubmitting,
+                        /* and other goodies */
+                      }) => (
+                      <form onSubmit={handleSubmit}>
+                        <Row className="gy-4">
+                          <Col xs={12}>
+                            <label htmlFor="name" className="form-label required">
+                              Ім’я
+                            </label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              name="name"
+                              placeholder="Олександр"
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              value={values.name}
+                            />
+                            <div className="form-error">
+                              {errors.name && touched.name && errors.name}
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <label htmlFor="phone" className="form-label required">
+                              Контактний телефон
+                            </label>
+                            <InputMask
+                              type="text"
+                              className="form-control"
+                              name="phone"
+                              placeholder="+38 (000) 00 00 000"
+                              mask="+38 (999) 99 99 999"
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              value={values.phone}
+                            />
+                            <div className="form-error">
+                              {errors.phone && touched.phone && errors.phone}
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <label htmlFor="question" className="form-label">
+                              Ваше запитання
+                            </label>
+                            <textarea
+                              className="form-control"
+                              name="question"
+                              placeholder="Опишіть коротко вашу проблему"
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              value={values.question}
+                            />
+                            <div className="form-error">
+                              {errors.question && touched.question && errors.question}
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <button className="btn btn-primary" type="submit">
+                              Надіслати запит
+                            </button>
+                          </Col>
+                        </Row>
+                      </form>
+                    )}
+                  </Formik>
                 </div>
-              </div>
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Container>
         </section>
       </DefaultLayout>
     </>

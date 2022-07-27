@@ -11,6 +11,13 @@
   }
 }
 
+.form-error {
+  display: block;
+  font-size: 12px;
+  color: $red;
+  margin-top: 10px;
+}
+
 .form-control {
   border: 1px solid $lightgray;
   border-radius: 10px;

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Formik } from 'formik';
 import { Button, Col, Modal, Row } from 'react-bootstrap';
+import { Formik } from 'formik';
 import axios from 'axios';
 import { headers } from '../../api';
 import InputMask from 'react-input-mask';
 import * as Yup from 'yup';
 
-function CallbackModal({ buttonTitle }) {
+function HelpModal({ buttonTitle }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -21,11 +21,11 @@ function CallbackModal({ buttonTitle }) {
         <Modal.Header closeButton />
         <Modal.Body>
           <h3>
-            Зворотній виклик
+            Потрібна допомога?
           </h3>
           <p>
-            Потрібна допомога з вибором газового водонагрівача?
-            Ми будемо раді відповісти на всі ваші запитання.
+            Якщо у вас виникла проблема пов'язана з нашою продукцією
+            ми допоможемо вирішити її якнайшвидше.
           </p>
           <Formik
             initialValues={{
@@ -129,4 +129,4 @@ function CallbackModal({ buttonTitle }) {
   );
 }
 
-export default CallbackModal;
+export default HelpModal;

@@ -4,33 +4,26 @@ import Image from 'next/image';
 
 import Logo from '../../images/logo.svg';
 import CallbackModal from '../modals/CallbackModal';
-import { useState } from 'react';
+
+import { Col, Container, Row } from 'react-bootstrap';
 
 
 function Header() {
   const router = useRouter();
 
-  const [showCallbackModal, setShowCallbackModal] = useState(false);
-
-  const handleShowCallbackModal = () => {
-    setShowCallbackModal(!showCallbackModal);
-  };
-
-  console.log(showCallbackModal);
-
   return (
     <>
       <header>
-        <div className="container">
-          <div className="row justify-content-between align-items-center">
-            <div className="col-6 col-xl-3">
+        <Container>
+          <Row className="justify-content-between align-items-center">
+            <Col xs={6} xl={3}>
               <Link href="/">
                 <a>
                   <Image src={Logo} alt="Dion - газові водонагрівачі"/>
                 </a>
               </Link>
-            </div>
-            <div className="col-6 d-none d-xl-block">
+            </Col>
+            <Col xs={6} className="d-none d-xl-block">
               <ul className="nav justify-content-center">
                 <li className="nav-item">
                   <Link href="/">
@@ -68,23 +61,20 @@ function Header() {
                   </Link>
                 </li>
               </ul>
-            </div>
-            <div className="col-3 d-none d-xl-block text-end">
-              <button className="btn btn-primary" onClick={handleShowCallbackModal}>
-                Зворотній виклик
-              </button>
-            </div>
-            <div className="col-6 d-xl-none">
-              <div className="row justify-content-end">
-                <div className="col-auto">
+            </Col>
+            <Col xs={3} className="d-none d-xl-block text-end">
+              <CallbackModal buttonTitle="Зворотній виклик" />
+            </Col>
+            <Col xs={6} className="d-xl-none">
+              <Row className="justify-content-end">
+                <Col xs="auto">
                   burger
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
       </header>
-      <CallbackModal showModal={showCallbackModal} handleShowModal={handleShowCallbackModal} />
     </>
   );
 }

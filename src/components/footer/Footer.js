@@ -1,31 +1,32 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { Col, Container, Row } from 'react-bootstrap';
+
 import LogoWhite from '../../images/logo-white.svg';
-import CallbackModal from '../modals/CallbackModal';
 
 function Footer() {
   return (
     <footer>
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
+      <Container className="container">
+        <Row className="row">
+          <Col xs={12}>
             <Link href="/">
               <a>
                 <Image src={LogoWhite} alt="Dion - газові водонагрівачі"/>
               </a>
             </Link>
-          </div>
-          <div className="col-12">
+          </Col>
+          <Col xs={12}>
             <hr />
-          </div>
-          <div className="col-12">
+          </Col>
+          <Col xs={12}>
             <p className="copyright">
               © Copyright 2022 — DION. All rights Reserved.
             </p>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </footer>
   );
 }
