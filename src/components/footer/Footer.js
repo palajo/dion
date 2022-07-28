@@ -7,7 +7,7 @@ import LogoWhite from '../../images/logo-white.svg';
 
 function Footer() {
   return (
-    <footer>
+    <footer className="d-none d-xl-block">
       <Container className="container">
         <Row className="row">
           <Col xs={12}>

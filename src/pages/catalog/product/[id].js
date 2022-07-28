@@ -29,6 +29,8 @@ export default function Product({ data }) {
     setDisplayedImageId(imageIndex);
   }
 
+  console.log(prevArrowRef, nextArrowRef);
+
   return (
     <>
       <Head>
@@ -78,9 +80,9 @@ export default function Product({ data }) {
         <section className="product">
           <Container>
             <Row className="justify-content-between">
-              <Col xl={9}>
+              <Col lg={12} xl={8} xxl={9}>
                 <Row className="gx-xl-5">
-                  <Col xl="auto">
+                  <Col lg={5} xl="auto">
                     <div className="product-gallery">
                       <div className="gallery-thumbnails">
                         {
@@ -104,7 +106,7 @@ export default function Product({ data }) {
                       </div>
                     </div>
                   </Col>
-                  <Col xl={6}>
+                  <Col lg={7} xl={6}>
                     <div className="product-content">
                       <Row className="row">
                         <Col xs={12}>
@@ -168,14 +170,18 @@ export default function Product({ data }) {
                                   ))
                                 }
                               </Swiper>
-                              <div className="variations-slider-arrows">
-                                <div className="arrow-button" ref={prevArrowRef}>
-                                  <Image src={InputArrowLeft} alt="Arrow Left Icon"/>
-                                </div>
-                                <div className="arrow-button" ref={nextArrowRef}>
-                                  <Image src={InputArrowRight} alt="Arrow Right Icon"/>
-                                </div>
-                              </div>
+                              {
+                                data.Information.RelatedProducts.data.length > 3 && (
+                                  <div className="variations-slider-arrows">
+                                    <div className="arrow-button" ref={prevArrowRef}>
+                                      <Image src={InputArrowLeft} alt="Arrow Left Icon"/>
+                                    </div>
+                                    <div className="arrow-button" ref={nextArrowRef}>
+                                      <Image src={InputArrowRight} alt="Arrow Right Icon"/>
+                                    </div>
+                                  </div>
+                                )
+                              }
                             </div>
                           </div>
                           <Row className="align-items-center product-price-action">
@@ -196,7 +202,7 @@ export default function Product({ data }) {
                             </Col>
                           </Row>
                         </Col>
-                        <Col xs="auto">
+                        <Col xs={12}>
                           <div className="product-specifications">
                             <div className="title-with-icon">
                               <div className="icon">
@@ -271,7 +277,7 @@ export default function Product({ data }) {
                   </Col>
                 </Row>
               </Col>
-              <Col xs={3} className="d-none d-xl-block">
+              <Col xl={4} xxl={3} className="d-none d-xl-block">
                 <OrderForm product={data.Information} />
               </Col>
             </Row>

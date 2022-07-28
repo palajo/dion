@@ -32,9 +32,9 @@ export default function Client({ data }) {
             <section className={`client-information ${sectionIndex % 2 && 'reverse'}`}>
               <Container>
                 <Row className="justify-content-center">
-                  <Col xl={10}>
+                  <Col xxl={10}>
                     <Row className="gy-5">
-                      <Col xl={6} className="left-column">
+                      <Col lg={6} className="left-column">
                         <Row className="row">
                           <Col xs={12} className="pb-4">
                             <div className="title-with-icon">
@@ -51,7 +51,7 @@ export default function Client({ data }) {
                           </Col>
                         </Row>
                       </Col>
-                      <Col xl={6} className="right-column">
+                      <Col lg={6} className="right-column">
                         <div className="client-information-image">
                           <Image src={strapiImage(section.Image.data.attributes.url)} layout="fill" objectFit="cover" alt="Infromation Image"/>
                         </div>

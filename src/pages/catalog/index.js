@@ -8,7 +8,108 @@ import ConsultationModal from '../../components/modals/ConsultationModal';
 import { CatalogConfig, fetchContent, strapiImage } from '../../api';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Col, Container, Row } from 'react-bootstrap';
+import InputArrowLeft from '../../images/icons/input-arrow-left-blue.svg';
+import InputArrowRight from '../../images/icons/input-arrow-right-blue.svg';
+import React, { createRef, useCallback, useRef } from 'react';
 
+const CategorySection = ({ category, categoryIndex }) => {
+  // swiper arrows
+  const sliderRef = useRef();
+
+  const handlePrev = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slidePrev();
+  }, []);
+
+  const handleNext = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+  }, []);
+
+  return (
+    <section className="products-category" key={categoryIndex}>
+      <Container>
+        <Row>
+          <Col xs={12} className="pb-4">
+            <Row className="justify-content-between">
+              <Col xs="auto">
+                <div className="title-with-icon">
+                  <div className="icon">
+                    <Image src={strapiImage(category.Icon.data.attributes.url)} width={18} height={18} alt="Fire Icon"/>
+                  </div>
+                  <h4 className="title">
+                    {category.Title}
+                  </h4>
+                </div>
+              </Col>
+              <Col xs="auto">
+                <div className="products-slider-arrows">
+                  <div className="arrow-button" onClick={handlePrev}>
+                    <Image src={InputArrowLeft} alt="Arrow Left Icon"/>
+                  </div>
+                  <div className="arrow-button" onClick={handleNext}>
+                    <Image src={InputArrowRight} alt="Arrow Right Icon"/>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Col>
+          <Col xs={12}>
+            <Swiper
+              ref={sliderRef}
+              spaceBetween={24}
+              slidesPerView={1.5}
+              speed={800}
+              breakpoints={{
+                768: {
+                  slidesPerView: 2,
+                },
+                1080: {
+                  slidesPerView: 3,
+                },
+                1440: {
+                  slidesPerView: 4,
+                },
+                1680: {
+                  slidesPerView: 5,
+                },
+              }}
+              className="products-slider"
+            >
+              {
+                category.Products.data.map((product, productIndex) => (
+                  <SwiperSlide key={productIndex}>
+                    <div className="product-block">
+                      <div className="block-image">
+                        <Link href={`/catalog/product/${product.id}`}>
+                          <a>
+                            <Image src={strapiImage(product.attributes.FeaturedImage.data.attributes.url)} width={180} height={300} alt="Waterheater Index" />
+                          </a>
+                        </Link>
+                      </div>
+                      <div className="block-content">
+                        <div className="block-title">
+                          <Link href={`/catalog/product/${product.id}`}>
+                            <a>
+                              {product.attributes.Model}, <span>{product.attributes.Title}</span>
+                            </a>
+                          </Link>
+                        </div>
+                        <div className="block-price">
+                          {product.attributes.Price} грн
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))
+              }
+            </Swiper>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  )
+}
 
 export default function Catalog({ data }) {
   return (
@@ -32,63 +133,7 @@ export default function Catalog({ data }) {
         </section>
         {
           data.Category.map((category, categoryIndex) => (
-            <section className="products-category" key={categoryIndex}>
-              <Container>
-                <Row>
-                  <Col xs={12} className="pb-4">
-                    <div className="title-with-icon">
-                      <div className="icon">
-                        <Image src={strapiImage(category.Icon.data.attributes.url)} width={18} height={18} alt="Fire Icon"/>
-                      </div>
-                      <h4 className="title">
-                        {category.Title}
-                      </h4>
-                    </div>
-                  </Col>
-                  <Col xs={12}>
-                    <Swiper
-                      spaceBetween={24}
-                      slidesPerView={1.5}
-                      speed={800}
-                      breakpoints={{
-                        768: {
-                          slidesPerView: 5,
-                        },
-                      }}
-                      className="products-slider"
-                    >
-                      {
-                        category.Products.data.map((product, productIndex) => (
-                          <SwiperSlide key={productIndex}>
-                            <div className="product-block">
-                              <div className="block-image">
-                                <Link href={`/catalog/product/${product.id}`}>
-                                  <a>
-                                    <Image src={strapiImage(product.attributes.FeaturedImage.data.attributes.url)} width={180} height={300} alt="Waterheater Index" />
-                                  </a>
-                                </Link>
-                              </div>
-                              <div className="block-content">
-                                <div className="block-title">
-                                  <Link href={`/catalog/product/${product.id}`}>
-                                    <a>
-                                      {product.attributes.Model}, <span>{product.attributes.Title}</span>
-                                    </a>
-                                  </Link>
-                                </div>
-                                <div className="block-price">
-                                  {product.attributes.Price} грн
-                                </div>
-                              </div>
-                            </div>
-                          </SwiperSlide>
-                        ))
-                      }
-                    </Swiper>
-                  </Col>
-                </Row>
-              </Container>
-            </section>
+            <CategorySection category={category} categoryIndex={categoryIndex} key={categoryIndex} />
           ))
         }
       </DefaultLayout>

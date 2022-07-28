@@ -5,11 +5,20 @@ import Image from 'next/image';
 import Logo from '../../images/logo.svg';
 import CallbackModal from '../modals/CallbackModal';
 
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
+import Burgermenu from './components/Burgermenu';
+import { useState } from 'react';
 
 
 function Header() {
   const router = useRouter();
+
+  // burgermenu
+  const [isBurgermenuOpen, setIsBurgermenuOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsBurgermenuOpen(true);
+  }
 
   return (
     <>
@@ -68,13 +77,21 @@ function Header() {
             <Col xs={6} className="d-xl-none">
               <Row className="justify-content-end">
                 <Col xs="auto">
-                  burger
+                  <button className={`burgermenu-toggler ${isBurgermenuOpen && 'active'}`} onClick={() => handleOpen()}>
+                    <span className="line"></span>
+                    <span className="line"></span>
+                    <span className="line"></span>
+                  </button>
                 </Col>
               </Row>
             </Col>
           </Row>
         </Container>
       </header>
+      <Burgermenu
+        isBurgermenuOpen={isBurgermenuOpen}
+        setIsBurgermenuOpen={setIsBurgermenuOpen}
+      />
     </>
   );
 }

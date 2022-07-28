@@ -5,16 +5,27 @@ import Head from 'next/head';
 import Image from 'next/image';
 import DefaultLayout from '../layouts/DefaultLayout';
 
-import { fetchContent, headers, HomepageConfig, strapiImage } from '../api';
+import { fetchContent, HomepageConfig, strapiImage } from '../api';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { Formik } from 'formik';
-import axios from 'axios';
-import React from 'react';
-import InputMask from 'react-input-mask';
-import * as Yup from 'yup';
+import React, { useCallback, useRef } from 'react';
 import CallbackForm from '../components/forms/CallbackForm';
+import InputArrowLeft from '../images/icons/input-arrow-left-blue.svg';
+import InputArrowRight from '../images/icons/input-arrow-right-blue.svg';
 
 export default function Home({ data }) {
+  // swiper arrows
+  const sliderRef = useRef();
+
+  const handlePrev = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slidePrev();
+  }, []);
+
+  const handleNext = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+  }, []);
+
   return (
     <>
       <Head>
@@ -42,22 +53,46 @@ export default function Home({ data }) {
           <Container>
             <Row>
               <Col xs={12} className="pb-4">
-                <div className="title-with-icon">
-                  <div className="icon">
-                    <Image src={strapiImage(data.PopularProducts.Icon.data.attributes.url)} width={18} height={18} alt="Fire Icon" />
-                  </div>
-                  <h4 className="title">
-                    {data.PopularProducts.Title}
-                  </h4>
-                </div>
+                <Row className="justify-content-between">
+                  <Col xs="auto">
+                    <div className="title-with-icon">
+                      <div className="icon">
+                        <Image src={strapiImage(data.PopularProducts.Icon.data.attributes.url)} width={18} height={18} alt="Fire Icon" />
+                      </div>
+                      <h4 className="title">
+                        {data.PopularProducts.Title}
+                      </h4>
+                    </div>
+                  </Col>
+                  <Col xs="auto">
+                    <div className="products-slider-arrows">
+                      <div className="arrow-button" onClick={handlePrev}>
+                        <Image src={InputArrowLeft} alt="Arrow Left Icon"/>
+                      </div>
+                      <div className="arrow-button" onClick={handleNext}>
+                        <Image src={InputArrowRight} alt="Arrow Right Icon"/>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
               </Col>
               <Col xs={12}>
                 <Swiper
+                  ref={sliderRef}
                   spaceBetween={24}
                   slidesPerView={1.5}
                   speed={800}
                   breakpoints={{
                     768: {
+                      slidesPerView: 2,
+                    },
+                    1080: {
+                      slidesPerView: 3,
+                    },
+                    1440: {
+                      slidesPerView: 4,
+                    },
+                    1680: {
                       slidesPerView: 5,
                     },
                   }}
@@ -104,11 +139,11 @@ export default function Home({ data }) {
                 </h3>
                 <p dangerouslySetInnerHTML={{__html: data.ProductBenefits.Description}} />
               </Col>
-              <Col xl={10} xxl={8}>
+              <Col md={10} lg={12} xxl={8}>
                 <div className="row g-4">
                   {
                     data.ProductBenefits.Benefits.map((benefit, benefitIndex) => (
-                      <div className="col-12 col-xl-6" key={benefitIndex}>
+                      <div className="col-12 col-lg-6" key={benefitIndex}>
                         <div className="benefit-block">
                           <div className="block-icon">
                             <Image src={strapiImage(benefit.Icon.data.attributes.url)} layout="fixed" width={48} height={48} alt="Fire Icon" />
@@ -173,7 +208,7 @@ export default function Home({ data }) {
                 <Row className="justify-content-center g-4">
                   {
                     data.AboutCompany.Statistics.map((statistics, statisticsIndex) => (
-                      <div className="col-6 col-xl-auto" key={statisticsIndex}>
+                      <div className="col-6 col-md-auto" key={statisticsIndex}>
                         <div className="statistic-block">
                           <div className="block-icon">
                             <Image src={strapiImage(statistics.Icon.data.attributes.url)} layout="fixed" width={48} height={48} alt="Fire Icon" />
