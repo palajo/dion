@@ -12,6 +12,8 @@ function PartnerModal({ buttonTitle }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -42,7 +44,7 @@ function PartnerModal({ buttonTitle }) {
               })
             }
             onSubmit={(values ) => {
-              const data = {
+              const payload = {
                 Name: values.name,
                 Phone: values.phone,
                 Email: values.email,
@@ -50,9 +52,16 @@ function PartnerModal({ buttonTitle }) {
                 Offer: values.offer
               }
 
-              axios.post(`http://localhost:1337/api/partnerships`, { data }, { headers: headers })
-                .then((res) => console.log(res))
-                .catch((err) => console.log(err));
+              axios.post(`http://localhost:1337/api/partnership-forms`, { data: payload }, { headers: headers })
+                .then((res) => {
+                  setSubmitSuccess(true);
+                  setTimeout(() => {
+                    setSubmitSuccess(false);
+                  }, 10000);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
             }}
           >
             {({
@@ -153,10 +162,19 @@ function PartnerModal({ buttonTitle }) {
                     </div>
                   </Col>
                   <Col xs={12}>
-                    <button className="btn btn-primary" type="submit">
+                    <button className={`btn btn-primary ${submitSuccess && 'disabled'}`} type="submit">
                       Надіслати запит
                     </button>
                   </Col>
+                  {
+                    submitSuccess && (
+                      <Col xs={12}>
+                        <div className="form-success">
+                          Ваш запит успішно надіслано!
+                        </div>
+                      </Col>
+                    )
+                  }
                 </Row>
               </form>
             )}

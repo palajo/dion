@@ -15,6 +15,8 @@ function OrderModal({ product, buttonTitle }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -30,7 +32,7 @@ function OrderModal({ product, buttonTitle }) {
             initialValues={{
               name: '',
               phone: '',
-              address: '',
+              address: 'Оберіть відділення',
               price: product.Price,
               quantity: 1,
             }}
@@ -50,19 +52,24 @@ function OrderModal({ product, buttonTitle }) {
                 FullName: values.name,
                 Phone: values.phone,
                 Address: values.address,
-                Product: title,
-                Quantity: values.quantity,
-                Price: values.price,
-                TotalPrice: values.quantity * values.price
+                OrderItem: {
+                  Title: title,
+                  Quantity: values.quantity,
+                  Price: values.price,
+                  TotalPrice: values.quantity * values.price
+                }
               }
 
-              console.log(payload);
-
-              /*
-              axios.post(`http://localhost:1337/api/orders`, { data }, { headers: headers })
-                .then((res) => console.log(res))
-                .catch((err) => console.log(err));
-               */
+              axios.post(`http://localhost:1337/api/orders`, { data: payload }, { headers: headers })
+                .then((res) => {
+                  setSubmitSuccess(true);
+                  setTimeout(() => {
+                    setSubmitSuccess(false);
+                  }, 10000);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
             }}
           >
             {({
@@ -124,7 +131,7 @@ function OrderModal({ product, buttonTitle }) {
                       onBlur={handleBlur}
                       value={values.address}
                     >
-                      <option value="Оберіть відділення" selected disabled>Оберіть відділення</option>
+                      <option value="Оберіть відділення" disabled>Оберіть відділення</option>
                       <option value="Відділення 1">Відділення 1</option>
                       <option value="Відділення 2">Відділення 2</option>
                       <option value="Відділення 3">Відділення 3</option>
@@ -178,10 +185,19 @@ function OrderModal({ product, buttonTitle }) {
                     </Row>
                   </Col>
                   <Col xs={12}>
-                    <button className="btn btn-primary" type="submit">
+                    <button className={`btn btn-primary ${submitSuccess && 'disabled'}`} type="submit">
                       Підтвердити замовлення
                     </button>
                   </Col>
+                  {
+                    submitSuccess && (
+                      <Col xs={12}>
+                        <div className="form-success">
+                          Ваш запит успішно надіслано!
+                        </div>
+                      </Col>
+                    )
+                  }
                 </Row>
               </form>
             )}

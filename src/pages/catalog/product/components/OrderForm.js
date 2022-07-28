@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 import { Col, Row } from 'react-bootstrap';
 import Image from 'next/image';
@@ -6,8 +6,12 @@ import InputArrowLeft from '../../../../images/icons/input-arrow-left.svg';
 import InputArrowRight from '../../../../images/icons/input-arrow-right.svg';
 import InputMask from 'react-input-mask';
 import * as Yup from 'yup';
+import axios from 'axios';
+import { headers } from '../../../../api';
 
 function OrderForm({ product }) {
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
   return (
     <div className="frame-block product-order">
       <div className="order-title">
@@ -37,19 +41,24 @@ function OrderForm({ product }) {
             FullName: values.name,
             Phone: values.phone,
             Address: values.address,
-            Product: title,
-            Quantity: values.quantity,
-            Price: values.price,
-            TotalPrice: values.quantity * values.price
+            OrderItem: {
+              Title: title,
+              Quantity: values.quantity,
+              Price: values.price,
+              TotalPrice: values.quantity * values.price
+            }
           }
 
-          console.log(payload);
-
-          /*
-          axios.post(`http://localhost:1337/api/orders`, { data }, { headers: headers })
-            .then((res) => console.log(res))
-            .catch((err) => console.log(err));
-           */
+          axios.post(`http://localhost:1337/api/orders`, { data: payload }, { headers: headers })
+            .then((res) => {
+              setSubmitSuccess(true);
+              setTimeout(() => {
+                setSubmitSuccess(false);
+              }, 10000);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         }}
       >
         {({
@@ -111,7 +120,7 @@ function OrderForm({ product }) {
                   onBlur={handleBlur}
                   value={values.address}
                 >
-                  <option value="Оберіть відділення" selected disabled>Оберіть відділення</option>
+                  <option value="Оберіть відділення" disabled>Оберіть відділення</option>
                   <option value="Відділення 1">Відділення 1</option>
                   <option value="Відділення 2">Відділення 2</option>
                   <option value="Відділення 3">Відділення 3</option>
@@ -165,10 +174,19 @@ function OrderForm({ product }) {
                 </Row>
               </Col>
               <Col xs={12}>
-                <button className="btn btn-primary" type="submit">
+                <button className={`btn btn-primary ${submitSuccess && 'disabled'}`} type="submit">
                   Підтвердити замовлення
                 </button>
               </Col>
+              {
+                submitSuccess && (
+                  <Col xs={12}>
+                    <div className="form-success">
+                      Ваш запит успішно надіслано!
+                    </div>
+                  </Col>
+                )
+              }
             </Row>
           </form>
         )}
