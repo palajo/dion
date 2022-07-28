@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "partnership_forms",
+  "info": {
+    "singularName": "partnership-form",
+    "pluralName": "partnership-forms",
+    "displayName": "PartnershipForm"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "Website": {
+      "type": "string"
+    },
+    "Offer": {
+      "type": "text"
+    }
+  }
+}

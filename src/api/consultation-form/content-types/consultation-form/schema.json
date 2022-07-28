@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "consultation_forms",
+  "info": {
+    "singularName": "consultation-form",
+    "pluralName": "consultation-forms",
+    "displayName": "ConsultationForm"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string"
+    },
+    "Question": {
+      "type": "text"
+    }
+  }
+}

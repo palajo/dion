@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "callback_forms",
+  "info": {
+    "singularName": "callback-form",
+    "pluralName": "callback-forms",
+    "displayName": "CallbackForm"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string"
+    },
+    "Question": {
+      "type": "text"
+    }
+  }
+}

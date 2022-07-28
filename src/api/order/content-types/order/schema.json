@@ -12,23 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Client": {
-      "displayName": "Client information",
-      "type": "component",
-      "repeatable": false,
-      "component": "client-information.client-information"
+    "FullName": {
+      "type": "string"
     },
-    "Product": {
-      "displayName": "Product information",
-      "type": "component",
-      "repeatable": false,
-      "component": "product-information.product-information"
+    "Phone": {
+      "type": "string"
     },
-    "Order": {
-      "displayName": "Order information",
+    "Address": {
+      "type": "string"
+    },
+    "OrderItem": {
+      "displayName": "OrderItem",
       "type": "component",
       "repeatable": false,
-      "component": "order-information.order-information"
+      "component": "order-item.order-item"
     }
   }
 }

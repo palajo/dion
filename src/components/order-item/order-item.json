@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_order_item_order_items",
+  "info": {
+    "displayName": "OrderItem",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Quantity": {
+      "type": "integer"
+    },
+    "Price": {
+      "type": "integer"
+    },
+    "TotalPrice": {
+      "type": "integer"
+    }
+  }
+}
