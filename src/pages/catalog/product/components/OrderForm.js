@@ -111,7 +111,7 @@ function OrderForm({ product }) {
               </Col>
               <Col xs={12}>
                 <label htmlFor="question" className="form-label required">
-                  Відділення "Нова Пошта"
+                  Відділення &ldquo;Нова Пошта&ldquo;
                 </label>
                 <select
                   name="address"

@@ -87,7 +87,7 @@ function OrderModal({ product, buttonTitle }) {
                 <Row className="gy-4">
                   <Col xs={12}>
                     <label htmlFor="name" className="form-label required">
-                      Повне ім’я
+                      Повне ім&quot;я
                     </label>
                     <input
                       type="text"
@@ -122,7 +122,7 @@ function OrderModal({ product, buttonTitle }) {
                   </Col>
                   <Col xs={12}>
                     <label htmlFor="question" className="form-label required">
-                      Відділення "Нова Пошта"
+                      Відділення &ldquo;Нова Пошта&ldquo;
                     </label>
                     <select
                       name="address"

@@ -29,7 +29,7 @@ export default function Client({ data }) {
         </section>
         {
           data.ClientSection.map((section, sectionIndex) => (
-            <section className={`client-information ${sectionIndex % 2 && 'reverse'}`}>
+            <section className={`client-information ${sectionIndex % 2 && 'reverse'}`} key={sectionIndex}>
               <Container>
                 <Row className="justify-content-center">
                   <Col xxl={10}>
