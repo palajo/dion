@@ -2,16 +2,16 @@ import axios from 'axios';
 
 export const headers = {
   'Content-Type': 'application/json',
-  'Authorization': 'Bearer 8cf71596d2cb6e89a92b67edba3f3032a2c7d8aaf0b95c5788538a57838c1a18cd6d070cfcfec6b1dd8b6431f06251cb7584cb34dddad27fd602a0944cfde0dc2e9cba75075fa329dbd5f56dab92eaf44f8ae6f898c8c4557d95bec65ca20cd059454341a7f3c13b3d12e1c3fbdc19c21e260140e9c19d88808520d5ded0c91a'
+  'Authorization': 'Bearer efc6ef76aa3905be2872b2534bfb4cd8ddef44c834629935492b0ff3e06fc89a1b122465a79c79b913dbce9ac7c199f76ab4a3b5a3c05cf8c027ac243ceb3e224c014b63cd00ca0a77bbd9e7b4867bde96bb46da71c6d4bc99158e5b385444c04940b3244d22d65cf4299e2305d0984d80c2af3048937423d84119107c54798e'
 };
 
 export const fetchContent = async (path, headers) => {
-  const res = await axios.get(`http://localhost:1337/api/${path}`, headers);
+  const res = await axios.get(`https://api.dion.lviv.ua/api/${path}`, headers);
   return res.data.data.attributes;
 };
 
 export const strapiImage = (url) => {
-  return `http://localhost:1337${url}`
+  return `https://api.dion.lviv.ua${url}`
 }
 
 export const HomepageConfig = {

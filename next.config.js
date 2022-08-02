@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
   domains: ['localhost'],
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'api.dion.lviv.ua'],
   },
 }
 

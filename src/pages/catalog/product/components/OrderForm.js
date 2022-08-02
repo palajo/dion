@@ -22,7 +22,7 @@ function OrderForm({ product }) {
           name: '',
           phone: '',
           address: 'Оберіть відділення',
-          price: product.Price,
+          price: product?.Price,
           quantity: 1,
         }}
         validationSchema={
