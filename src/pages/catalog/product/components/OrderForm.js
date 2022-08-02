@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik } from 'formik';
 import { Col, Row } from 'react-bootstrap';
 import Image from 'next/image';
@@ -21,7 +21,7 @@ function OrderForm({ product }) {
         initialValues={{
           name: '',
           phone: '',
-          address: 'Оберіть відділення',
+          address: '',
           price: product?.Price,
           quantity: 1,
         }}
@@ -113,18 +113,15 @@ function OrderForm({ product }) {
                 <label htmlFor="question" className="form-label required">
                   Відділення &ldquo;Нова Пошта&ldquo;
                 </label>
-                <select
-                  name="address"
-                  className="form-select"
+                <input
+                  type="text"
+                  className="form-control"
+                  name="name"
+                  placeholder="м. Львів, Відділення №64"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.address}
-                >
-                  <option value="Оберіть відділення" disabled>Оберіть відділення</option>
-                  <option value="Відділення 1">Відділення 1</option>
-                  <option value="Відділення 2">Відділення 2</option>
-                  <option value="Відділення 3">Відділення 3</option>
-                </select>
+                />
                 <div className="form-error">
                   {errors.address && touched.address && errors.address}
                 </div>
