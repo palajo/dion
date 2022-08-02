@@ -49,7 +49,7 @@ function OrderForm({ product }) {
             }
           }
 
-          axios.post(`http://localhost:1337/api/orders`, { data: payload }, { headers: headers })
+          axios.post(`https://api.dion.lviv.ua/api/orders`, { data: payload }, { headers: headers })
             .then((res) => {
               setSubmitSuccess(true);
               setTimeout(() => {

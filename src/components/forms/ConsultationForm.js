@@ -29,7 +29,7 @@ function ConsultationForm() {
           Question: values.question,
         }
 
-        axios.post(`http://localhost:1337/api/consultation-forms`, { data: payload }, { headers: headers })
+        axios.post(`https://api.dion.lviv.ua/consultation-forms`, { data: payload }, { headers: headers })
           .then((res) => {
             setSubmitSuccess(true);
             setTimeout(() => {

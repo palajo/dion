@@ -52,7 +52,7 @@ function PartnerModal({ buttonTitle }) {
                 Offer: values.offer
               }
 
-              axios.post(`http://localhost:1337/api/partnership-forms`, { data: payload }, { headers: headers })
+              axios.post(`https://api.dion.lviv.ua/api/partnership-forms`, { data: payload }, { headers: headers })
                 .then((res) => {
                   setSubmitSuccess(true);
                   setTimeout(() => {
