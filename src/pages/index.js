@@ -258,7 +258,7 @@ export default function Home({ data }) {
                                     <Image src={strapiImage(contact.Icon.data.attributes.url)} layout="fixed" width={18} height={18} alt="Fire Icon" />
                                   </div>
                                   <div className="block-description">
-                                    <Link href="#">
+                                    <Link href={contact.Type === 'phone' ? `tel:${contact.Value}` : contact.Type === 'email' ? `mailto:${contact.Value}` : '#'}>
                                       {contact.Value}
                                     </Link>
                                   </div>
