@@ -5,6 +5,7 @@ import axios from 'axios';
 import { headers } from '../../api';
 import { Col, Row } from 'react-bootstrap';
 import InputMask from 'react-input-mask';
+import emailjs from 'emailjs-com';
 
 function CallbackForm() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -39,6 +40,12 @@ function CallbackForm() {
           .catch((err) => {
             console.log(err);
           });
+
+        emailjs.send('service_drwt285','template_gfps2xh',{
+          name: values.name,
+          phone: values.phone,
+          question: values.question,
+        }, 'user_ba47DZoCxBAsJimzfB4a2');
       }}
     >
       {({

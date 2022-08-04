@@ -8,6 +8,7 @@ import axios from 'axios';
 import { headers } from '../../api';
 import InputMask from 'react-input-mask';
 import * as Yup from 'yup';
+import emailjs from 'emailjs-com';
 
 function OrderModal({ product, buttonTitle }) {
   const [show, setShow] = useState(false);
@@ -70,6 +71,16 @@ function OrderModal({ product, buttonTitle }) {
                 .catch((err) => {
                   console.log(err);
                 });
+
+              emailjs.send('service_drwt285','template_ZafBMqCA',{
+                full_name: values.name,
+                product_title: title,
+                total_price: values.quantity * values.price,
+                phone: values.phone,
+                address: values.address,
+                price: values.price,
+                quantity: values.quantity,
+              }, 'user_ba47DZoCxBAsJimzfB4a2');
             }}
           >
             {({
