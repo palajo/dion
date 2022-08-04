@@ -2,9 +2,11 @@
   "name": "dion-next",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -14,6 +16,7 @@
     "formik": "^2.2.9",
     "lodash": "^4.17.21",
     "next": "12.2.2",
+    "next-sitemap": "^3.1.16",
     "node-sass": "^7.0.1",
     "qs": "^6.5.3",
     "react": "18.2.0",
