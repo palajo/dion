@@ -110,13 +110,13 @@ function OrderForm({ product }) {
                 </div>
               </Col>
               <Col xs={12}>
-                <label htmlFor="question" className="form-label required">
+                <label htmlFor="address" className="form-label required">
                   Відділення &ldquo;Нова Пошта&ldquo;
                 </label>
                 <input
                   type="text"
                   className="form-control"
-                  name="name"
+                  name="address"
                   placeholder="м. Львів, Відділення №64"
                   onChange={handleChange}
                   onBlur={handleBlur}
