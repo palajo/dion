@@ -32,6 +32,7 @@ export default function Home({ data }) {
         <title>DION – Газові водонагрівачі</title>
         <meta name="description" content="Надійні газові водонагрівачі по справедливій ціні. Dion - це якісний продукт з гарантією в 12 місяців. Зручність та комфорт у використанні, а також доставка по всій Україні." />
         <meta name="keywords" content="Dion, Газові колонки, Газові колонки Dion, Водонагрівачі, Газові водонагрівачі Dion" />
+        <meta name="google-site-verification" content="wgGx83ZWitWZ6Ldvhx4SVTrRUaTG3DVIHy8lYxDcD_c" />
         <link rel="icon" href="/favicon.png" />
       </Head>
       <DefaultLayout>
