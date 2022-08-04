@@ -43,7 +43,7 @@ export default function Product({data}) {
         <title>{data.Information.Model}, {data.Information.Title} – Газовий водонагрівач</title>
         <meta name="description" content={data.Information.Description}/>
         <meta name="keywords"
-              content={`Dion, Водонагрівач, Газова колонка, ${data.Information.Model}, ${data.Information.Title}, ${data.Information.Model}, {data.Information.Title}`}/>
+              content={`Dion, Водонагрівач, Газова колонка, ${data.Information.Model}, ${data.Information.Title}, ${data.Information.Model} ${data.Information.Title}`}/>
         <link rel="icon" href="/favicon.png"/>
       </Head>
       <DefaultLayout>
