@@ -245,10 +245,14 @@ section.product {
         }
 
         .product-variations {
-          order: 3;
+          order: 4;
         }
 
         .product-price-action {
+          order: 3;
+        }
+
+        .product-promotion {
           order: 2;
         }
       }

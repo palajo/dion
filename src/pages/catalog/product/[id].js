@@ -147,7 +147,7 @@ export default function Product({ data }) {
                             </p>
                           </div>
                           <div className="product-promotion">
-                            <Row className="gx-5">
+                            <Row className="gx-md-5 gy-4 gy-md-0">
                               <Col xs="auto">
                                 <div className="product-promotion-block">
                                   <div className="block-icon">
