@@ -12,11 +12,13 @@ import DefaultLayout from '../../../layouts/DefaultLayout';
 
 import InputArrowLeft from '../../../images/icons/input-arrow-left.svg';
 import InputArrowRight from '../../../images/icons/input-arrow-right.svg';
+import DeliveryIcon from '../../../images/icons/delivery.svg';
+
 import OrderModal from '../../../components/modals/OrderModal';
 import OrderForm from './components/OrderForm';
 
 
-export default function Product({data}) {
+export default function Product({ data }) {
   // swiper arrows
   const sliderRef = useRef();
 
@@ -143,6 +145,37 @@ export default function Product({data}) {
                             <p>
                               {data.Information.Description}
                             </p>
+                          </div>
+                          <div className="product-promotion">
+                            <Row className="gx-5">
+                              <Col xs="auto">
+                                <div className="product-promotion-block">
+                                  <div className="block-icon">
+                                    {
+                                      data.Safety.Icon.data && (
+                                        <Image src={strapiImage(data.Safety.Icon.data.attributes.url)} width={24}
+                                               height={24} alt="Fire Icon"/>
+                                      )
+                                    }
+                                  </div>
+                                  <div className="block-title">
+                                    Гарантія<br />
+                                    12 місяців
+                                  </div>
+                                </div>
+                              </Col>
+                              <Col xs="auto">
+                                <div className="product-promotion-block">
+                                  <div className="block-icon">
+                                    <Image src={DeliveryIcon} width={24} height={24} alt="Fire Icon"/>
+                                  </div>
+                                  <div className="block-title">
+                                    14 днів на<br />
+                                    повернення товару
+                                  </div>
+                                </div>
+                              </Col>
+                            </Row>
                           </div>
                           <div className="product-variations">
                             <div className="variations-title">

@@ -101,6 +101,35 @@ section.product {
       max-width: 540px;
     }
 
+    .product-promotion {
+      margin-top: 40px;
+
+      .product-promotion-block {
+        display: flex;
+        align-items: center;
+
+        .block-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          width: 48px;
+          height: 48px;
+
+          background: rgba($blue, 0.15);
+          border-radius: 10px;
+        }
+
+        .block-title {
+          margin-left: 15px;
+
+          font-size: 14px;
+          color: $blue;
+          font-weight: 500;
+        }
+      }
+    }
+
     .product-variations {
       margin-top: 40px;
 

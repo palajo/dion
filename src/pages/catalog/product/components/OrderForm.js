@@ -73,6 +73,7 @@ function OrderForm({ product }) {
             quantity: values.quantity,
           }, 'user_ba47DZoCxBAsJimzfB4a2');
         }}
+        enableReinitialize
       >
         {({
             values,

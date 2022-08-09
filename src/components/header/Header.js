@@ -75,12 +75,17 @@ function Header() {
               <CallbackModal buttonTitle="Зворотній виклик" />
             </Col>
             <Col xs={6} className="d-xl-none">
-              <Row className="justify-content-end">
+              <Row className="justify-content-end align-items-center">
                 <Col xs="auto">
                   <button className={`burgermenu-toggler ${isBurgermenuOpen && 'active'}`} onClick={() => handleOpen()}>
-                    <span className="line"></span>
-                    <span className="line"></span>
-                    <span className="line"></span>
+                    <span className="title">
+                      Меню
+                    </span>
+                    <span className="lines">
+                      <span className="line"></span>
+                      <span className="line"></span>
+                      <span className="line"></span>
+                    </span>
                   </button>
                 </Col>
               </Row>

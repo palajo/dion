@@ -26,39 +26,54 @@ header {
 
 .burgermenu-toggler {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
 
   border: 0;
   outline: 0;
   background: none;
 
-  .line {
-    display: block;
+  .title {
+    margin-right: 15px;
 
-    width: 36px;
-    height: 3px;
-
-    border-radius: 5px;
-    background: $blue;
-
-    margin: 3px 0;
-
-    transition: 0.3s ease;
-
-    &:nth-child(2) {
-      width: 30px;
-    }
-
-    &:nth-child(3) {
-      width: 24px;
-    }
+    color: $gray;
   }
 
-  &.active {
+  .lines {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+
     .line {
+      display: block;
+
       width: 36px;
+      height: 3px;
+
+      border-radius: 5px;
+      background: $blue;
+
+      margin: 3px 0;
+
+      transition: 0.3s ease;
+
+      &:nth-child(2) {
+        width: 30px;
+      }
+
+      &:nth-child(3) {
+        width: 24px;
+      }
+    }
+
+  }
+
+
+  &.active {
+    .lines {
+      .line {
+        width: 36px;
+      }
     }
   }
 
