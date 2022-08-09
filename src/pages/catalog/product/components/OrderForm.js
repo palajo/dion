@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { headers } from '../../../../api';
 import emailjs from 'emailjs-com';
+import Router from 'next/router';
 
 function OrderForm({ product }) {
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -55,7 +56,8 @@ function OrderForm({ product }) {
               setSubmitSuccess(true);
               setTimeout(() => {
                 setSubmitSuccess(false);
-              }, 10000);
+                Router.push('/thank-you');
+              }, 2000);
             })
             .catch((err) => {
               console.log(err);

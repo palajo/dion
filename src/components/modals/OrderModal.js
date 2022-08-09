@@ -9,6 +9,7 @@ import { headers } from '../../api';
 import InputMask from 'react-input-mask';
 import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
+import Router from 'next/router';
 
 function OrderModal({ product, buttonTitle }) {
   const [show, setShow] = useState(false);
@@ -66,7 +67,8 @@ function OrderModal({ product, buttonTitle }) {
                   setSubmitSuccess(true);
                   setTimeout(() => {
                     setSubmitSuccess(false);
-                  }, 10000);
+                    Router.push('/thank-you');
+                  }, 2000);
                 })
                 .catch((err) => {
                   console.log(err);
