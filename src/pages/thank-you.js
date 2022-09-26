@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 
 import Head from 'next/head';
 import DefaultLayout from '../layouts/DefaultLayout';
@@ -23,6 +23,13 @@ export default function ThankYou({ data }) {
   const handleNext = useCallback(() => {
     if (!sliderRef.current) return;
     sliderRef.current.swiper.slideNext();
+  }, []);
+
+  useEffect(() => {
+    window.gtag('event', 'page_view', {
+      event_category: 'ecommerce',
+      event_label: 'purchase',
+    });
   }, []);
 
   return (

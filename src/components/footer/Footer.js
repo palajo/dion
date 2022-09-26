@@ -17,12 +17,6 @@ function Footer() {
     window.gtag('config', 'G-CVME35P22W', {
       page_path: url,
     });
-
-    window.gtag('event', action, {
-      event_category: category,
-      event_label: label,
-      value: value,
-    });
   };
 
   useEffect(() => {
