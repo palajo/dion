@@ -138,15 +138,15 @@ export default function Catalog({ data }) {
             <CategorySection category={category} categoryIndex={categoryIndex} key={categoryIndex} />
           ))
         }
-        <Script strategy="lazyOnload" id="gtag-catalog">
-          {`
+      </DefaultLayout>
+      <Script strategy="lazyOnload" id="gtag-catalog">
+        {`
             gtag('event', 'page_view', {
               event_category: 'general',
               event_label: 'catalog',
             });
           `}
-        </Script>
-      </DefaultLayout>
+      </Script>
     </>
   );
 }
