@@ -11,6 +11,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import InputArrowLeft from '../../images/icons/input-arrow-left-blue.svg';
 import InputArrowRight from '../../images/icons/input-arrow-right-blue.svg';
 import React, { useCallback, useEffect, useRef } from 'react';
+import Script from 'next/script';
 
 const CategorySection = ({ category, categoryIndex }) => {
   // swiper arrows
@@ -24,13 +25,6 @@ const CategorySection = ({ category, categoryIndex }) => {
   const handleNext = useCallback(() => {
     if (!sliderRef.current) return;
     sliderRef.current.swiper.slideNext();
-  }, []);
-
-  useEffect(() => {
-    window.gtag('event', 'page_view', {
-      event_category: 'general',
-      event_label: 'catalog',
-    });
   }, []);
 
   return (
@@ -144,6 +138,14 @@ export default function Catalog({ data }) {
             <CategorySection category={category} categoryIndex={categoryIndex} key={categoryIndex} />
           ))
         }
+        <Script strategy="lazyOnload" id="gtag-catalog">
+          {`
+            gtag('event', 'page_view', {
+              event_category: 'general',
+              event_label: 'catalog',
+            });
+          `}
+        </Script>
       </DefaultLayout>
     </>
   );

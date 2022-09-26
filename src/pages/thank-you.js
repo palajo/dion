@@ -10,6 +10,7 @@ import InputArrowLeft from '../images/icons/input-arrow-left-blue.svg';
 import InputArrowRight from '../images/icons/input-arrow-right-blue.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import CallbackForm from '../components/forms/CallbackForm';
+import Script from 'next/script';
 
 export default function ThankYou({ data }) {
   // swiper arrows
@@ -23,13 +24,6 @@ export default function ThankYou({ data }) {
   const handleNext = useCallback(() => {
     if (!sliderRef.current) return;
     sliderRef.current.swiper.slideNext();
-  }, []);
-
-  useEffect(() => {
-    window.gtag('event', 'page_view', {
-      event_category: 'ecommerce',
-      event_label: 'purchase',
-    });
   }, []);
 
   return (
@@ -202,6 +196,14 @@ export default function ThankYou({ data }) {
             </Row>
           </Container>
         </section>
+        <Script strategy="lazyOnload" id="gtag-purchase">
+          {`
+            gtag('event', 'page_view', {
+              event_category: 'ecommerce',
+              event_label: 'purchase',
+            });
+          `}
+        </Script>
       </DefaultLayout>
     </>
   );
