@@ -197,14 +197,6 @@ export default function ThankYou({ data }) {
           </Container>
         </section>
       </DefaultLayout>
-      <Script strategy="lazyOnload" id="gtag-purchase">
-        {`
-            gtag('event', 'page_view', {
-              event_category: 'ecommerce',
-              event_label: 'purchase',
-            });
-          `}
-      </Script>
     </>
   );
 }
