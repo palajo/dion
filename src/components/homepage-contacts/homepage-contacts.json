@@ -1,7 +1,8 @@
 {
   "collectionName": "components_homepage_contacts_homepage_contacts",
   "info": {
-    "displayName": "HomepageContacts"
+    "displayName": "HomepageContacts",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,17 +10,26 @@
       "type": "string"
     },
     "Icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Value": {
       "type": "string"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "phone",
+        "email",
+        "string"
+      ]
     }
   }
 }
