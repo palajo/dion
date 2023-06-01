@@ -10,6 +10,7 @@ import axios from 'axios';
 import { headers } from '../../../../api';
 import emailjs from 'emailjs-com';
 import Router from 'next/router';
+import { event } from 'nextjs-google-analytics';
 
 function OrderForm({ product }) {
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -54,10 +55,16 @@ function OrderForm({ product }) {
           axios.post(`https://api.dion.lviv.ua/api/orders`, { data: payload }, { headers: headers })
             .then((res) => {
               setSubmitSuccess(true);
+
+              event('purchase', {
+                category: 'purchase',
+                label: 'lead made a purchase',
+              });
+
               setTimeout(() => {
                 setSubmitSuccess(false);
                 Router.push('/thank-you');
-              }, 2000);
+              }, 3000);
             })
             .catch((err) => {
               console.log(err);
@@ -71,7 +78,7 @@ function OrderForm({ product }) {
             address: values.address,
             price: values.price,
             quantity: values.quantity,
-          }, 'user_ba47DZoCxBAsJimzfB4a2');
+          }, 'user_ba47DZoCxBAsJimzfB4a2')
         }}
         enableReinitialize
       >

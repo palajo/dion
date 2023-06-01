@@ -6,6 +6,7 @@ import { headers } from '../../api';
 import { Col, Row } from 'react-bootstrap';
 import InputMask from 'react-input-mask';
 import emailjs from 'emailjs-com';
+import { event } from 'nextjs-google-analytics';
 
 function CallbackForm() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -33,6 +34,12 @@ function CallbackForm() {
         axios.post(`https://api.dion.lviv.ua/api/callback-forms`, { data: payload }, { headers: headers })
           .then((res) => {
             setSubmitSuccess(true);
+
+            event('callback', {
+              category: 'callback',
+              label: 'lead asked for a callback',
+            });
+
             setTimeout(() => {
               setSubmitSuccess(false);
             }, 10000);

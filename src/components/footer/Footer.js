@@ -1,5 +1,4 @@
-import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
@@ -11,21 +10,6 @@ import PhoneIcon from '../../images/icons/phone.svg';
 import EmailIcon from '../../images/icons/email.svg';
 
 function Footer() {
-  const router = useRouter();
-
-  const handleRouteChange = (url, action, category, label, value) => {
-    window.gtag('config', 'G-CVME35P22W', {
-      page_path: url,
-    });
-  };
-
-  useEffect(() => {
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
-
   return (
     <>
       <footer>
@@ -91,15 +75,6 @@ function Footer() {
           </Row>
         </Container>
       </footer>
-      <Script strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-CVME35P22W" />
-      <Script strategy="lazyOnload" id="gtag">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-CVME35P22W', { page_path: window.location.pathname });
-        `}
-      </Script>
     </>
   );
 }
