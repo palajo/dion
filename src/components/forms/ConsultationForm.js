@@ -119,7 +119,7 @@ function ConsultationForm() {
               </div>
             </Col>
             <Col xs={12}>
-              <button className={`btn btn-primary ${submitSuccess && 'disabled'}`} type="submit">
+              <button className={`btn btn-primary ${isSubmitting && 'disabled'} ${submitSuccess && 'disabled'}`} type="submit">
                 Надіслати запит
               </button>
             </Col>
