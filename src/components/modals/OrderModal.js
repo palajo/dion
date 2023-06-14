@@ -10,6 +10,7 @@ import InputMask from 'react-input-mask';
 import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
 import Router from 'next/router';
+import { event } from 'nextjs-google-analytics';
 
 function OrderModal({ product, buttonTitle }) {
   const [show, setShow] = useState(false);
@@ -33,6 +34,7 @@ function OrderModal({ product, buttonTitle }) {
           <Formik
             initialValues={{
               name: '',
+              surname: '',
               phone: '',
               address: '',
               price: product.Price,
@@ -40,9 +42,8 @@ function OrderModal({ product, buttonTitle }) {
             }}
             validationSchema={
               Yup.object().shape({
-                name: Yup.string().required(`Обов'язкове поле`).test(`fullname`, `Введіть повне ім'я`, (value) => {
-                  return value && value.split(' ').length === 3
-                }),
+                name: Yup.string().required(`Обов'язкове поле`),
+                surname: Yup.string().required(`Обов'язкове поле`),
                 phone: Yup.string().required(`Обов'язкове поле`),
                 address: Yup.string().required(`Обов'язкове поле`),
               })
@@ -51,7 +52,7 @@ function OrderModal({ product, buttonTitle }) {
               const title = `${product.Model}, ${product.Title}`;
 
               const payload = {
-                FullName: values.name,
+                FullName: `${values.name} ${values.surname}`,
                 Phone: values.phone,
                 Address: values.address,
                 OrderItem: {
@@ -65,17 +66,23 @@ function OrderModal({ product, buttonTitle }) {
               axios.post(`https://api.dion.lviv.ua/api/orders`, { data: payload }, { headers: headers })
                 .then((res) => {
                   setSubmitSuccess(true);
+
+                  event('purchase', {
+                    category: 'purchase',
+                    label: 'lead made a purchase',
+                  });
+
                   setTimeout(() => {
                     setSubmitSuccess(false);
                     Router.push('/thank-you');
-                  }, 2000);
+                  }, 3000);
                 })
                 .catch((err) => {
                   console.log(err);
                 });
 
               emailjs.send('service_drwt285','template_ZafBMqCA',{
-                full_name: values.name,
+                full_name: `${values.name} ${values.surname}`,
                 product_title: title,
                 total_price: values.quantity * values.price,
                 phone: values.phone,
@@ -99,21 +106,38 @@ function OrderModal({ product, buttonTitle }) {
               }) => (
               <form onSubmit={handleSubmit}>
                 <Row className="gy-4">
-                  <Col xs={12}>
+                  <Col xs={6}>
                     <label htmlFor="name" className="form-label required">
-                      Повне ім&quot;я
+                      Ім&quot;я
                     </label>
                     <input
                       type="text"
                       className="form-control"
                       name="name"
-                      placeholder="Олександр Іванович Тищенко"
+                      placeholder="Олексій.."
                       onChange={handleChange}
                       onBlur={handleBlur}
                       value={values.name}
                     />
                     <div className="form-error">
                       {errors.name && touched.name && errors.name}
+                    </div>
+                  </Col>
+                  <Col xs={6}>
+                    <label htmlFor="surname" className="form-label required">
+                      Призвіще
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="surname"
+                      placeholder="Павлович.."
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.surname}
+                    />
+                    <div className="form-error">
+                      {errors.surname && touched.surname && errors.surname}
                     </div>
                   </Col>
                   <Col xs={12}>
@@ -142,7 +166,7 @@ function OrderModal({ product, buttonTitle }) {
                       type="text"
                       className="form-control"
                       name="address"
-                      placeholder="м. Львів, Відділення №64"
+                      placeholder="м. Львів, Відділення №64.."
                       onChange={handleChange}
                       onBlur={handleBlur}
                       value={values.address}
