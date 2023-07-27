@@ -125,7 +125,7 @@ export default function Catalog({ data }) {
         <section className="hero-banner">
           <Container>
             <Row className="justify-content-center">
-              <Col xl={10} xxl={8} className="text-center">
+              <Col xl={12} xxl={10} className="text-center">
                 <h1 dangerouslySetInnerHTML={{__html: data.HeroBanner.Title}} />
                 <p dangerouslySetInnerHTML={{__html: data.HeroBanner.Description}} />
                 <ConsultationModal buttonTitle={data.HeroBanner.ButtonTitle} />

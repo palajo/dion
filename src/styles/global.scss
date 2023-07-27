@@ -10,53 +10,66 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.75;
   color: $darkgray;
-
+  white-space: pre-line;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
 }
 
 // h1, h2, h3, h4, h5, p, b
+h1, h2, h3, h4, h5 {
+  span {
+    display: inline-block;
+    color: $blue;
+  }
+}
+
 h1 {
-  font-size: 72px;
-  line-height: 1.15;
+  font-size: 64px;
+  line-height: 1.35;
   font-weight: 700;
   color: $black;
 }
 
 h2 {
-  font-size: 54px;
-  line-height: 1.5;
+  font-size: 48px;
+  line-height: 1.35;
   font-weight: 700;
   color: $black;
 }
 
 h3 {
   font-size: 36px;
-  line-height: 1.5;
-  font-weight: 500;
+  line-height: 1.45;
+  font-weight: 700;
   color: $black;
 }
 
 h4 {
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.45;
+  font-weight: 600;
   color: $black;
 }
 
-h1, h2, h3, h4 {
+h5 {
+  font-size: 24px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: $black;
+}
+
+h1, h2, h3, h4, h5 {
   &:last-child {
     margin-bottom: 0;
   }
 }
 
 p {
-  font-size: 16px;
-  line-height: 1.5;
-  color: inherit;
+  font-size: 18px;
+  line-height: 2;
 
   &:last-child {
     margin-bottom: 0;
@@ -77,13 +90,12 @@ a {
 
 // button
 .btn {
-  border-radius: 15px;
+  border-radius: 10px;
 
-  padding: 0 20px;
-  height: 50px;
+  padding: 15px 30px;
 
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
 
   border-color: transparent;
 }
@@ -95,6 +107,19 @@ a {
   &:hover {
     background: $blueHover;
   }
+
+}
+
+.btn-outlined {
+  border-color: $blue;
+  background: transparent;
+  color: $blue;
+
+  &:hover {
+    background: $blueHover;
+    color: $white;
+  }
+
 }
 
 
@@ -127,34 +152,38 @@ a {
 
 @media screen and (max-width: 767px) {
   body {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   // h1, h2, h3, h4, h5, p, b
   h1 {
-    font-size: 36px;
+    font-size: 42px;
   }
 
   h2 {
-    font-size: 30px;
+    font-size: 32px;
   }
 
   h3 {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   h4 {
-    font-size: 18px;
+    font-size: 24px;
+  }
+
+  h5 {
+    font-size: 20px;
   }
 
   p {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   body {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   // h1, h2, h3, h4, h5, p, b
@@ -175,6 +204,6 @@ a {
   }
 
   p {
-    font-size: 16px;
+    font-size: 18px;
   }
 }

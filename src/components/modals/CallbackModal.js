@@ -10,7 +10,7 @@ function CallbackModal({ buttonTitle }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="outlined" onClick={handleShow}>
         {buttonTitle}
       </Button>
       <Modal show={show} onHide={handleClose} centered>

@@ -22,17 +22,17 @@ export default function Contacts({ data }) {
         <section className="contacts">
           <Container>
             <Row className="gx-xl-5 gy-5 gy-xl-0">
-              <Col xl={8}>
+              <Col xl={7}>
                 <div className="frame-block h-100">
-                  <Row className="h-100 gy-5 gy-xxl-0">
-                    <Col xl={6}>
+                  <Row className="gy-5 gy-xxl-0">
+                    <Col xs={12}>
                       <h3>
                         {data.ContactsSection.Title}
                       </h3>
                       <Row className="gy-4">
                         {
                           data.ContactsSection.Contacts.map((contact, contactIndex) => (
-                            <Col xs={12} key={contactIndex}>
+                            <Col lg={6} key={contactIndex}>
                               <div className="contact-block">
                                 <div className="block-title">
                                   {contact.Label}
@@ -53,7 +53,7 @@ export default function Contacts({ data }) {
                         }
                       </Row>
                     </Col>
-                    <Col xl={6} className="h-100">
+                    <Col xs={12}>
                       <div className="map-block">
                         <iframe
                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.457310669429!2d23.988310315883016!3d49.852653738137874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add95b7309467%3A0xb1954af61f9b389f!2z0LLRg9C70LjRhtGPINCc0L7RgNC40L3QtdGG0YzQutCwLCDQm9GM0LLRltCyLCDQm9GM0LLRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1sru!2sua!4v1658936612130!5m2!1sru!2sua"
@@ -66,7 +66,7 @@ export default function Contacts({ data }) {
                   </Row>
                 </div>
               </Col>
-              <Col xl={4}>
+              <Col xl={5}>
                 <div className="frame-block">
                   <h3>
                     {data.Form.Title}

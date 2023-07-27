@@ -39,7 +39,7 @@ export default function Home({ data }) {
         <section className="hero-banner">
           <Container>
             <Row className="justify-content-center">
-              <Col xl={10} xxl={8} className="text-center">
+              <Col xl={12} xxl={12} className="text-center">
                 <h1 dangerouslySetInnerHTML={{__html: data.HeroBanner.Title}} />
                 <p dangerouslySetInnerHTML={{__html: data.HeroBanner.Description}} />
                 <Link href="/catalog">
@@ -58,7 +58,7 @@ export default function Home({ data }) {
                 <Row className="justify-content-between">
                   <Col xs="auto">
                     <div className="title-with-icon">
-                      <div className="icon">
+                      <div className="icon d-none">
                         <Image src={strapiImage(data.PopularProducts.Icon.data.attributes.url)} width={18} height={18} alt="Fire Icon" />
                       </div>
                       <h4 className="title">
@@ -141,7 +141,7 @@ export default function Home({ data }) {
                 </h3>
                 <p dangerouslySetInnerHTML={{__html: data.ProductBenefits.Description}} />
               </Col>
-              <Col md={10} lg={12} xxl={8}>
+              <Col md={12} lg={12} xxl={10}>
                 <div className="row g-4">
                   {
                     data.ProductBenefits.Benefits.map((benefit, benefitIndex) => (
@@ -151,12 +151,12 @@ export default function Home({ data }) {
                             <Image src={strapiImage(benefit.Icon.data.attributes.url)} layout="fixed" width={48} height={48} alt="Fire Icon" />
                           </div>
                           <div className="block-content">
-                            <div className="block-title">
+                            <h5>
                               {benefit.Title}
-                            </div>
-                            <div className="block-description">
+                            </h5>
+                            <p>
                               {benefit.Description}
-                            </div>
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -238,17 +238,17 @@ export default function Home({ data }) {
         <section className="contacts">
           <Container>
             <Row className="gx-xl-4 gx-xxl-5 gy-5">
-              <Col xl={7} xxl={8}>
+              <Col xl={6} xxl={7}>
                 <div className="frame-block h-100">
                   <Row className="h-100 gy-5 gy-xxl-0">
-                    <Col xxl={6}>
+                    <Col xs={12}>
                       <h3>
                         {data.Contacts.Title}
                       </h3>
                       <Row className="gy-4">
                         {
                           data.Contacts.Contacts.map((contact, contactIndex) => (
-                            <Col xs={12} key={contactIndex}>
+                            <Col lg={6} key={contactIndex}>
                               <div className="contact-block">
                                 <div className="block-title">
                                   {contact.Label}
@@ -269,7 +269,7 @@ export default function Home({ data }) {
                         }
                       </Row>
                     </Col>
-                    <Col xxl={6}>
+                    <Col xs={12}>
                       <div className="map-block">
                         <iframe
                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.457310669429!2d23.988310315883016!3d49.852653738137874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add95b7309467%3A0xb1954af61f9b389f!2z0LLRg9C70LjRhtGPINCc0L7RgNC40L3QtdGG0YzQutCwLCDQm9GM0LLRltCyLCDQm9GM0LLRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1sru!2sua!4v1658936612130!5m2!1sru!2sua"
@@ -282,7 +282,7 @@ export default function Home({ data }) {
                   </Row>
                 </div>
               </Col>
-              <Col xl={5} xxl={4}>
+              <Col xl={6} xxl={5}>
                 <div className="frame-block">
                   <h3>
                     {data.Form.Title}

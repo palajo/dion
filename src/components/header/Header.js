@@ -8,6 +8,7 @@ import CallbackModal from '../modals/CallbackModal';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import Burgermenu from './components/Burgermenu';
 import { useState } from 'react';
+import ConsultationModal from "../modals/ConsultationModal.js";
 
 
 function Header() {
@@ -72,7 +73,7 @@ function Header() {
               </ul>
             </Col>
             <Col xs={3} className="d-none d-xl-block text-end">
-              <CallbackModal buttonTitle="Зворотній виклик" />
+              <ConsultationModal buttonTitle="Безкоштовна Консультація" buttonVariant="outlined" />
             </Col>
             <Col xs={6} className="d-xl-none">
               <Row className="justify-content-end align-items-center">

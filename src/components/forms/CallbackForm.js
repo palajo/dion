@@ -120,7 +120,7 @@ function CallbackForm() {
             </Col>
             <Col xs={12}>
               <button className={`btn btn-primary ${isSubmitting && 'disabled'} ${submitSuccess && 'disabled'}`} type="submit">
-                Надіслати запит
+                  Безкоштовна Консультація
               </button>
             </Col>
             {
