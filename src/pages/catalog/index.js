@@ -136,7 +136,7 @@ export default function Catalog({ data }) {
               <Col xl={12} xxl={10} className="text-center">
                 <h1 dangerouslySetInnerHTML={{__html: data.HeroBanner.Title}} />
                 <p dangerouslySetInnerHTML={{__html: data.HeroBanner.Description}} />
-                <ConsultationModal buttonTitle={data.HeroBanner.ButtonTitle} buttonVariant="outlined" />
+                <ConsultationModal buttonTitle={data.HeroBanner.ButtonTitle} />
               </Col>
             </Row>
           </Container>
