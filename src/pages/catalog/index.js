@@ -70,6 +70,20 @@ const CategorySection = ({ category, categoryIndex }) => {
                           {product.attributes.Price} грн
                         </div>
                       </div>
+                      <div className="block-headlines">
+                        <Row className="gx-2">
+                          <Col xs="auto">
+                            <div className="product-headline">
+                              {product.attributes.Information.Type}
+                            </div>
+                          </Col>
+                          <Col xs="auto">
+                            <div className="product-headline">
+                              {product.attributes.Information.Volume}
+                            </div>
+                          </Col>
+                        </Row>
+                      </div>
                     </div>
                   </Col>
                 ))

@@ -21,6 +21,7 @@ export const HomepageConfig = {
     'populate[1]': 'PopularProducts',
     'populate[2]': 'PopularProducts.Icon',
     'populate[3]': 'PopularProducts.Products.FeaturedImage',
+    'populate[31]': 'PopularProducts.Products.Information',
     'populate[4]': 'ProductBenefits',
     'populate[5]': 'ProductBenefits.Benefits.Icon',
     'populate[6]': 'Slider',
@@ -54,6 +55,7 @@ export const CatalogConfig = {
     'populate[0]=': 'HeroBanner',
     'populate[1]': 'Category.Icon',
     'populate[2]': 'Category.Products.FeaturedImage',
+    'populate[3]': 'Category.Products.Information',
   }
 }
 
