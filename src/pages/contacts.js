@@ -5,7 +5,7 @@ import Link from 'next/link';
 import DefaultLayout from '../layouts/DefaultLayout';
 
 import { ContactsConfig, fetchContent, strapiImage } from '../api';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import React from 'react';
 import CallbackForm from '../components/forms/CallbackForm';
 

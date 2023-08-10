@@ -10,8 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Col, Container, Row } from 'react-bootstrap';
 import InputArrowLeft from '../../images/icons/input-arrow-left-blue.svg';
 import InputArrowRight from '../../images/icons/input-arrow-right-blue.svg';
-import React, { useCallback, useEffect, useRef } from 'react';
-import Script from 'next/script';
+import React, { useCallback, useRef } from 'react';
 
 const CategorySection = ({ category, categoryIndex }) => {
   // swiper arrows
@@ -32,7 +31,7 @@ const CategorySection = ({ category, categoryIndex }) => {
       <Container>
         <Row>
           <Col xs={12} className="pb-4">
-            <Row className="justify-content-between">
+            <Row className="justify-content-center justify-content-md-start">
               <Col xs="auto">
                 <div className="title-with-icon">
                   <div className="icon">
@@ -43,48 +42,19 @@ const CategorySection = ({ category, categoryIndex }) => {
                   </h4>
                 </div>
               </Col>
-              <Col xs="auto">
-                <div className="products-slider-arrows">
-                  <div className="arrow-button" onClick={handlePrev}>
-                    <Image src={InputArrowLeft} alt="Arrow Left Icon"/>
-                  </div>
-                  <div className="arrow-button" onClick={handleNext}>
-                    <Image src={InputArrowRight} alt="Arrow Right Icon"/>
-                  </div>
-                </div>
-              </Col>
             </Row>
           </Col>
           <Col xs={12}>
-            <Swiper
-              ref={sliderRef}
-              spaceBetween={24}
-              slidesPerView={1.5}
-              speed={800}
-              breakpoints={{
-                768: {
-                  slidesPerView: 2,
-                },
-                1080: {
-                  slidesPerView: 3,
-                },
-                1440: {
-                  slidesPerView: 4,
-                },
-                1680: {
-                  slidesPerView: 5,
-                },
-              }}
-              className="products-slider"
-            >
+            <Row className="justify-content-center justify-content-md-start gy-4">
               {
                 category.Products.data.map((product, productIndex) => (
-                  <SwiperSlide key={productIndex}>
+                  <Col xs={12} md={6} lg={4} xl={3} xxl key={productIndex}>
                     <div className="product-block">
                       <div className="block-image">
                         <Link href={`/catalog/product/${product.id}`}>
                           <a>
-                            <Image src={strapiImage(product.attributes.FeaturedImage.data.attributes.url)} width={180} height={300} alt="Waterheater Index" />
+                            <Image src={strapiImage(product.attributes.FeaturedImage.data.attributes.url)}
+                                   width={180} height={300} alt="Waterheater Index"/>
                           </a>
                         </Link>
                       </div>
@@ -101,10 +71,10 @@ const CategorySection = ({ category, categoryIndex }) => {
                         </div>
                       </div>
                     </div>
-                  </SwiperSlide>
+                  </Col>
                 ))
               }
-            </Swiper>
+            </Row>
           </Col>
         </Row>
       </Container>

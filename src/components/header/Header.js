@@ -3,12 +3,11 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 import Logo from '../../images/logo.svg';
-import CallbackModal from '../modals/CallbackModal';
 
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import Burgermenu from './components/Burgermenu';
 import { useState } from 'react';
-import ConsultationModal from "../modals/ConsultationModal.js";
+import ConsultationModal from '../modals/ConsultationModal.js';
 
 
 function Header() {
@@ -26,14 +25,16 @@ function Header() {
       <header>
         <Container>
           <Row className="justify-content-between align-items-center">
-            <Col xs={6} xl={3}>
-              <Link href="/">
-                <a>
-                  <Image src={Logo} alt="Dion - газові водонагрівачі"/>
-                </a>
-              </Link>
+            <Col xs={6} xl="auto">
+              <div className="logo">
+                <Link href="/">
+                  <a className="d-flex">
+                    <Image src={Logo} alt="Dion - газові водонагрівачі"/>
+                  </a>
+                </Link>
+              </div>
             </Col>
-            <Col xs={6} className="d-none d-xl-block">
+            <Col xs={6} xl="auto" className="d-none d-xl-block">
               <ul className="nav justify-content-center">
                 <li className="nav-item">
                   <Link href="/">
@@ -72,7 +73,7 @@ function Header() {
                 </li>
               </ul>
             </Col>
-            <Col xs={3} className="d-none d-xl-block text-end">
+            <Col xs={3} xl="auto" className="d-none d-xl-block text-end">
               <ConsultationModal buttonTitle="Безкоштовна Консультація" buttonVariant="outlined" />
             </Col>
             <Col xs={6} className="d-xl-none">

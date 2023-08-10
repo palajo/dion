@@ -1,5 +1,4 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Head from 'next/head';
 import Link from 'next/link';
@@ -9,9 +8,6 @@ import { fetchContent, ProductConfig, strapiImage } from '../../../api';
 import { Col, Container, Row } from 'react-bootstrap';
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
-
-import InputArrowLeft from '../../../images/icons/input-arrow-left.svg';
-import InputArrowRight from '../../../images/icons/input-arrow-right.svg';
 import DeliveryIcon from '../../../images/icons/delivery.svg';
 
 import OrderModal from '../../../components/modals/OrderModal';
@@ -294,7 +290,7 @@ export default function Product({ data }) {
                   </Col>
                 </Row>
               </Col>
-              <Col xl={4} xxl={3} className="d-none d-xl-block">
+              <Col xl={4} xxl={4} className="d-none d-xl-block">
                 <OrderForm product={data.Information}/>
               </Col>
             </Row>

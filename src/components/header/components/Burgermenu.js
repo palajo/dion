@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import CloseIcon from '../../../images/icons/close.svg';
-import CallbackModal from '../../modals/CallbackModal';
+import ConsultationModal from '../../modals/ConsultationModal.js';
 
 function Burgermenu({ isBurgermenuOpen, setIsBurgermenuOpen }) {
   const router = useRouter();
@@ -62,7 +62,7 @@ function Burgermenu({ isBurgermenuOpen, setIsBurgermenuOpen }) {
             </ul>
           </div>
           <div>
-            <CallbackModal buttonTitle="Зворотній виклик" />
+            <ConsultationModal buttonTitle="Безкоштовна консультація" />
             <p className="copyright mt-5">
               © Copyright 2022 — DION. All rights Reserved.
             </p>

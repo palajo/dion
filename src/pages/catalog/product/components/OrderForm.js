@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 import { Col, Row } from 'react-bootstrap';
 import Image from 'next/image';
@@ -94,8 +94,8 @@ function OrderForm({ product }) {
             /* and other goodies */
           }) => (
           <form onSubmit={handleSubmit}>
-            <Row className="gy-4">
-              <Col xs={6}>
+            <Row className="gy-3">
+              <Col xs={12}>
                 <label htmlFor="name" className="form-label required">
                   Ім&quot;я
                 </label>
@@ -112,7 +112,7 @@ function OrderForm({ product }) {
                   {errors.name && touched.name && errors.name}
                 </div>
               </Col>
-              <Col xs={6}>
+              <Col xs={12}>
                 <label htmlFor="name" className="form-label required">
                   Призвіще
                 </label>

@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Col, Modal, Row } from 'react-bootstrap';
-import { Formik } from 'formik';
-import axios from 'axios';
-import { headers } from '../../api';
-import InputMask from 'react-input-mask';
-import * as Yup from 'yup';
+import { Button, Modal } from 'react-bootstrap';
 import ConsultationForm from '../forms/ConsultationForm';
 
 function HelpModal({ buttonTitle }) {

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 
 import Head from 'next/head';
 import DefaultLayout from '../layouts/DefaultLayout';
@@ -10,7 +10,6 @@ import InputArrowLeft from '../images/icons/input-arrow-left-blue.svg';
 import InputArrowRight from '../images/icons/input-arrow-right-blue.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import CallbackForm from '../components/forms/CallbackForm';
-import Script from 'next/script';
 
 export default function ThankYou({ data }) {
   // swiper arrows

@@ -1,5 +1,6 @@
 header {
   padding: 30px 0;
+  border-bottom: 1px solid $lightgray;
 
   ul.nav {
     li.nav-item {
@@ -34,8 +35,8 @@ header {
 
   .title {
     margin-right: 15px;
-
-    color: $gray;
+    font-size: 14px;
+    color: $black;
   }
 
   .lines {
@@ -47,7 +48,7 @@ header {
     .line {
       display: block;
 
-      width: 36px;
+      width: 26px;
       height: 3px;
 
       border-radius: 5px;
@@ -56,14 +57,6 @@ header {
       margin: 3px 0;
 
       transition: 0.3s ease;
-
-      &:nth-child(2) {
-        width: 30px;
-      }
-
-      &:nth-child(3) {
-        width: 24px;
-      }
     }
 
   }
@@ -193,6 +186,13 @@ header {
 
 @media screen and (max-width: 767px) {
   header {
-    padding: 20px 0;
+    padding: 25px 0;
+
+    .logo {
+      img {
+        height: 34px !important;
+        width: auto;
+      }
+    }
   }
 }
