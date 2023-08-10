@@ -85,8 +85,8 @@ export default function Product({ data }) {
         </section>
         <section className="product">
           <Container>
-            <Row className="justify-content-between">
-              <Col lg={12} xl={8} xxl={9}>
+            <Row className="justify-content-between gx-0">
+              <Col lg={12} xxl={9}>
                 <Row className="gx-xl-5">
                   <Col lg={5} xl="auto">
                     <div className="product-gallery">
@@ -143,7 +143,7 @@ export default function Product({ data }) {
                             </p>
                           </div>
                           <div className="product-promotion">
-                            <Row className="gx-md-5 gy-4 gy-md-0">
+                            <Row className="gx-md-5 gy-4">
                               <Col xs="auto">
                                 <div className="product-promotion-block">
                                   <div className="block-icon">
@@ -195,13 +195,13 @@ export default function Product({ data }) {
                               }
                             </div>
                           </div>
-                          <Row className="align-items-center product-price-action">
-                            <Col xs="auto" className="d-xl-none">
-                              <div className="product-purchase d-xl-none">
+                          <Row className="align-items-center product-price-action gy-4">
+                            <Col xs="auto" className="d-xxl-none order-1 order-md-0">
+                              <div className="product-purchase">
                                 <OrderModal product={data.Information} buttonTitle="Оформити замовлення"/>
                               </div>
                             </Col>
-                            <Col xs="auto">
+                            <Col xs="auto order-0 order-md-1">
                               <div className="product-price">
                                 <div className="price-label">
                                   Вартість:
@@ -290,7 +290,7 @@ export default function Product({ data }) {
                   </Col>
                 </Row>
               </Col>
-              <Col xl={4} xxl={4} className="d-none d-xl-block">
+              <Col xxl={3} className="d-none d-xxl-block">
                 <OrderForm product={data.Information}/>
               </Col>
             </Row>

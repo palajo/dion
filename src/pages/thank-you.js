@@ -9,7 +9,7 @@ import Image from 'next/image';
 import InputArrowLeft from '../images/icons/input-arrow-left-blue.svg';
 import InputArrowRight from '../images/icons/input-arrow-right-blue.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import CallbackForm from '../components/forms/CallbackForm';
+import ConsultationForm from '../components/forms/ConsultationForm.js';
 
 export default function ThankYou({ data }) {
   // swiper arrows
@@ -108,7 +108,7 @@ export default function ThankYou({ data }) {
                     {data.Form.Title}
                   </h3>
                   <p dangerouslySetInnerHTML={{__html: data.Form.Description}} />
-                  <CallbackForm />
+                  <ConsultationForm />
                 </div>
               </Col>
             </Row>

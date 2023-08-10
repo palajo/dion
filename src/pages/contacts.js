@@ -7,7 +7,7 @@ import DefaultLayout from '../layouts/DefaultLayout';
 import { ContactsConfig, fetchContent, strapiImage } from '../api';
 import { Col, Container, Row } from 'react-bootstrap';
 import React from 'react';
-import CallbackForm from '../components/forms/CallbackForm';
+import ConsultationForm from '../components/forms/ConsultationForm.js';
 
 export default function Contacts({ data }) {
   return (
@@ -72,7 +72,7 @@ export default function Contacts({ data }) {
                     {data.Form.Title}
                   </h3>
                   <p dangerouslySetInnerHTML={{__html: data.Form.Description}} />
-                  <CallbackForm />
+                  <ConsultationForm />
                 </div>
               </Col>
             </Row>
