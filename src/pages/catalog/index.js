@@ -48,7 +48,7 @@ const CategorySection = ({ category, categoryIndex }) => {
             <Row className="justify-content-center justify-content-md-start gy-4">
               {
                 category.Products.data.map((product, productIndex) => (
-                  <Col xs={12} md={6} lg={4} xl={3} xxl key={productIndex}>
+                  <Col xs={12} md={6} lg={4} xl={3} key={productIndex}>
                     <div className="product-block">
                       <div className="block-image">
                         <Link href={`/catalog/product/${product.id}`}>
