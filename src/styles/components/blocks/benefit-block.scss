@@ -48,10 +48,14 @@ section.product-benefits {
 @media screen and (max-width: 767px) {
   .benefit-block {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 30px;
 
     padding: 30px;
+
+    .block-content {
+      margin-left: 0;
+    }
 
     &:hover {
       transform: none;
