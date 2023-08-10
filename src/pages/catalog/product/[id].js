@@ -90,7 +90,7 @@ export default function Product({ data }) {
                 <Row className="gx-xl-5">
                   <Col lg={5} xl="auto">
                     <div className="product-gallery">
-                      <div className="gallery-thumbnails">
+                      <div className="gallery-thumbnails d-none d-md-block">
                         {
                           data.Information.ImageGallery.data.map((image, index) => (
                             <div
