@@ -198,14 +198,14 @@ export default function Home({data}) {
                 <Row className="justify-content-center g-4">
                   {
                     data.AboutCompany.Statistics.map((statistics, statisticsIndex) => (
-                      <div className="col-8 col-md-auto" key={statisticsIndex}>
+                      <div className="col-6 col-md-auto" key={statisticsIndex}>
                         <div className="statistic-block">
                           <div className="block-icon">
                             <Image src={strapiImage(statistics.Icon.data.attributes.url)} layout="fixed" width={48}
                                    height={48} alt="Fire Icon"/>
                           </div>
                           <div className="block-content">
-                            <span>{statistics.Title}</span>
+                            <span>{statistics.Title} </span>
                             {statistics.Description}
                           </div>
                         </div>

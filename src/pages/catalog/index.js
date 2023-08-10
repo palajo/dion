@@ -106,13 +106,37 @@ export default function Catalog({ data }) {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <DefaultLayout>
-        <section className="hero-banner">
+        <section className="breadcrumbs">
+          <Container>
+            <Row>
+              <Col xs={12}>
+                <ul className="nav justify-content-center">
+                  <li className="nav-item">
+                    <Link href="/">
+                      <a className="nav-link">
+                        Головна
+                      </a>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link href="/catalog">
+                      <a className="nav-link">
+                        Каталог
+                      </a>
+                    </Link>
+                  </li>
+                </ul>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+        <section className="hero-banner pt-0">
           <Container>
             <Row className="justify-content-center">
               <Col xl={12} xxl={10} className="text-center">
                 <h1 dangerouslySetInnerHTML={{__html: data.HeroBanner.Title}} />
                 <p dangerouslySetInnerHTML={{__html: data.HeroBanner.Description}} />
-                <ConsultationModal buttonTitle={data.HeroBanner.ButtonTitle} />
+                <ConsultationModal buttonTitle={data.HeroBanner.ButtonTitle} buttonVariant="outlined" />
               </Col>
             </Row>
           </Container>
