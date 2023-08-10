@@ -2,6 +2,8 @@ import { GoogleAnalytics } from 'nextjs-google-analytics';
 
 import '../styles/styles.scss';
 import 'swiper/css';
+import 'swiper/css/grid';
+
 function MyApp({ Component, pageProps }) {
   return (
     <>

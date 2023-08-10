@@ -181,41 +181,21 @@ export default function Product({ data }) {
                             <div className="variations-title">
                               Інші товари з цієї категорії
                             </div>
-                            <div className="d-flex align-items-center">
-                              <Swiper
-                                ref={sliderRef}
-                                spaceBetween={15}
-                                slidesPerView={3}
-                                speed={800}
-                                className="variations-slider"
-                              >
-                                {
-                                  data.Information.RelatedProducts.data.map((product, productIndex) => (
-                                    <SwiperSlide key={productIndex}>
-                                      <Link href={`/catalog/product/${product.id}`}>
-                                        <div className="variation-block">
-                                          <div className="block-image">
-                                            <Image
+                            <div className="row gy-4">
+                              {
+                                data.Information.RelatedProducts.data.map((product, productIndex) => (
+                                  <Col xs="auto" key={productIndex}>
+                                    <Link href={`/catalog/product/${product.id}`}>
+                                      <div className="variation-block">
+                                        <div className="block-image">
+                                          <Image
                                               src={strapiImage(product.attributes.FeaturedImage.data.attributes.url)}
                                               layout="fill" objectFit="contain" alt="Waterheater Index"/>
-                                          </div>
                                         </div>
-                                      </Link>
-                                    </SwiperSlide>
-                                  ))
-                                }
-                              </Swiper>
-                              {
-                                data.Information.RelatedProducts.data.length > 3 && (
-                                  <div className="variations-slider-arrows">
-                                    <div className="arrow-button" onClick={handlePrev}>
-                                      <Image src={InputArrowLeft} alt="Arrow Left Icon"/>
-                                    </div>
-                                    <div className="arrow-button" onClick={handleNext}>
-                                      <Image src={InputArrowRight} alt="Arrow Right Icon"/>
-                                    </div>
-                                  </div>
-                                )
+                                      </div>
+                                    </Link>
+                                  </Col>
+                                ))
                               }
                             </div>
                           </div>

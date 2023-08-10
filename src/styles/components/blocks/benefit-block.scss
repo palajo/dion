@@ -16,6 +16,8 @@
   }
 
   .block-icon {
+    flex-shrink: 0;
+
     img {
       width: 48px;
       height: 48px;
@@ -25,16 +27,12 @@
   .block-content {
     margin-left: 30px;
 
-    .block-title {
-      font-size: 24px;
-      font-weight: 500;
-      color: $black;
-
+    h5 {
       margin-bottom: 10px;
     }
 
-    .block-description {
-      font-size: 18px;
+    p {
+      font-size: 16px;
     }
   }
 }

@@ -82,7 +82,7 @@ export default function Home({ data }) {
                 <Swiper
                   ref={sliderRef}
                   spaceBetween={24}
-                  slidesPerView={1.5}
+                  slidesPerView={1.25}
                   speed={800}
                   breakpoints={{
                     768: {
@@ -136,9 +136,9 @@ export default function Home({ data }) {
           <Container>
             <Row className="justify-content-center">
               <Col xs={12} className="text-center">
-                <h3>
+                <h2>
                   {data.ProductBenefits.Title}
-                </h3>
+                </h2>
                 <p dangerouslySetInnerHTML={{__html: data.ProductBenefits.Description}} />
               </Col>
               <Col md={12} lg={12} xxl={10}>
@@ -171,9 +171,9 @@ export default function Home({ data }) {
           <Container>
             <Row className="justify-content-center">
               <Col xs={12} className="text-center">
-                <h3>
+                <h2>
                   {data.Slider.Title}
-                </h3>
+                </h2>
                 <p dangerouslySetInnerHTML={{__html: data.Slider.Description}} />
               </Col>
             </Row>
@@ -201,9 +201,9 @@ export default function Home({ data }) {
           <Container>
             <Row className="justify-content-center">
               <Col xs={12} className="text-center">
-                <h3>
+                <h2>
                   {data.AboutCompany.Title}
-                </h3>
+                </h2>
                 <p dangerouslySetInnerHTML={{__html: data.AboutCompany.Description}} />
               </Col>
               <Col xl={10} xxl={8}>
@@ -242,9 +242,9 @@ export default function Home({ data }) {
                 <div className="frame-block h-100">
                   <Row className="h-100 gy-5 gy-xxl-0">
                     <Col xs={12}>
-                      <h3>
+                      <h2>
                         {data.Contacts.Title}
-                      </h3>
+                      </h2>
                       <Row className="gy-4">
                         {
                           data.Contacts.Contacts.map((contact, contactIndex) => (
@@ -284,9 +284,9 @@ export default function Home({ data }) {
               </Col>
               <Col xl={6} xxl={5}>
                 <div className="frame-block">
-                  <h3>
+                  <h2>
                     {data.Form.Title}
-                  </h3>
+                  </h2>
                   <p dangerouslySetInnerHTML={{__html: data.Form.Description}} />
                   <CallbackForm />
                 </div>
