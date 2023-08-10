@@ -79,7 +79,7 @@ export default function Home({data}) {
                             <Link href={`/catalog/product/${product.id}`}>
                               <a>
                                 <Image src={strapiImage(product.attributes.FeaturedImage.data.attributes.url)}
-                                       width={180} height={300} alt="Waterheater Index"/>
+                                       width={200} height={330} alt="Waterheater Index"/>
                               </a>
                             </Link>
                           </div>
