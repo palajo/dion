@@ -122,9 +122,7 @@ export default function Home({data}) {
           <Container>
             <Row className="justify-content-center">
               <Col xs={12} className="text-center">
-                <h2>
-                  {data.ProductBenefits.Title}
-                </h2>
+                <h2 dangerouslySetInnerHTML={{__html: data.ProductBenefits.Title }} />
                 <p dangerouslySetInnerHTML={{__html: data.ProductBenefits.Description}}/>
               </Col>
               <Col lg={12} xxl={10}>
@@ -158,9 +156,7 @@ export default function Home({data}) {
           <Container>
             <Row className="justify-content-center">
               <Col xs={12} className="text-center">
-                <h2>
-                  {data.Slider.Title}
-                </h2>
+                <h2 dangerouslySetInnerHTML={{__html: data.Slider.Title }} />
                 <p dangerouslySetInnerHTML={{__html: data.Slider.Description}}/>
               </Col>
             </Row>
@@ -189,9 +185,7 @@ export default function Home({data}) {
           <Container>
             <Row className="justify-content-center">
               <Col xs={12} className="text-center">
-                <h2>
-                  {data.AboutCompany.Title}
-                </h2>
+                <h2 dangerouslySetInnerHTML={{__html: data.AboutCompany.Title }} />
                 <p dangerouslySetInnerHTML={{__html: data.AboutCompany.Description}}/>
               </Col>
               <Col xl={10} xxl={8}>
@@ -231,9 +225,7 @@ export default function Home({data}) {
                 <div className="frame-block h-100">
                   <Row className="h-100 gy-5 gy-xxl-0">
                     <Col xs={12}>
-                      <h2>
-                        {data.Contacts.Title}
-                      </h2>
+                      <h2 dangerouslySetInnerHTML={{__html: data.Contacts.Title }} />
                       <Row className="gy-4">
                         {
                           data.Contacts.Contacts.map((contact, contactIndex) => (
@@ -275,9 +267,7 @@ export default function Home({data}) {
               </Col>
               <Col xl={6} xxl={5}>
                 <div className="frame-block">
-                  <h2>
-                    {data.Form.Title}
-                  </h2>
+                  <h2 dangerouslySetInnerHTML={{__html: data.Form.Title }} />
                   <p dangerouslySetInnerHTML={{__html: data.Form.Description}}/>
                   <ConsultationForm/>
                 </div>
