@@ -36,7 +36,7 @@ function Footer() {
                           </div>
                           <div className="block-description">
                             <Link href="mailto:sales@dion.lviv.ua">
-                              sales@dion.lviv.ua
+                              dion.lviv.ua@gmail.com
                             </Link>
                           </div>
                         </div>
