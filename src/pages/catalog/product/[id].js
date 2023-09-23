@@ -12,6 +12,7 @@ import DeliveryIcon from '../../../images/icons/delivery.svg';
 
 import OrderModal from '../../../components/modals/OrderModal';
 import OrderForm from './components/OrderForm';
+import Script from 'next/script.js';
 
 
 export default function Product({ data }) {
@@ -297,6 +298,20 @@ export default function Product({ data }) {
           </Container>
         </section>
       </DefaultLayout>
+      <Script id="hot-jar">
+        {
+          `
+              (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:3666553,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+            `
+        }
+      </Script>
     </>
   );
 }
