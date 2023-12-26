@@ -43,7 +43,7 @@ const CategorySection = ({ category, categoryIndex }) => {
             </Row>
           </Col>
           <Col xs={12}>
-            <Row className="justify-content-center justify-content-md-start gy-4">
+            <Row className="justify-content-center justify-content-md-start gx-3 gy-4">
               {
                 category.Products.data.map((product, productIndex) => (
                   <Col xs={12} md={6} lg={4} xl={3} key={productIndex}>

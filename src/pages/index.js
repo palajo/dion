@@ -71,7 +71,7 @@ export default function Home({data}) {
                 </Row>
               </Col>
               <Col xs={12}>
-                <Row className="justify-content-center justify-content-md-start gy-4">
+                <Row className="justify-content-center justify-content-md-start gx-3 gy-4">
                   {
                     data.PopularProducts.Products.data.map((product, productIndex) => (
                       <Col xs={12} md={6} lg={4} xl={3} xxl key={productIndex}>
@@ -226,7 +226,7 @@ export default function Home({data}) {
                 <div className="frame-block h-100">
                   <Row className="h-100 gy-5 gy-xxl-0">
                     <Col xs={12}>
-                      <h2 dangerouslySetInnerHTML={{__html: data.Contacts.Title }} />
+                      <h3 dangerouslySetInnerHTML={{__html: data.Contacts.Title }} />
                       <Row className="gy-4">
                         {
                           data.Contacts.Contacts.map((contact, contactIndex) => (
@@ -268,7 +268,7 @@ export default function Home({data}) {
               </Col>
               <Col xl={6} xxl={5}>
                 <div className="frame-block">
-                  <h2 dangerouslySetInnerHTML={{__html: data.Form.Title }} />
+                  <h3 dangerouslySetInnerHTML={{__html: data.Form.Title }} />
                   <p dangerouslySetInnerHTML={{__html: data.Form.Description}}/>
                   <ConsultationForm/>
                 </div>

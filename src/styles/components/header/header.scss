@@ -1,5 +1,5 @@
 header {
-  padding: 30px 0;
+  padding: 20px 0;
   border-bottom: 1px solid $lightgray;
 
   ul.nav {
@@ -21,6 +21,13 @@ header {
           color: $blueHover;
         }
       }
+    }
+  }
+
+  .logo {
+    img {
+      height: 36px !important;
+      width: auto;
     }
   }
 }
@@ -186,11 +193,11 @@ header {
 
 @media screen and (max-width: 767px) {
   header {
-    padding: 25px 0;
+    padding: 16px 0;
 
     .logo {
       img {
-        height: 34px !important;
+        height: 30px !important;
         width: auto;
       }
     }
