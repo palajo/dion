@@ -252,6 +252,57 @@ ul.ul-bulleted-list {
   }
 }
 
+ul.nav.ul-breadcrumbs {
+  gap: 12px;
+
+  li.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &::after {
+      content: '';
+      display: block;
+
+      width: 16px;
+      height: 16px;
+
+      background: $gray-500;
+
+      -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' /%3E%3C/svg%3E%0A");
+      -webkit-mask-size: contain;
+      -webkit-mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+
+    a.nav-link {
+      padding: 4px 0;
+      max-width: 240px;
+
+      color: $gray-500;
+
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+
+      &.active {
+        color: $gray-950;
+      }
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+
 @media screen and (max-width: 767px) {
   ul.nav {
     li.nav-item {

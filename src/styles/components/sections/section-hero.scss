@@ -31,6 +31,34 @@ section.section.section-hero {
       opacity: 0.1;
     }
   }
+
+  .arrow-down {
+    position: absolute;
+
+    left: calc(50% - 28px);
+    bottom: 56px;
+
+    animation: jumpInfinite 1.5s infinite;
+
+    svg {
+      width: 56px;
+      height: 56px;
+
+      fill: $gray-950;
+    }
+  }
+
+  @keyframes jumpInfinite {
+    0% {
+      bottom: 56px;
+    }
+    50% {
+      bottom: 72px;
+    }
+    100% {
+      bottom: 56px;
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {

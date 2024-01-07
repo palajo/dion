@@ -1,0 +1,21 @@
+.block.block-benefit {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 14px 36px 14px 24px;
+  background: rgba($primary, 0.1);
+  border-radius: 8px;
+
+  svg {
+    width: 42px;
+    height: 42px;
+
+    fill: $primary;
+  }
+
+  font-size: 16px;
+  font-weight: 500;
+  color: $gray-950;
+  line-height: 1.5;
+}

@@ -1,12 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import { Col, Container, Row } from 'react-bootstrap';
-import InputMask from 'react-input-mask';
 import _ from 'lodash';
 import { PhoneIcon, StarIcon } from '@heroicons/react/16/solid/index.js';
-import { Autoplay, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Image from 'next/image';
 import Link from 'next/link';
 import {
   ClockIcon, CogIcon,
@@ -18,6 +14,8 @@ import {
 } from '@heroicons/react/24/solid/index.js';
 
 import DefaultLayout from '@/layouts/DefaultLayout';
+import FormConsultation from '@/components/forms/FormConsultation.js';
+import SectionReviews from '@/components/sections/SectionReviews';
 
 import ProductImage from '@/images/products/dion-jsd-11-lux.png';
 import HeroBackground from '@/images/backgrounds/background.mp4';
@@ -28,7 +26,7 @@ export default function Home({ data }) {
   return (
     <>
       <Head>
-        <title>DION – Газові водонагрівачі</title>
+        <title>Dion – Газові водонагрівачі</title>
         <meta name="description"
               content="Надійні газові водонагрівачі по справедливій ціні. Dion - це якісний продукт з гарантією в 12 місяців. Зручність та комфорт у використанні, а також доставка по всій Україні."/>
         <meta name="keywords"
@@ -49,7 +47,7 @@ export default function Home({ data }) {
                     <StarIcon width={24} height={24}/>
                     <StarIcon width={24} height={24}/>
                   </div>
-                  <p>Рейтинг 5 з 5 на основі <u>121 відгуків</u></p>
+                  <p>Рейтинг 4.78 з 5 на основі <u>1000+ відгуків</u></p>
                 </div>
                 <h1 className="mb-3">
                   Надійні газові водонагрівачі <br/>
@@ -59,9 +57,11 @@ export default function Home({ data }) {
                   Вирішуємо проблему нагріву води в межах 3 робочих днів по Україні. <br/>
                   Надаємо 12 місяців гарантії та безкоштовно консультуємо
                 </p>
-                <button className="btn btn-primary btn-arrow mt-3">
-                  Перейти до каталогу
-                </button>
+                <Link href="/catalog">
+                  <button className="btn btn-primary btn-arrow mt-3">
+                    Перейти до каталогу
+                  </button>
+                </Link>
               </Col>
             </Row>
           </Container>
@@ -88,7 +88,7 @@ export default function Home({ data }) {
                     </h2>
                   </Col>
                   <Col xs="auto">
-                    <Link className="link-with-arrow" href="/">
+                    <Link className="link-with-arrow" href="/catalog">
                       Показати більше
                     </Link>
                   </Col>
@@ -254,7 +254,7 @@ export default function Home({ data }) {
                           </div>
                           <div className="block-content text-center">
                             <h5>Індивідуальний</h5>
-                            <p>До клієнта</p>
+                            <p>Підхід до клієнта</p>
                           </div>
                         </div>
                       </Col>
@@ -278,92 +278,7 @@ export default function Home({ data }) {
           </Container>
         </section>
         <hr/>
-        <section className="section pt-5 pb-5">
-          <Container>
-            <Row className="gy-2">
-            <Col lg={12}>
-                <Row className="justify-content-between align-items-center">
-                  <Col lg={6}>
-                    <div className="section-subtitle">
-                      Відгуки
-                    </div>
-                    <h2>
-                      Допомогаємо по всій Україні
-                    </h2>
-                  </Col>
-                  <Col xs="auto">
-                    <Link className="link-with-arrow" href="/">
-                      Показати більше
-                    </Link>
-                  </Col>
-                </Row>
-              </Col>
-              <Col lg={12}>
-                <p>
-                  Рейтинг 5 з 5 на основі <u>121 відгуків</u>
-                </p>
-                <Swiper
-                  spaceBetween={16}
-                  slidesPerView={1.1}
-                  speed={800}
-                  autoplay={{
-                    delay: 5000,
-                  }}
-                  modules={[Autoplay, Pagination]}
-                  pagination={{ clickable: true }}
-                  className="slider slider-reviews"
-                  breakpoints={{
-                    768: {
-                      slidesPerView: 2,
-                    },
-                    1024: {
-                      slidesPerView: 3,
-                    },
-                    1280: {
-                      slidesPerView: 3,
-                    },
-                  }}
-                >
-                  {
-                    _.times(6, (blockIndex) => (
-                      <SwiperSlide key={blockIndex}>
-                        <div className="block block-review">
-                          <div>
-                            <div className="block block-author">
-                              <div className="block-image">
-                                <div className="image-placeholder"/>
-                              </div>
-                              <div className="block-content">
-                                <h5>Олег</h5>
-                                <p>Львів</p>
-                              </div>
-                            </div>
-                            <p className="mt-3">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                              incididunt
-                              ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                          </div>
-                          <div className="block block-rating">
-                            <div className="stars">
-                              <StarIcon width={24} height={24}/>
-                              <StarIcon width={24} height={24}/>
-                              <StarIcon width={24} height={24}/>
-                              <StarIcon width={24} height={24}/>
-                              <StarIcon width={24} height={24}/>
-                            </div>
-                            <p>Оцінка 5 з 5</p>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-                    ))
-                  }
-                </Swiper>
-              </Col>
-            </Row>
-          </Container>
-        </section>
+        <SectionReviews/>
         <hr/>
         <section className="section pt-5 pb-5">
           <Container>
@@ -433,49 +348,7 @@ export default function Home({ data }) {
                   <h3 className="mb-2">Потрібна допомога?</h3>
                   <p className="mb-3">Ми будемо раді відповісти на всі ваші запитання та допомогти вирішити проблему нагріву води раз і
                     назавжди.</p>
-                  <form>
-                    <Row className="gy-1">
-                      <Col xs={12}>
-                        <label htmlFor="name" className="form-label required">
-                          Ім’я
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="name"
-                          placeholder="Олександр"
-                        />
-                      </Col>
-                      <Col xs={12}>
-                        <label htmlFor="phone" className="form-label required">
-                          Контактний телефон
-                        </label>
-                        <InputMask
-                          type="text"
-                          className="form-control"
-                          name="phone"
-                          placeholder="+38 (000) 00 00 000"
-                          mask="+38 (999) 99 99 999"
-                        />
-                      </Col>
-                      <Col xs={12}>
-                        <label htmlFor="question" className="form-label">
-                          Ваше запитання
-                        </label>
-                        <textarea
-                          className="form-control"
-                          name="question"
-                          placeholder="Опишіть коротко вашу проблему"
-                        />
-                      </Col>
-                      <Col xs={12}>
-                        <button className="btn btn-primary w-100 mt-2"
-                                type="submit">
-                          Надіслати запит
-                        </button>
-                      </Col>
-                    </Row>
-                  </form>
+                  <FormConsultation/>
                 </div>
               </Col>
             </Row>

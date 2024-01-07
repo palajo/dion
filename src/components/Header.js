@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Link from 'next/link';
 import { Logo } from '@/images/Logo';
 import { PhoneIcon } from '@heroicons/react/16/solid/index.js';
+import ModalConsultation from '@/components/modals/ModalConsultation.js';
 
 
 function Header() {
@@ -29,9 +30,7 @@ function Header() {
           <Col lg={4}>
             <Row className="justify-content-end align-items-center">
               <Col xs="auto">
-                <button className="btn btn-primary-outlined">
-                  Безкоштовна консультація
-                </button>
+                <ModalConsultation/>
               </Col>
             </Row>
           </Col>

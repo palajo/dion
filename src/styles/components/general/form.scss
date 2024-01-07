@@ -17,6 +17,14 @@ label.form-label {
   }
 }
 
+.form-error {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $red;
+
+  margin-top: 8px;
+}
 
 // form-control, form-select
 input.form-control,

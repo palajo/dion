@@ -1,0 +1,20 @@
+.block.block-product-image {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+
+  padding: 72px 96px;
+
+  background: $white;
+  border: 1px solid $gray-50;
+  border-radius: 12px;
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 540px;
+
+    object-fit: contain;
+    object-position: center;
+  }
+}
