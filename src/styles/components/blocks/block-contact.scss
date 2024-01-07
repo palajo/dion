@@ -1,0 +1,59 @@
+.block.block-contact {
+  .block-label {
+    margin-bottom: 8px;
+  }
+
+  .block-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    a {
+      font-size: 18px;
+      font-weight: 500;
+      color: $gray-950;
+      transition: 0.1s ease;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+
+      fill: $primary;
+    }
+  }
+}
+
+iframe {
+  width: 100%;
+  height: 480px;
+
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 767px) {
+  .block.block-contact {
+    .block-content {
+      gap: 8px;
+
+      a {
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .map-placeholder {
+    height: 320px;
+    border-radius: 12px;
+  }
+}

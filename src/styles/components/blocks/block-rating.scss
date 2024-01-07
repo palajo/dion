@@ -1,0 +1,28 @@
+.block.block-rating {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  svg {
+    fill: $yellow;
+
+    width: 24px;
+    height: 24px;
+  }
+
+  p {
+    font-weight: 500;
+    color: $gray-950;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .block.block-rating {
+    gap: 12px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

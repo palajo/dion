@@ -1,0 +1,39 @@
+section.section {
+  .section-subtitle {
+    display: inline-block;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $primary;
+
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+
+    img,
+    svg {
+      margin-right: 12px;
+
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  p.max-width-840 {
+    max-width: 840px;
+  }
+
+  &.glow-bottom {
+    overflow: hidden;
+
+    background-image: radial-gradient(50% 50% at 50% 50%, rgba($primary, 0.08) 0%, rgba($primary, 0.00) 100%);
+    background-size: 150% 200%;
+    background-position-x: center;
+    background-position-y: -50%;
+    background-repeat: no-repeat;
+  }
+}
+
+@import './section-hero';

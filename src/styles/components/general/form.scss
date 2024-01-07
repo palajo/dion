@@ -1,0 +1,274 @@
+// form-label
+label.form-label {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $gray-950;
+
+  margin-bottom: 12px;
+
+  &.required {
+    &::after {
+      content: "*";
+      color: $red;
+
+      margin-left: 4px;
+    }
+  }
+}
+
+
+// form-control, form-select
+input.form-control,
+textarea.form-control,
+select.form-select {
+  padding: 12px 24px;
+
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: $gray-950;
+
+  background: none;
+  border: 0;
+  border: 1px solid $gray-50;
+  border-radius: 6px;
+
+  box-shadow: none;
+  outline: none;
+
+  transition: 0.1s ease;
+
+  &::placeholder {
+    color: $gray-500;
+    transition: 0.1s ease;
+  }
+
+  &:focus {
+    color: $gray-950;
+    border: 1px solid $gray-100;
+    box-shadow: none;
+
+    &::placeholder {
+      color: $gray-500;
+    }
+  }
+
+  &:hover {
+    border: 1px solid $gray-100;
+  }
+
+  &.field-error {
+    background: rgba($red, 0.05);
+    border: 1px solid rgba($red, 0.15);
+
+    &:hover {
+      background: rgba($red, 0.1);
+    }
+  }
+}
+
+textarea.form-control {
+  resize: none;
+  height: 120px;
+}
+
+select.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-position: right 20px center;
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+
+  option {
+    color: $black;
+  }
+}
+
+
+// form-check
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0;
+
+  min-height: auto;
+  margin-bottom: 0;
+
+  label.form-check-label {
+    cursor: pointer;
+
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: $gray-950;
+  }
+
+  input.form-check-input {
+    cursor: pointer;
+    flex-shrink: 0;
+
+    width: 24px;
+    height: 24px;
+
+    border: 1px solid $gray-200;
+    border-radius: 4px;
+    background: $white;
+
+    margin: 0;
+
+    &:checked[type=checkbox],
+    &:checked[type=radio] {
+      background: $blue-500;
+
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='14' viewBox='0 0 12 14' fill='none'%3E%3Cg clip-path='url(%23clip0_795_1331)'%3E%3Cpath d='M1 6.85714L4.42857 10.8571L11.2857 4' stroke='white' stroke-width='2.5'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_795_1331'%3E%3Crect width='12' height='12' fill='white' transform='translate(0 0.5)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+      background-size: 14px 14px;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    &:hover {
+      border-color: $gray-200;
+    }
+
+    &.field-error {
+      background: rgba($red, 0.1);
+      border: 1px solid rgba($red, 0.15);
+
+      &:hover {
+        background: rgba($red, 0.15);
+      }
+    }
+  }
+
+  &.form-check-block {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    input.form-check-input {
+      position: absolute;
+      z-index: 1;
+
+      top: 16px;
+      right: 16px;
+
+      width: 24px;
+      height: 24px;
+
+      &:checked[type=checkbox] {
+        background-size: 16px 16px;
+      }
+    }
+
+    label.form-check-label {
+      cursor: pointer;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+
+      width: 100%;
+      height: 100%;
+
+      padding: 36px 24px;
+
+      border: 1px solid $gray-200;
+      border-radius: 10px;
+
+      text-align: center;
+
+      .form-check-label-icon {
+        svg {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+
+    &.form-check-block-error {
+      input.form-check-input {
+        background: rgba($red, 0.1);
+        border: 1px solid rgba($red, 0.15);
+
+        &:hover {
+          background: rgba($red, 0.15);
+        }
+      }
+
+      label.form-check-label {
+        border: 1px solid rgba($red, 0.15);
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  // form-label
+  label.form-label {
+    font-size: 14px;
+  }
+
+
+  // form-control, form-select
+  input.form-control,
+  textarea.form-control,
+  select.form-select {
+    font-size: 14px;
+  }
+
+
+  // form-check
+  .form-check {
+    gap: 8px;
+
+    label.form-check-label {
+      font-size: 14px;
+    }
+
+    input.form-check-input {
+      width: 18px;
+      height: 18px;
+
+      &:checked[type=checkbox],
+      &:checked[type=radio] {
+        background-size: 12px 12px;
+      }
+    }
+
+    &.form-check-block {
+      input.form-check-input {
+        top: 12px;
+        right: 12px;
+
+        width: 18px;
+        height: 18px;
+
+        &:checked[type=checkbox] {
+          background-size: 12px 12px;
+        }
+      }
+
+      label.form-check-label {
+        gap: 12px;
+
+        width: 100%;
+        height: 100%;
+
+        padding: 24px 12px;
+
+        .form-check-label-icon {
+          svg {
+            width: 36px;
+            height: 36px;
+          }
+        }
+      }
+    }
+  }
+}

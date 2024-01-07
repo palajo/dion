@@ -1,0 +1,24 @@
+.block.block-review {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+  padding: 36px;
+
+  background: $white;
+  border: 1px solid $gray-50;
+  border-radius: 12px;
+
+  transition: 0.1s ease;
+
+  .block-rating {
+    margin-top: 48px;
+  }
+}
+
+.slider.slider-reviews {
+  .swiper-slide {
+    height: auto;
+  }
+}

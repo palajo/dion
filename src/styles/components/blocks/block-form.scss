@@ -1,0 +1,12 @@
+.block.block-form {
+  display: flex;
+  flex-direction: column;
+
+  padding: 36px;
+
+  background: $white;
+  border: 1px solid $gray-50;
+  border-radius: 12px;
+
+  transition: 0.1s ease;
+}

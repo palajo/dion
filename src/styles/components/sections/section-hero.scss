@@ -1,0 +1,44 @@
+section.section.section-hero {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: calc(100vh - 80px); // - header height
+  padding: 128px 0 256px;
+
+  .section-image {
+    pointer-events: none;
+
+    position: absolute;
+    z-index: -1;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    video,
+    img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: top center;
+
+      opacity: 0.1;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  section.section.hero-banner {
+    padding: calc(84px + 36px) 0 128px;
+
+    p.text-medium {
+      font-size: 16px;
+    }
+  }
+}

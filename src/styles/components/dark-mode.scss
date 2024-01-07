@@ -1,0 +1,22 @@
+section.section {
+  &.section-dark {
+    background: $gray-950;
+    color: $gray-300;
+
+    h1, h2, h3, h4, h5 {
+      color: $white;
+    }
+
+    p, b {
+      color: $gray-300;
+    }
+
+    .section-subtitle {
+      color: $primary;
+    }
+
+    .block-subtitle {
+      color: $primary;
+    }
+  }
+}

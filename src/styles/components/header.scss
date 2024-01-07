@@ -1,0 +1,33 @@
+header {
+  position: sticky;
+  z-index: 97;
+  top: 0;
+
+  width: 100%;
+  padding: 16px 0;
+
+  background: rgba($white, 0.7);
+  backdrop-filter: blur(36px);
+  border-bottom: 1px solid $gray-50;
+
+  transition: all 0.2s ease-in-out;
+
+  .logo {
+    svg,
+    img {
+      height: 36px;
+      width: auto;
+    }
+  }
+
+  button.btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    padding: 12px 0;
+  }
+}

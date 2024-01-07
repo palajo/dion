@@ -1,29 +1,29 @@
-import Link from 'next/link';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
+import React from 'react';
 import Head from 'next/head';
+import { Col, Container, Row } from 'react-bootstrap';
+import InputMask from 'react-input-mask';
+import _ from 'lodash';
+import { PhoneIcon, StarIcon } from '@heroicons/react/16/solid/index.js';
+import { Autoplay, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
-import DefaultLayout from '../layouts/DefaultLayout';
+import Link from 'next/link';
+import {
+  ClockIcon, CogIcon,
+  EnvelopeIcon, FireIcon,
+  HomeIcon,
+  MapPinIcon, PaintBrushIcon,
+  TruckIcon,
+  UserGroupIcon,
+} from '@heroicons/react/24/solid/index.js';
 
-import { fetchContent, HomepageConfig, strapiImage } from '../api';
-import { Button, Col, Container, Row } from 'react-bootstrap';
-import React, { useCallback, useRef } from 'react';
-import ConsultationForm from '../components/forms/ConsultationForm.js';
-import Script from 'next/script.js';
+import DefaultLayout from '@/layouts/DefaultLayout';
 
-export default function Home({data}) {
-  // swiper arrows
-  const sliderRef = useRef();
+import ProductImage from '@/images/products/dion-jsd-11-lux.png';
+import HeroBackground from '@/images/backgrounds/background.mp4';
+import BathVideo from '@/images/backgrounds/bath.mp4';
 
-  const handlePrev = useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current.swiper.slidePrev();
-  }, []);
-
-  const handleNext = useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current.swiper.slideNext();
-  }, []);
+export default function Home({ data }) {
 
   return (
     <>
@@ -37,78 +37,88 @@ export default function Home({data}) {
         <link rel="icon" href="/favicon.png"/>
       </Head>
       <DefaultLayout>
-        <section className="hero-banner">
+        <section className="section section-hero justify-content-center glow-bottom">
           <Container>
-            <Row className="justify-content-center">
-              <Col xl={12} xxl={12} className="text-center">
-                <h1 dangerouslySetInnerHTML={{__html: data.HeroBanner.Title}}/>
-                <p dangerouslySetInnerHTML={{__html: data.HeroBanner.Description}}/>
-                <Link href="/catalog">
-                  <Button variant="primary">
-                    {data.HeroBanner.ButtonTitle}
-                  </Button>
-                </Link>
+            <Row className="gy-3">
+              <Col lg={12} className="d-flex flex-column align-items-center text-center">
+                <div className="block block-rating mb-2">
+                  <div className="stars">
+                    <StarIcon width={24} height={24}/>
+                    <StarIcon width={24} height={24}/>
+                    <StarIcon width={24} height={24}/>
+                    <StarIcon width={24} height={24}/>
+                    <StarIcon width={24} height={24}/>
+                  </div>
+                  <p>Рейтинг 5 з 5 на основі <u>121 відгуків</u></p>
+                </div>
+                <h1 className="mb-3">
+                  Надійні газові водонагрівачі <br/>
+                  за справедливою ціною
+                </h1>
+                <p className="text-medium">
+                  Вирішуємо проблему нагріву води в межах 3 робочих днів по Україні. <br/>
+                  Надаємо 12 місяців гарантії та безкоштовно консультуємо
+                </p>
+                <button className="btn btn-primary btn-arrow mt-3">
+                  Перейти до каталогу
+                </button>
               </Col>
             </Row>
           </Container>
+          <div className="section-image">
+            <video autoPlay loop muted playsInline>
+              <source
+                src={HeroBackground}
+                type="video/mp4"
+              />
+            </video>
+          </div>
         </section>
-        <section className="popular-products">
+        <section className="section pt-5 pb-6">
           <Container>
-            <Row>
-              <Col xs={12} className="pb-4">
-                <Row className="justify-content-between">
-                  <Col xs="auto">
-                    <div className="title-with-icon">
-                      <div className="icon d-none">
-                        <Image src={strapiImage(data.PopularProducts.Icon.data.attributes.url)} width={18} height={18}
-                               alt="Fire Icon"/>
-                      </div>
-                      <h4 className="title ms-0">
-                        {data.PopularProducts.Title}
-                      </h4>
+            <Row className="gy-2">
+              <Col lg={12}>
+                <Row className="justify-content-between align-items-center">
+                  <Col lg={6}>
+                    <div className="section-subtitle">
+                    Популярні продукти
                     </div>
+                    <h2>
+                      Для всіх типів приміщення
+                    </h2>
+                  </Col>
+                  <Col xs="auto">
+                    <Link className="link-with-arrow" href="/">
+                      Показати більше
+                    </Link>
                   </Col>
                 </Row>
               </Col>
-              <Col xs={12}>
-                <Row className="justify-content-center justify-content-md-start gx-3 gy-4">
+              <Col lg={12}>
+                <Row className="gx-1">
                   {
-                    data.PopularProducts.Products.data.map((product, productIndex) => (
-                      <Col xs={12} md={6} lg={4} xl={3} xxl key={productIndex}>
-                        <div className="product-block">
+                    _.times(4, (blockIndex) => (
+                      <Col key={blockIndex}>
+                        <div className="block block-product">
                           <div className="block-image">
-                            <Link href={`/catalog/product/${product.id}`}>
-                              <a>
-                                <Image src={strapiImage(product.attributes.FeaturedImage.data.attributes.url)}
-                                       width={200} height={330} alt="Waterheater Index"/>
-                              </a>
+                            <Link href="/catalog/product">
+                              <img src={ProductImage.src} alt={ProductImage.alt} width={ProductImage.width}
+                                   height={ProductImage.height}/>
                             </Link>
                           </div>
-                          <div className="block-content">
-                            <div className="block-title">
-                              <Link href={`/catalog/product/${product.id}`}>
-                                <a>
-                                  {product.attributes.Model}, <span>{product.attributes.Title}</span>
-                                </a>
-                              </Link>
+                          <div className="block-content text-center">
+                            <Link href="/catalog/product">
+                              <div className="block-title">Dion JSD-11, Люкс</div>
+                            </Link>
+                            <div className="block-price">5100 грн</div>
+                            <div className="block-benefits">
+                              <div className="block block-benefits-item">
+                                10 л
+                              </div>
+                              <div className="block block-benefits-item">
+                                Димохідна
+                              </div>
                             </div>
-                            <div className="block-price">
-                              {product.attributes.Price} грн
-                            </div>
-                          </div>
-                          <div className="block-headlines">
-                            <Row className="gx-2">
-                              <Col xs="auto">
-                                <div className="product-headline">
-                                  {product.attributes.Information.Type}
-                                </div>
-                              </Col>
-                              <Col xs="auto">
-                                <div className="product-headline">
-                                  {product.attributes.Information.Volume}
-                                </div>
-                              </Col>
-                            </Row>
                           </div>
                         </div>
                       </Col>
@@ -119,197 +129,359 @@ export default function Home({data}) {
             </Row>
           </Container>
         </section>
-        <section className="product-benefits">
+        <section className="section pb-5">
           <Container>
-            <Row className="justify-content-center">
-              <Col xs={12} className="text-center">
-                <h2 dangerouslySetInnerHTML={{__html: data.ProductBenefits.Title }} />
-                <p dangerouslySetInnerHTML={{__html: data.ProductBenefits.Description}}/>
-              </Col>
-              <Col lg={12} xxl={10}>
-                <div className="row g-4">
-                  {
-                    data.ProductBenefits.Benefits.map((benefit, benefitIndex) => (
-                      <div className="col-12 col-lg-6" key={benefitIndex}>
-                        <div className="benefit-block">
-                          <div className="block-icon">
-                            <Image src={strapiImage(benefit.Icon.data.attributes.url)} layout="fixed" width={48}
-                                   height={48} alt="Fire Icon"/>
-                          </div>
-                          <div className="block-content">
-                            <h5>
-                              {benefit.Title}
-                            </h5>
-                            <p>
-                              {benefit.Description}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    ))
-                  }
+            <Row className="gy-3 justify-content-center">
+              <Col lg={12} className="d-flex flex-column align-items-center text-center">
+                <div className="section-subtitle">
+                Безпека та комфорт
                 </div>
+                <h2>
+                  Переваги продукції Dion
+                </h2>
               </Col>
-            </Row>
-          </Container>
-        </section>
-        <section className="product-slider">
-          <Container>
-            <Row className="justify-content-center">
-              <Col xs={12} className="text-center">
-                <h2 dangerouslySetInnerHTML={{__html: data.Slider.Title }} />
-                <p dangerouslySetInnerHTML={{__html: data.Slider.Description}}/>
-              </Col>
-            </Row>
-          </Container>
-          <Container fluid className="p-0">
-            <Col xs={12}>
-              <Swiper
-                spaceBetween={0}
-                slidesPerView={1}
-                speed={800}
-                className="homepage-slider"
-              >
-                {
-                  data.Slider.Slides.data.map((slide, slideIndex) => (
-                    <SwiperSlide key={slideIndex}>
-                      <Image src={strapiImage(slide.attributes.url)} layout="fill" objectFit="cover"
-                             objectPosition="center" alt="Slider Slide 1"/>
-                    </SwiperSlide>
-                  ))
-                }
-              </Swiper>
-            </Col>
-          </Container>
-        </section>
-        <section className="about-company">
-          <Container>
-            <Row className="justify-content-center">
-              <Col xs={12} className="text-center">
-                <h2 dangerouslySetInnerHTML={{__html: data.AboutCompany.Title }} />
-                <p dangerouslySetInnerHTML={{__html: data.AboutCompany.Description}}/>
-              </Col>
-              <Col xl={10} xxl={8}>
-                <Row className="justify-content-center g-4">
-                  {
-                    data.AboutCompany.Statistics.map((statistics, statisticsIndex) => (
-                      <div className="col-6 col-md-auto" key={statisticsIndex}>
-                        <div className="statistic-block">
-                          <div className="block-icon">
-                            <Image src={strapiImage(statistics.Icon.data.attributes.url)} layout="fixed" width={48}
-                                   height={48} alt="Fire Icon"/>
-                          </div>
-                          <div className="block-content">
-                            <span>{statistics.Title} </span>
-                            {statistics.Description}
-                          </div>
-                        </div>
+              <Col lg={6}>
+                <Row className="gy-2">
+                  <Col lg={12}>
+                    <div className="block block-security">
+                      <div className="block-image">
+                        <HomeIcon/>
                       </div>
-                    ))
-                  }
+                      <div className="block-content">
+                        <h5>
+                          Для всіх типів приміщення
+                        </h5>
+                        <p>
+                          В наявності Димохідні та Парапетні (турбовані) газові водонагрівчі
+                        </p>
+                      </div>
+                    </div>
+                  </Col>
+                  <Col lg={12}>
+                    <div className="block block-security">
+                      <div className="block-image">
+                        <FireIcon/>
+                      </div>
+                      <div className="block-content">
+                        <h5>
+                          4 Ступені безпеки
+                        </h5>
+                        <p>
+                          Оснащені захистом від зникнення вогню, надмірного тиску та перегріву, нестачі тяги
+                        </p>
+                      </div>
+                    </div>
+                  </Col>
+                  <Col lg={12}>
+                    <div className="block block-security">
+                      <div className="block-image">
+                        <CogIcon/>
+                      </div>
+                      <div className="block-content">
+                        <h5>
+                          Гарантія якості та обслуговування
+                        </h5>
+                        <p>
+                          В наявності Димохідні та Парапетні (Турбовані) Газові Водонагрівчі
+                        </p>
+                      </div>
+                    </div>
+                  </Col>
+                  <Col lg={12}>
+                    <div className="block block-security">
+                      <div className="block-image">
+                        <PaintBrushIcon/>
+                      </div>
+                      <div className="block-content">
+                        <h5>
+                          Зручний та лаконічний дизайн
+                        </h5>
+                        <p>
+                          Dion — це водонагрівачі виконаний у зручному та стриманому, навіть простому дизайні
+                        </p>
+                      </div>
+                    </div>
+                  </Col>
                 </Row>
               </Col>
-              <Col xs={12} className="text-center">
-                <Link href="/business">
-                  <Button variant="primary">
-                    {data.AboutCompany.ButtonTitle}
-                  </Button>
-                </Link>
+            </Row>
+          </Container>
+        </section>
+        <hr/>
+        <section className="section pt-5 overflow-hidden">
+          <Container className="mb-5">
+            <Row>
+              <Col lg={12}>
+                <Row className="align-items-center">
+                  <Col lg={6}>
+                    <div className="section-subtitle">
+                      Наші досягнення
+                    </div>
+                    <h2>Відпочивайте та зардяжайтесь енегрією щодня!</h2>
+                    <p>
+                      А що ж може бути кращого, ніж гаряча ванна або ж душ після робочого дня? <br/>
+                      Ми дбаємо про те, щоб у вас ніколи не виникала проблем гарячої води
+                    </p>
+                  </Col>
+                  <Col lg={6}>
+                    <Row className="justify-content-center gx-1">
+                      <Col lg={4}>
+                        <div className="block block-statistics">
+                          <div className="block-image">
+                            <TruckIcon/>
+                          </div>
+                          <div className="block-content text-center">
+                            <h5>200 000+</h5>
+                            <p>Водонагрівачів продано</p>
+                          </div>
+                        </div>
+                      </Col>
+                      <Col lg={4}>
+                        <div className="block block-statistics">
+                          <div className="block-image">
+                            <ClockIcon/>
+                          </div>
+                          <div className="block-content text-center">
+                            <h5>15 років</h5>
+                            <p>На ринку України</p>
+                          </div>
+                        </div>
+                      </Col>
+                      <Col lg={4}>
+                        <div className="block block-statistics">
+                          <div className="block-image">
+                            <UserGroupIcon/>
+                          </div>
+                          <div className="block-content text-center">
+                            <h5>Індивідуальний</h5>
+                            <p>До клієнта</p>
+                          </div>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Container>
+          <Container fluid className="ps-0 pe-0">
+            <Row>
+              <Col lg={12}>
+                <video autoPlay loop muted playsInline style={{ width: '100%', height: 'auto' }}>
+                  <source
+                    src={BathVideo}
+                    type="video/mp4"
+                  />
+                </video>
               </Col>
             </Row>
           </Container>
         </section>
-        <section className="contacts">
+        <hr/>
+        <section className="section pt-5 pb-5">
           <Container>
-            <Row className="gx-xl-4 gx-xxl-5 gy-5">
-              <Col xl={6} xxl={7}>
-                <div className="frame-block h-100">
-                  <Row className="h-100 gy-5 gy-xxl-0">
-                    <Col xs={12}>
-                      <h3 dangerouslySetInnerHTML={{__html: data.Contacts.Title }} />
-                      <Row className="gy-4">
-                        {
-                          data.Contacts.Contacts.map((contact, contactIndex) => (
-                            <Col lg={6} key={contactIndex}>
-                              <div className="contact-block">
-                                <div className="block-title">
-                                  {contact.Label}
-                                </div>
-                                <div className="block-content">
-                                  <div className="block-icon">
-                                    <Image src={strapiImage(contact.Icon.data.attributes.url)} layout="fixed" width={18}
-                                           height={18} alt="Fire Icon"/>
-                                  </div>
-                                  <div className="block-description">
-                                    <Link
-                                      href={contact.Type === 'phone' ? `tel:${contact.Value}` : contact.Type === 'email' ? `mailto:${contact.Value}` : '#'}>
-                                      {contact.Value}
-                                    </Link>
-                                  </div>
-                                </div>
-                              </div>
-                            </Col>
-                          ))
-                        }
-                      </Row>
-                    </Col>
-                    <Col xs={12}>
-                      <div className="map-block">
-                        <iframe
-                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.457310669429!2d23.988310315883016!3d49.852653738137874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add95b7309467%3A0xb1954af61f9b389f!2z0LLRg9C70LjRhtGPINCc0L7RgNC40L3QtdGG0YzQutCwLCDQm9GM0LLRltCyLCDQm9GM0LLRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1sru!2sua!4v1658936612130!5m2!1sru!2sua"
-                          allowFullScreen
-                          loading="lazy"
-                          referrerPolicy="no-referrer-when-downgrade"
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </div>
+            <Row className="gy-2">
+            <Col lg={12}>
+                <Row className="justify-content-between align-items-center">
+                  <Col lg={6}>
+                    <div className="section-subtitle">
+                      Відгуки
+                    </div>
+                    <h2>
+                      Допомогаємо по всій Україні
+                    </h2>
+                  </Col>
+                  <Col xs="auto">
+                    <Link className="link-with-arrow" href="/">
+                      Показати більше
+                    </Link>
+                  </Col>
+                </Row>
               </Col>
-              <Col xl={6} xxl={5}>
-                <div className="frame-block">
-                  <h3 dangerouslySetInnerHTML={{__html: data.Form.Title }} />
-                  <p dangerouslySetInnerHTML={{__html: data.Form.Description}}/>
-                  <ConsultationForm/>
+              <Col lg={12}>
+                <p>
+                  Рейтинг 5 з 5 на основі <u>121 відгуків</u>
+                </p>
+                <Swiper
+                  spaceBetween={16}
+                  slidesPerView={1.1}
+                  speed={800}
+                  autoplay={{
+                    delay: 5000,
+                  }}
+                  modules={[Autoplay, Pagination]}
+                  pagination={{ clickable: true }}
+                  className="slider slider-reviews"
+                  breakpoints={{
+                    768: {
+                      slidesPerView: 2,
+                    },
+                    1024: {
+                      slidesPerView: 3,
+                    },
+                    1280: {
+                      slidesPerView: 3,
+                    },
+                  }}
+                >
+                  {
+                    _.times(6, (blockIndex) => (
+                      <SwiperSlide key={blockIndex}>
+                        <div className="block block-review">
+                          <div>
+                            <div className="block block-author">
+                              <div className="block-image">
+                                <div className="image-placeholder"/>
+                              </div>
+                              <div className="block-content">
+                                <h5>Олег</h5>
+                                <p>Львів</p>
+                              </div>
+                            </div>
+                            <p className="mt-3">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                              incididunt
+                              ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                              ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                          </div>
+                          <div className="block block-rating">
+                            <div className="stars">
+                              <StarIcon width={24} height={24}/>
+                              <StarIcon width={24} height={24}/>
+                              <StarIcon width={24} height={24}/>
+                              <StarIcon width={24} height={24}/>
+                              <StarIcon width={24} height={24}/>
+                            </div>
+                            <p>Оцінка 5 з 5</p>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))
+                  }
+                </Swiper>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+        <hr/>
+        <section className="section pt-5 pb-5">
+          <Container>
+            <Row className="gy-2 justify-content-between">
+              <Col lg={7}>
+                <h2>Контакти</h2>
+                <Row className="gy-2">
+                  <Col lg={6}>
+                    <div className="block block-contact">
+                      <div className="block-label">
+                        Телефон
+                      </div>
+                      <div className="block-content">
+                        <PhoneIcon width={24} height={24}/>
+                        <Link href="tel:+38 (050) 330 36 10">
+                          +38 (050) 330 36 10
+                        </Link>
+                      </div>
+                    </div>
+                  </Col>
+                  <Col lg={6}>
+                    <div className="block block-contact">
+                      <div className="block-label">
+                        Пошта
+                      </div>
+                      <div className="block-content">
+                        <EnvelopeIcon width={24} height={24}/>
+                        <Link href="mailto:dion.lviv.ua@gmail.com">
+                          dion.lviv.ua@gmail.com
+                        </Link>
+                      </div>
+                    </div>
+                  </Col>
+                  <Col lg={6}>
+                    <div className="block block-contact">
+                      <div className="block-label">
+                        Адреса
+                      </div>
+                      <div className="block-content">
+                        <MapPinIcon width={24} height={24}/>
+                        <Link href="tel:+38 (050) 330 36 10">
+                          м. Львів, вул. Моринецька 8
+                        </Link>
+                      </div>
+                    </div>
+                  </Col>
+                  <Col lg={6}>
+                    <div className="block block-contact">
+                      <div className="block-label">
+                        Робочий час
+                      </div>
+                      <div className="block-content">
+                        <ClockIcon width={24} height={24}/>
+                        <Link href="#">
+                          Пн - Пт, з 9:00 до 17:00
+                        </Link>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.457310669429!2d23.988310315883016!3d49.852653738137874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add95b7309467%3A0xb1954af61f9b389f!2z0LLRg9C70LjRhtGPINCc0L7RgNC40L3QtdGG0YzQutCwLCDQm9GM0LLRltCyLCDQm9GM0LLRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1sru!2sua!4v1658936612130!5m2!1sru!2sua"
+                  allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="mt-4"/>
+              </Col>
+              <Col lg={4}>
+                <div className="block block-form">
+                  <h3 className="mb-2">Потрібна допомога?</h3>
+                  <p className="mb-3">Ми будемо раді відповісти на всі ваші запитання та допомогти вирішити проблему нагріву води раз і
+                    назавжди.</p>
+                  <form>
+                    <Row className="gy-1">
+                      <Col xs={12}>
+                        <label htmlFor="name" className="form-label required">
+                          Ім’я
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="name"
+                          placeholder="Олександр"
+                        />
+                      </Col>
+                      <Col xs={12}>
+                        <label htmlFor="phone" className="form-label required">
+                          Контактний телефон
+                        </label>
+                        <InputMask
+                          type="text"
+                          className="form-control"
+                          name="phone"
+                          placeholder="+38 (000) 00 00 000"
+                          mask="+38 (999) 99 99 999"
+                        />
+                      </Col>
+                      <Col xs={12}>
+                        <label htmlFor="question" className="form-label">
+                          Ваше запитання
+                        </label>
+                        <textarea
+                          className="form-control"
+                          name="question"
+                          placeholder="Опишіть коротко вашу проблему"
+                        />
+                      </Col>
+                      <Col xs={12}>
+                        <button className="btn btn-primary w-100 mt-2"
+                                type="submit">
+                          Надіслати запит
+                        </button>
+                      </Col>
+                    </Row>
+                  </form>
                 </div>
               </Col>
             </Row>
           </Container>
         </section>
       </DefaultLayout>
-      <Script id="hot-jar">
-        {
-          `
-              (function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:3666553,hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-            `
-        }
-      </Script>
     </>
   );
 }
-
-export const getStaticProps = async () => {
-  try {
-    const data = await fetchContent('homepage', HomepageConfig);
-
-    return {
-      props: {
-        data,
-      },
-      revalidate: 10,
-    };
-  } catch (error) {
-    console.error(error);
-  }
-
-  return {
-    props: {},
-  };
-};

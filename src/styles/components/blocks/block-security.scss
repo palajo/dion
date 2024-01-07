@@ -1,0 +1,35 @@
+.block.block-security {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+
+  padding: 36px 56px;
+
+  background: $white;
+  border: 1px solid $gray-50;
+  border-radius: 12px;
+
+  transition: 0.1s ease;
+
+  .block-image {
+    svg {
+      width: 56px;
+      height: 56px;
+
+      fill: $primary;
+    }
+  }
+
+  .block-content {
+    p {
+      margin-top: 8px;
+      max-width: 540px;
+    }
+  }
+}
+
+.slider.slider-reviews {
+  .swiper-slide {
+    height: auto;
+  }
+}

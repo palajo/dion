@@ -1,0 +1,52 @@
+.block {
+  h1, h2, h3, h4, h5, p {
+    margin-bottom: 0;
+  }
+
+  .block-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $primary;
+
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+
+    svg {
+      flex-shrink: 0;
+
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .block {
+    .block-subtitle {
+      gap: 12px;
+      font-size: 14px;
+      margin-bottom: 12px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+@import './block-author';
+@import './block-rating';
+@import './block-review';
+@import './block-product';
+@import './block-contact';
+@import './block-statistics';
+@import './block-form';
+@import './block-security';
