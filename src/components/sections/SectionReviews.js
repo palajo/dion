@@ -3,7 +3,6 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper';
-import _ from 'lodash';
 import { StarIcon } from '@heroicons/react/16/solid/index';
 
 function SectionReviews(props) {
@@ -22,7 +21,7 @@ function SectionReviews(props) {
                 </h2>
               </Col>
               <Col xs="auto">
-                <Link className="link-with-arrow" href="/">
+                <Link className="link-with-arrow" href="#">
                   Показати більше
                 </Link>
               </Col>
@@ -30,7 +29,7 @@ function SectionReviews(props) {
           </Col>
           <Col lg={12}>
             <p>
-              Рейтинг 4.78 з 5 на основі <u>1000+ відгуків</u>
+              Рейтинг 4.78 з 5 на базі <u>1000+ відгуків</u>
             </p>
             <Swiper
               spaceBetween={16}
@@ -54,41 +53,225 @@ function SectionReviews(props) {
                 },
               }}
             >
-              {
-                _.times(6, (blockIndex) => (
-                  <SwiperSlide key={blockIndex}>
-                    <div className="block block-review">
-                      <div>
-                        <div className="block block-author">
-                          <div className="block-image">
-                            <div className="image-placeholder"/>
-                          </div>
-                          <div className="block-content">
-                            <h5>Олег</h5>
-                            <p>Львів</p>
-                          </div>
-                        </div>
-                        <p className="mt-3">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                          incididunt
-                          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                          ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
+              <SwiperSlide>
+                <div className="block block-review">
+                  <div>
+                    <div className="block block-author">
+                      <div className="block-image">
+                        <div className="image-placeholder"/>
                       </div>
-                      <div className="block block-rating">
-                        <div className="stars">
-                          <StarIcon width={24} height={24}/>
-                          <StarIcon width={24} height={24}/>
-                          <StarIcon width={24} height={24}/>
-                          <StarIcon width={24} height={24}/>
-                          <StarIcon width={24} height={24}/>
-                        </div>
-                        <p>Оцінка 5 з 5</p>
+                      <div className="block-content">
+                        <h5>Ірина</h5>
+                        <p>Харків</p>
                       </div>
                     </div>
-                  </SwiperSlide>
-                ))
-              }
+                    <p className="mt-3">
+                      Dion - чудовий вибір! Вода нагрівається миттєво, економія газу помітна. Рекомендую!
+                    </p>
+                  </div>
+                  <div className="block block-rating">
+                    <div className="stars">
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                    </div>
+                    <p>Оцінка 5 з 5</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="block block-review">
+                  <div>
+                    <div className="block block-author">
+                      <div className="block-image">
+                        <div className="image-placeholder"/>
+                      </div>
+                      <div className="block-content">
+                        <h5>Олександр</h5>
+                        <p>Львів</p>
+                      </div>
+                    </div>
+                    <p className="mt-3">
+                      Купив Dion - ніяких нарікань! Відмінна ефективність, простота в управлінні, дуже задоволений покупкою                    </p>
+                  </div>
+                  <div className="block block-rating">
+                    <div className="stars">
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                    </div>
+                    <p>Оцінка 5 з 5</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="block block-review">
+                  <div>
+                    <div className="block block-author">
+                      <div className="block-image">
+                        <div className="image-placeholder"/>
+                      </div>
+                      <div className="block-content">
+                        <h5>Наталія</h5>
+                        <p>Київ</p>
+                      </div>
+                    </div>
+                    <p className="mt-3">
+                      Газовий водонагрівач Dion - надійний помічник у побуті. Гаряча вода завжди в наявності, якість на висоті.                    </p>
+                  </div>
+                  <div className="block block-rating">
+                    <div className="stars">
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                    </div>
+                    <p>Оцінка 5 з 5</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="block block-review">
+                  <div>
+                    <div className="block block-author">
+                      <div className="block-image">
+                        <div className="image-placeholder"/>
+                      </div>
+                      <div className="block-content">
+                        <h5>Максим</h5>
+                        <p>Дніпро</p>
+                      </div>
+                    </div>
+                    <p className="mt-3">
+                      Dion - це те, що потрібно для комфорту вдома. Простий монтаж, швидке нагрівання води.                    </p>
+                  </div>
+                  <div className="block block-rating">
+                    <div className="stars">
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                    </div>
+                    <p>Оцінка 5 з 5</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="block block-review">
+                  <div>
+                    <div className="block block-author">
+                      <div className="block-image">
+                        <div className="image-placeholder"/>
+                      </div>
+                      <div className="block-content">
+                        <h5>Вікторія</h5>
+                        <p>Одеса</p>
+                      </div>
+                    </div>
+                    <p className="mt-3">
+                      Замінила старий водонагрівач на Dion - і не пошкодувала! Зручно, економно, працює без нарікань                    </p>
+                  </div>
+                  <div className="block block-rating">
+                    <div className="stars">
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                    </div>
+                    <p>Оцінка 5 з 5</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="block block-review">
+                  <div>
+                    <div className="block block-author">
+                      <div className="block-image">
+                        <div className="image-placeholder"/>
+                      </div>
+                      <div className="block-content">
+                        <h5>Павло</h5>
+                        <p>Херсон</p>
+                      </div>
+                    </div>
+                    <p className="mt-3">
+                      Dion - надійний бренд. Забезпечує стабільну температуру води, досить компактна, проста в експлуатації                    </p>
+                  </div>
+                  <div className="block block-rating">
+                    <div className="stars">
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                    </div>
+                    <p>Оцінка 5 з 5</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="block block-review">
+                  <div>
+                    <div className="block block-author">
+                      <div className="block-image">
+                        <div className="image-placeholder"/>
+                      </div>
+                      <div className="block-content">
+                        <h5>Юлія</h5>
+                        <p>Запоріжжя</p>
+                      </div>
+                    </div>
+                    <p className="mt-3">
+                      Купила Dion для квартири - відмінна якість за прийнятну ціну.
+                    </p>
+                  </div>
+                  <div className="block block-rating">
+                    <div className="stars">
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                    </div>
+                    <p>Оцінка 5 з 5</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="block block-review">
+                  <div>
+                    <div className="block block-author">
+                      <div className="block-image">
+                        <div className="image-placeholder"/>
+                      </div>
+                      <div className="block-content">
+                        <h5>Андрій</h5>
+                        <p>Чернівці</p>
+                      </div>
+                    </div>
+                    <p className="mt-3">
+                      Dion - гарний вибір серед водонагрівачів. Функціональна, ефективна та економічна. Задоволений покупкою.
+                    </p>
+                  </div>
+                  <div className="block block-rating">
+                    <div className="stars">
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                      <StarIcon width={24} height={24}/>
+                    </div>
+                    <p>Оцінка 5 з 5</p>
+                  </div>
+                </div>
+              </SwiperSlide>
             </Swiper>
           </Col>
         </Row>

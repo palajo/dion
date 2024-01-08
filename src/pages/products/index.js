@@ -24,7 +24,7 @@ function Index(props) {
         <link rel="icon" href="/favicon.png"/>
       </Head>
       <DefaultLayout>
-        <section className="section section-hero justify-content-center glow-bottom">
+        <section className="section section-hero justify-content-lg-center glow-bottom">
           <Container>
             <Row className="gy-3">
               <Col lg={12} className="d-flex flex-column align-items-center text-center">
@@ -36,7 +36,7 @@ function Index(props) {
                     <StarIcon width={24} height={24}/>
                     <StarIcon width={24} height={24}/>
                   </div>
-                  <p>Рейтинг 4.78 з 5 на основі <u>1000+ відгуків</u></p>
+                  <p>Рейтинг 4.78 з 5 на базі <u>1000+ відгуків</u></p>
                 </div>
                 <h1 className="mb-3">
                   Каталог продукції Dion

@@ -19,3 +19,16 @@
   color: $gray-950;
   line-height: 1.5;
 }
+
+@media screen and (max-width: 767px) {
+  .block.block-benefit {
+    padding: 12px 30px 12px 20px;
+
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    font-size: 14px;
+  }
+}

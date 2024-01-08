@@ -312,4 +312,24 @@ ul.nav.ul-breadcrumbs {
       }
     }
   }
+
+  ul.nav.ul-breadcrumbs {
+    gap: 8px;
+
+    li.nav-item {
+      gap: 8px;
+
+      &::after {
+        width: 14px;
+        height: 14px;
+      }
+
+
+      a.nav-link {
+        padding: 4px 0;
+        max-width: 160px;
+      }
+    }
+  }
+
 }

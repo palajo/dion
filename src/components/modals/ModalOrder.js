@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Col, Modal, Row } from 'react-bootstrap';
 import InputMask from 'react-input-mask';
 import emailjs from 'emailjs-com';
-import { Router } from 'next/router';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { event } from 'nextjs-google-analytics';
+import { useRouter } from 'next/router';
 
 function ModalConsultation({ product, buttonClassNames }) {
+  const router = useRouter();
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -77,7 +79,7 @@ function ModalConsultation({ product, buttonClassNames }) {
 
                 setTimeout(() => {
                   setSubmitSuccess(false);
-                  Router.push('/thank-you');
+                  router.push('/thank-you');
                 }, 3000);
               })
                 .catch((err) => {

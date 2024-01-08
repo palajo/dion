@@ -6,21 +6,21 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
+    "@hotjar/browser": "^1.0.9",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "emailjs-com": "^3.2.0",
     "formik": "^2.2.9",
     "lodash": "^4.17.21",
     "next": "^14.0.4",
-    "next-sitemap": "^3.1.16",
     "next-videos": "^1.4.1",
     "nextjs-google-analytics": "^2.3.3",
+    "nextjs-progressbar": "^0.0.16",
     "qs": "^6.5.3",
     "react": "18.2.0",
     "react-bootstrap": "^2.4.0",

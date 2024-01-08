@@ -21,3 +21,20 @@
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .block.block-statistics {
+    .block-image {
+      svg {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    .block-content {
+      h5 {
+        font-size: 18px;
+      }
+    }
+  }
+}

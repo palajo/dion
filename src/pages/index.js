@@ -37,7 +37,7 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.png"/>
       </Head>
       <DefaultLayout>
-        <section className="section section-hero justify-content-center glow-bottom">
+        <section className="section section-hero justify-content-lg-center glow-bottom">
           <Container>
             <Row className="gy-3">
               <Col lg={12} className="d-flex flex-column align-items-center text-center">
@@ -49,7 +49,7 @@ export default function Home({ data }) {
                     <StarIcon width={24} height={24}/>
                     <StarIcon width={24} height={24}/>
                   </div>
-                  <p>Рейтинг 4.78 з 5 на основі <u>1000+ відгуків</u></p>
+                  <p>Рейтинг 4.78 з 5 на базі <u>1000+ відгуків</u></p>
                 </div>
                 <h1 className="mb-3">
                   Надійні газові водонагрівачі <br/>
@@ -201,7 +201,7 @@ export default function Home({ data }) {
                     <h2>Відпочивайте та зардяжайтесь енегрією щодня!</h2>
                     <p>
                       А що ж може бути кращого, ніж гаряча ванна або ж душ після робочого дня? <br/>
-                      Ми дбаємо про те, щоб у вас ніколи не виникала проблем гарячої води
+                      Ми дбаємо про те, щоб у вас ніколи не виникала проблеми гарячої води
                     </p>
                   </Col>
                   <Col lg={6}>

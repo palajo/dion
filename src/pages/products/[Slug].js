@@ -11,6 +11,7 @@ import SectionReviews from '@/components/sections/SectionReviews';
 import ModalOrder from '@/components/modals/ModalOrder';
 import ModalConsultation from '@/components/modals/ModalConsultation';
 import BlockProduct from "@/components/blocks/BlockProduct";
+import { StarIcon } from '@heroicons/react/16/solid/index.js';
 
 export default function Product({ data, title }) {
   return (
@@ -69,19 +70,17 @@ export default function Product({ data, title }) {
                 <Row className="gx-1 align-items-center">
                   <Col xs="auto">
                     <div className="block block-spec">
-                      Димохідна
+                      {data.Type}
                     </div>
                   </Col>
                   <Col xs="auto">
                     <div className="block block-spec">
-                      11 л
+                      {data.Volume}
                     </div>
                   </Col>
                 </Row>
                 <p className="mt-4">
-                  Dion JSD-11, Люкс – це наша новинка. Збільшений вихід гарячої води, дизайн виконаний на новий лад та
-                  збережена лаконічність попереднього дизайну. Оснащений всіма необіхдними системами безпеки та
-                  LCD-дисплеєм.
+                  {data.Description}
                 </p>
                 <Row className="align-items-center g-1 mt-4">
                   <Col xs="auto">
@@ -119,69 +118,25 @@ export default function Product({ data, title }) {
           <Container>
             <Row className="flex-column align-items-center gy-4">
               <Col lg={6}>
-                <h3>
+                <h3 className="d-flex align-items-center">
                   <ListBulletIcon width={36} height={36} stroke="#176DE5" className="me-2"/>
                   Характеристики
                 </h3>
                 <table>
                   <tbody>
-                  <tr>
-                    <th><span>Модель</span></th>
-                    <td>JSD-11</td>
-                  </tr>
-                  <tr>
-                    <th><span>Ном. теплова потужність</span></th>
-                    <td>22 кВт</td>
-                  </tr>
-                  <tr>
-                    <th><span>Вихід гарячої води (ΔT=25°C)</span></th>
-                    <td>11 л./хв.</td>
-                  </tr>
-                  <tr>
-                    <th><span>Коефіцієнт корисної дії</span></th>
-                    <td>≥ 84%</td>
-                  </tr>
-                  <tr>
-                    <th><span>Габарити</span></th>
-                    <td>580x310x230</td>
-                  </tr>
-                  <tr>
-                    <th><span>Вага водонагрівача</span></th>
-                    <td>10 кг</td>
-                  </tr>
-                  <tr>
-                    <th><span>Діаметр димохідної труби</span></th>
-                    <td>115</td>
-                  </tr>
-                  <tr>
-                    <th><span>Труба підводу води</span></th>
-                    <td>G 1/2"</td>
-                  </tr>
-                  <tr>
-                    <th><span>Труба відводу води</span></th>
-                    <td>G 1/2"</td>
-                  </tr>
-                  <tr>
-                    <th><span>Труба підводу газу</span></th>
-                    <td>G 1/2"</td>
-                  </tr>
-                  <tr>
-                    <th><span>Номінальний тиск</span></th>
-                    <td>1300 Па</td>
-                  </tr>
-                  <tr>
-                    <th><span>Тиск води для загорання</span></th>
-                    <td>≥ 0,015 МПа</td>
-                  </tr>
-                  <tr>
-                    <th><span>Вага теплообмінника</span></th>
-                    <td>2,4 кг</td>
-                  </tr>
+                  {
+                    data.Specifications.map((row, rowIndex) => (
+                      <tr key={rowIndex}>
+                        <th><span>{row.Title}</span></th>
+                        <td>{row.Value}</td>
+                      </tr>
+                    ))
+                  }
                   </tbody>
                 </table>
               </Col>
               <Col lg={6}>
-                <h3>
+                <h3 className="d-flex align-items-center">
                   <ShieldCheckIcon width={36} height={36} stroke="#176DE5" className="me-2"/>
                   Безпека
                 </h3>
@@ -210,8 +165,6 @@ export default function Product({ data, title }) {
           </Container>
         </section>
         <hr/>
-        <SectionReviews/>
-        <hr/>
         <section className="section pt-4 pb-4">
           <Container>
             <Row className="gy-2">
@@ -237,6 +190,8 @@ export default function Product({ data, title }) {
             </Row>
           </Container>
         </section>
+        <hr/>
+        <SectionReviews/>
       </DefaultLayout>
     </>
   );

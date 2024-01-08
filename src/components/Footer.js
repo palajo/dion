@@ -11,7 +11,7 @@ function Footer() {
   return (
     <footer>
       <Container>
-        <Row>
+        <Row className="gy-3">
           <Col lg={3}>
             <div className="logo">
               <Link href="/">
