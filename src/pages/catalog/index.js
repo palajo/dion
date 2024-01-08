@@ -2,16 +2,14 @@ import React from 'react';
 import Head from 'next/head';
 import { Col, Container, Row } from 'react-bootstrap';
 import { StarIcon } from '@heroicons/react/16/solid/index.js';
-import Link from 'next/link';
-import _ from 'lodash';
 import { ArrowLongDownIcon } from '@heroicons/react/24/solid';
 
 import DefaultLayout from '@/layouts/DefaultLayout';
 import ModalConsultation from '@/components/modals/ModalConsultation';
 
 import HeroBackground from '@/images/backgrounds/kitchen.mp4';
-import ProductImage from '@/images/products/dion-jsd-11-lux.png';
 import { ProductsList } from '@/api/products.js';
+import BlockProduct from '@/components/blocks/BlockProduct.js';
 
 function Index(props) {
   return (
@@ -79,28 +77,7 @@ function Index(props) {
                   {
                     ProductsList.filter((product) => product.Category === 'Преміум').map((product, productIndex) => (
                       <Col lg={3} key={productIndex}>
-                        <div className="block block-product">
-                          <div className="block-image">
-                            <Link href={`/catalog/${product.Slug}`}>
-                              <img src={product.Images[0].src} alt={product.Images[0].alt} width={product.Images[0].width}
-                                   height={product.Images[0].height}/>
-                            </Link>
-                          </div>
-                          <div className="block-content text-center">
-                            <Link href={`/catalog/${product.Slug}`}>
-                              <div className="block-title">{product.Model}, {product.Title}</div>
-                            </Link>
-                            <div className="block-price">{product.Price} грн</div>
-                            <div className="block-benefits">
-                              <div className="block block-benefits-item">
-                                10 л
-                              </div>
-                              <div className="block block-benefits-item">
-                                Димохідна
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <BlockProduct product={product}/>
                       </Col>
                     ))
                   }
@@ -126,28 +103,7 @@ function Index(props) {
                   {
                     ProductsList.filter((product) => product.Category === 'З фото-панеллю').map((product, productIndex) => (
                       <Col lg={3} key={productIndex}>
-                        <div className="block block-product">
-                          <div className="block-image">
-                            <Link href={`/catalog/${product.Slug}`}>
-                              <img src={product.Images[0].src} alt={product.Images[0].alt} width={product.Images[0].width}
-                                   height={product.Images[0].height}/>
-                            </Link>
-                          </div>
-                          <div className="block-content text-center">
-                            <Link href={`/catalog/${product.Slug}`}>
-                              <div className="block-title">{product.Model}, {product.Title}</div>
-                            </Link>
-                            <div className="block-price">{product.Price} грн</div>
-                            <div className="block-benefits">
-                              <div className="block block-benefits-item">
-                                10 л
-                              </div>
-                              <div className="block block-benefits-item">
-                                Димохідна
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <BlockProduct product={product}/>
                       </Col>
                     ))
                   }
@@ -173,28 +129,7 @@ function Index(props) {
                   {
                     ProductsList.filter((product) => product.Category === 'Люкс').map((product, productIndex) => (
                       <Col lg={3} key={productIndex}>
-                        <div className="block block-product">
-                          <div className="block-image">
-                            <Link href={`/catalog/${product.Slug}`}>
-                              <img src={product.Images[0].src} alt={product.Images[0].alt} width={product.Images[0].width}
-                                   height={product.Images[0].height}/>
-                            </Link>
-                          </div>
-                          <div className="block-content text-center">
-                            <Link href={`/catalog/${product.Slug}`}>
-                              <div className="block-title">{product.Model}, {product.Title}</div>
-                            </Link>
-                            <div className="block-price">{product.Price} грн</div>
-                            <div className="block-benefits">
-                              <div className="block block-benefits-item">
-                                10 л
-                              </div>
-                              <div className="block block-benefits-item">
-                                Димохідна
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <BlockProduct product={product}/>
                       </Col>
                     ))
                   }
@@ -220,28 +155,7 @@ function Index(props) {
                   {
                     ProductsList.filter((product) => product.Category === 'Турбо').map((product, productIndex) => (
                       <Col lg={3} key={productIndex}>
-                        <div className="block block-product">
-                          <div className="block-image">
-                            <Link href={`/catalog/${product.Slug}`}>
-                              <img src={product.Images[0].src} alt={product.Images[0].alt} width={product.Images[0].width}
-                                   height={product.Images[0].height}/>
-                            </Link>
-                          </div>
-                          <div className="block-content text-center">
-                            <Link href={`/catalog/${product.Slug}`}>
-                              <div className="block-title">{product.Model}, {product.Title}</div>
-                            </Link>
-                            <div className="block-price">{product.Price} грн</div>
-                            <div className="block-benefits">
-                              <div className="block block-benefits-item">
-                                10 л
-                              </div>
-                              <div className="block block-benefits-item">
-                                Димохідна
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <BlockProduct product={product}/>
                       </Col>
                     ))
                   }

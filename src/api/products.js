@@ -37,6 +37,8 @@ export const ProductsList = [
     Slug: 'dion-jsd-10-mosaic',
     Images: [MosaicSide, MosaicFront],
     Featured: true,
+    Type: 'Димохідна',
+    Volume: '10 л',
   },
   {
     Category: 'З фото-панеллю',
@@ -45,6 +47,8 @@ export const ProductsList = [
     Price: 4900,
     Slug: 'dion-jsd-10-waterfall',
     Images: [WaterfallSide, WaterfallFront],
+    Type: 'Димохідна',
+    Volume: '10 л',
   },
   {
     Category: 'З фото-панеллю',
@@ -53,6 +57,8 @@ export const ProductsList = [
     Price: 4900,
     Slug: 'dion-jsd-10-poppies',
     Images: [PoppiesSide, PoppiesFront],
+    Type: 'Димохідна',
+    Volume: '10 л',
   },
   {
     Category: 'З фото-панеллю',
@@ -61,6 +67,8 @@ export const ProductsList = [
     Price: 4900,
     Slug: 'dion-jsd-10-sunflower',
     Images: [SunflowerSide, SunflowerFront],
+    Type: 'Димохідна',
+    Volume: '10 л',
   },
   {
     Category: 'З фото-панеллю',
@@ -69,6 +77,8 @@ export const ProductsList = [
     Price: 4900,
     Slug: 'dion-jsd-10-lily',
     Images: [LilySide, LilyFront],
+    Type: 'Димохідна',
+    Volume: '10 л',
   },
   {
     Category: 'Преміум',
@@ -77,6 +87,8 @@ export const ProductsList = [
     Price: 4800,
     Slug: 'dion-jsd-10-premium',
     Images: [PremiumSide, PremiumFront],
+    Type: 'Димохідна',
+    Volume: '10 л',
   },
   {
     Category: 'Преміум',
@@ -86,6 +98,9 @@ export const ProductsList = [
     Slug: 'dion-jsd-08-premium-black',
     Images: [PremiumBlackSide, PremiumBlackFront],
     Featured: true,
+    Type: 'Димохідна',
+    Volume: '8 л',
+
   },
   {
     Category: 'Преміум',
@@ -94,6 +109,8 @@ export const ProductsList = [
     Price: 4800,
     Slug: 'dion-jsd-10-premium-silver',
     Images: [PremiumSliverSide, PremiumSliverFront],
+    Type: 'Димохідна',
+    Volume: '10 л',
   },
   {
     Category: 'Люкс',
@@ -102,6 +119,8 @@ export const ProductsList = [
     Price: 5200,
     Slug: 'dion-jsd-12-comfort',
     Images: [ComfortSide, ComfortFront],
+    Type: 'Димохідна',
+    Volume: '12 л',
   },
   {
     Category: 'Люкс',
@@ -111,6 +130,8 @@ export const ProductsList = [
     Slug: 'dion-jsd-11-lux',
     Images: [LuxSide],
     Featured: true,
+    Type: 'Димохідна',
+    Volume: '11 л',
   },
   {
     Category: 'Турбо',
@@ -120,6 +141,8 @@ export const ProductsList = [
     Slug: 'dion-jsd-10d-turbo',
     Images: [TurboSide, TurboFront],
     Featured: true,
+    Type: 'Парапетна (Турбо)',
+    Volume: '10 л',
   },
   {
     Category: 'Турбо',
@@ -128,6 +151,8 @@ export const ProductsList = [
     Price: 7100,
     Slug: 'dion-jsd-10f-halfturbo-with-modulator',
     Images: [HalfTurboWithModulatorSide],
+    Type: 'Парапетна (Турбо)',
+    Volume: '10 л',
   },
   {
     Category: 'Турбо',
@@ -136,6 +161,8 @@ export const ProductsList = [
     Price: 6600,
     Slug: 'dion-jsd-10f-halfturbo',
     Images: [HalfTurboSide, HalfTurboFront],
+    Type: 'Парапетна (Турбо)',
+    Volume: '10 л',
   },
   {
     Category: 'Турбо',
@@ -144,6 +171,8 @@ export const ProductsList = [
     Price: 6600,
     Slug: 'dion-jsd-08d-turbo',
     Images: [TurboSide, TurboFront],
+    Type: 'Парапетна (Турбо)',
+    Volume: '10 л',
   },
   {
     Category: 'З фото-панеллю',
@@ -152,6 +181,8 @@ export const ProductsList = [
     Price: 4900,
     Slug: 'dion-jsd-10-grill',
     Images: [GrillSide, GrillFront],
+    Type: 'Димохідна',
+    Volume: '10 л',
   },
   {
     Category: 'З фото-панеллю',
@@ -160,6 +191,8 @@ export const ProductsList = [
     Price: 4900,
     Slug: 'dion-jsd-10-mountains',
     Images: [MountainsSide, MountainsFront],
+    Type: 'Димохідна',
+    Volume: '10 л',
   },
   {
     Category: 'Преміум',
@@ -168,5 +201,7 @@ export const ProductsList = [
     Price: 3800,
     Slug: 'dion-jsd-06-premium',
     Images: [PremiumSide, PremiumFront],
+    Type: 'Димохідна',
+    Volume: '6 л',
   },
 ];

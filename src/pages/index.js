@@ -1,14 +1,16 @@
 import React from 'react';
 import Head from 'next/head';
 import { Col, Container, Row } from 'react-bootstrap';
-import _ from 'lodash';
 import { PhoneIcon, StarIcon } from '@heroicons/react/16/solid/index.js';
 import Link from 'next/link';
 import {
-  ClockIcon, CogIcon,
-  EnvelopeIcon, FireIcon,
+  ClockIcon,
+  CogIcon,
+  EnvelopeIcon,
+  FireIcon,
   HomeIcon,
-  MapPinIcon, PaintBrushIcon,
+  MapPinIcon,
+  PaintBrushIcon,
   TruckIcon,
   UserGroupIcon,
 } from '@heroicons/react/24/solid/index.js';
@@ -16,11 +18,10 @@ import {
 import DefaultLayout from '@/layouts/DefaultLayout';
 import FormConsultation from '@/components/forms/FormConsultation.js';
 import SectionReviews from '@/components/sections/SectionReviews';
-
-import ProductImage from '@/images/products/dion-jsd-11-lux.png';
 import HeroBackground from '@/images/backgrounds/background.mp4';
 import BathVideo from '@/images/backgrounds/bath.mp4';
 import { ProductsList } from '@/api/products.js';
+import BlockProduct from '@/components/blocks/BlockProduct.js';
 
 export default function Home({ data }) {
 
@@ -82,7 +83,7 @@ export default function Home({ data }) {
                 <Row className="justify-content-between align-items-center">
                   <Col lg={6}>
                     <div className="section-subtitle">
-                    Популярні продукти
+                      Популярні продукти
                     </div>
                     <h2>
                       Для всіх типів приміщення
@@ -100,28 +101,7 @@ export default function Home({ data }) {
                   {
                     ProductsList.filter((product) => product.Featured === true).map((product, productIndex) => (
                       <Col lg={3} key={productIndex}>
-                        <div className="block block-product">
-                          <div className="block-image">
-                            <Link href={`/catalog/${product.Slug}`}>
-                              <img src={product.Images[0].src} alt={product.Images[0].alt} width={product.Images[0].width}
-                                   height={product.Images[0].height}/>
-                            </Link>
-                          </div>
-                          <div className="block-content text-center">
-                            <Link href={`/catalog/${product.Slug}`}>
-                              <div className="block-title">{product.Model}, {product.Title}</div>
-                            </Link>
-                            <div className="block-price">{product.Price} грн</div>
-                            <div className="block-benefits">
-                              <div className="block block-benefits-item">
-                                10 л
-                              </div>
-                              <div className="block block-benefits-item">
-                                Димохідна
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <BlockProduct product={product}/>
                       </Col>
                     ))
                   }
@@ -135,7 +115,7 @@ export default function Home({ data }) {
             <Row className="gy-3 justify-content-center">
               <Col lg={12} className="d-flex flex-column align-items-center text-center">
                 <div className="section-subtitle">
-                Безпека та комфорт
+                  Безпека та комфорт
                 </div>
                 <h2>
                   Переваги продукції Dion
@@ -280,7 +260,7 @@ export default function Home({ data }) {
         </section>
         <SectionReviews/>
         <hr/>
-        <section className="section pt-5 pb-5">
+        <section className="section pt-5 pb-5" id="contacts">
           <Container>
             <Row className="gy-2 justify-content-between">
               <Col lg={7}>
@@ -346,7 +326,8 @@ export default function Home({ data }) {
               <Col lg={4}>
                 <div className="block block-form">
                   <h3 className="mb-2">Потрібна допомога?</h3>
-                  <p className="mb-3">Ми будемо раді відповісти на всі ваші запитання та допомогти вирішити проблему нагріву води раз і
+                  <p className="mb-3">Ми будемо раді відповісти на всі ваші запитання та допомогти вирішити проблему
+                    нагріву води раз і
                     назавжди.</p>
                   <FormConsultation/>
                 </div>

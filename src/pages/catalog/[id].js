@@ -11,12 +11,13 @@ import DefaultLayout from '@/layouts/DefaultLayout';
 import SectionReviews from '@/components/sections/SectionReviews';
 import ModalOrder from '@/components/modals/ModalOrder';
 import ModalConsultation from '@/components/modals/ModalConsultation';
+import BlockProduct from "@/components/blocks/BlockProduct.js";
 
-export default function Product({ data }) {
+export default function Product({ data, title }) {
   return (
     <>
       <Head>
-        <title>{data.Model}, {data.Title} – Газовий водонагрівач</title>
+        <title>{title} – Газовий водонагрівач</title>
         <meta name="description"
               content="Надійні газові водонагрівачі по справедливій ціні. Dion - це якісний продукт з гарантією в 12 місяців. Зручність та комфорт у використанні, а також доставка по всій Україні."/>
         <meta name="keywords"
@@ -105,7 +106,7 @@ export default function Product({ data }) {
                 </div>
                 <Row className="align-items-center g-1 mt-4">
                   <Col xs="auto">
-                    <ModalOrder data={data}/>
+                    <ModalOrder product={data}/>
                   </Col>
                   <Col xs="auto">
                     <ModalConsultation/>
@@ -228,28 +229,7 @@ export default function Product({ data }) {
                   {
                     ProductsList.filter((product) => product.Category === data.Category).slice(0, 4).map((product, productIndex) => (
                       <Col lg={3} key={productIndex}>
-                        <div className="block block-product">
-                          <div className="block-image">
-                            <Link href={`/catalog/${product.Slug}`}>
-                              <img src={product.Images[0].src} alt={product.Images[0].alt} width={product.Images[0].width}
-                                   height={product.Images[0].height}/>
-                            </Link>
-                          </div>
-                          <div className="block-content text-center">
-                            <Link href={`/catalog/${product.Slug}`}>
-                              <div className="block-title">{product.Model}, {product.Title}</div>
-                            </Link>
-                            <div className="block-price">{product.Price} грн</div>
-                            <div className="block-benefits">
-                              <div className="block block-benefits-item">
-                                10 л
-                              </div>
-                              <div className="block block-benefits-item">
-                                Димохідна
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <BlockProduct product={product}/>
                       </Col>
                     ))
                   }
@@ -263,18 +243,22 @@ export default function Product({ data }) {
   );
 }
 
-export const getStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: 'blocking'
-  }
-}
+export const getServerSideProps = async ({ res, params }) => {
+  try {
+    const data = await ProductsList.filter((product) => product.Slug === params.id)[0];
+    const title = `${data.Model}, ${data.Title}`;
 
-export const getStaticProps = async ({ res, params }) => {
+    return {
+      props: {
+        data,
+        title
+      },
+    };
+  } catch (error) {
+    console.error(error);
+  }
+
   return {
-    props: {
-      data: ProductsList.filter((product) => product.Slug === params.id)[0],
-    },
-    revalidate: 300,
+    props: {},
   };
 };

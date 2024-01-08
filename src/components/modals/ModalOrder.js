@@ -7,7 +7,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { event } from 'nextjs-google-analytics';
 
-function ModalConsultation({ buttonClassNames }) {
+function ModalConsultation({ product, buttonClassNames }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -33,7 +33,7 @@ function ModalConsultation({ buttonClassNames }) {
               phone: '',
               address: '',
               message: '',
-              price: 0,
+              price: product.Price,
               quantity: 1,
             }}
             validationSchema={
@@ -53,8 +53,8 @@ function ModalConsultation({ buttonClassNames }) {
                 Address: values.address,
                 OrderItem: {
                   Title: title,
-                  Quantity: values.quantity,
-                  Price: values.price,
+                  Quantity: 1,
+                  Price: product.Price,
                   TotalPrice: values.quantity * values.price,
                 },
               };
@@ -193,7 +193,7 @@ function ModalConsultation({ buttonClassNames }) {
                     submitSuccess && (
                       <Col xs={12}>
                         <div className="form-success">
-                          Ваш запит успішно надіслано!
+                          Ваше замовлення оформлено!
                         </div>
                       </Col>
                     )
