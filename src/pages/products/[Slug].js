@@ -3,15 +3,14 @@ import Head from 'next/head';
 import { Col, Container, Row } from 'react-bootstrap';
 import { ListBulletIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { TruckIcon } from '@heroicons/react/24/solid/index.js';
-import { ShieldExclamationIcon } from '@heroicons/react/24/solid';
-import { ProductsList } from '@/api/products.js';
+import { ShieldExclamationIcon, TruckIcon } from '@heroicons/react/24/solid';
+import { ProductsList } from '@/api/products';
 
 import DefaultLayout from '@/layouts/DefaultLayout';
 import SectionReviews from '@/components/sections/SectionReviews';
 import ModalOrder from '@/components/modals/ModalOrder';
 import ModalConsultation from '@/components/modals/ModalConsultation';
-import BlockProduct from "@/components/blocks/BlockProduct.js";
+import BlockProduct from "@/components/blocks/BlockProduct";
 
 export default function Product({ data, title }) {
   return (
