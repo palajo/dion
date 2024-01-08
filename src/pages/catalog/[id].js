@@ -1,22 +1,22 @@
 import React from 'react';
 import Head from 'next/head';
 import { Col, Container, Row } from 'react-bootstrap';
-
-import DefaultLayout from '@/layouts/DefaultLayout';
-import SectionReviews from '@/components/sections/SectionReviews';
 import { ListBulletIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { TruckIcon } from '@heroicons/react/24/solid/index.js';
 import { ShieldExclamationIcon } from '@heroicons/react/24/solid';
-import ProductImage from '@/images/products/dion-jsd-11-lux.png';
-import _ from 'lodash';
-import ModalOrder from '@/components/modals/ModalOrder';
+import { ProductsList } from '@/api/products.js';
 
-function Product(props) {
+import DefaultLayout from '@/layouts/DefaultLayout';
+import SectionReviews from '@/components/sections/SectionReviews';
+import ModalOrder from '@/components/modals/ModalOrder';
+import ModalConsultation from '@/components/modals/ModalConsultation';
+
+export default function Product({ data }) {
   return (
     <>
       <Head>
-        <title>Dion JSD-10, Люкс – Газовий водонагрівач</title>
+        <title>{data.Model}, {data.Title} – Газовий водонагрівач</title>
         <meta name="description"
               content="Надійні газові водонагрівачі по справедливій ціні. Dion - це якісний продукт з гарантією в 12 місяців. Зручність та комфорт у використанні, а також доставка по всій Україні."/>
         <meta name="keywords"
@@ -41,8 +41,8 @@ function Product(props) {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link active" href="/catalog/product">
-                      Dion JSD-10, Люкс
+                    <Link className="nav-link active" href="/catalog/[id]">
+                      {data.Model}, {data.Title}
                     </Link>
                   </li>
                 </ul>
@@ -55,8 +55,8 @@ function Product(props) {
             <Row className="gy-2 gx-4 align-items-center">
               <Col lg={6}>
                 <div className="block block-product-image">
-                  <img src={ProductImage.src} alt={ProductImage.alt} width={ProductImage.width}
-                       height={ProductImage.height}/>
+                  <img src={data.Images[0].src} alt={data.Images[0].alt} width={data.Images[0].width}
+                       height={data.Images[0].height}/>
                 </div>
               </Col>
               <Col lg={6}>
@@ -64,7 +64,7 @@ function Product(props) {
                   Газовий водонагрівач
                 </div>
                 <h3 className="mb-2">
-                  Dion JSD-11, Люкс
+                  {data.Model}, {data.Title}
                 </h3>
                 <Row className="gx-1 align-items-center">
                   <Col xs="auto">
@@ -83,7 +83,7 @@ function Product(props) {
                   збережена лаконічність попереднього дизайну. Оснащений всіма необіхдними системами безпеки та
                   LCD-дисплеєм.
                 </p>
-                <Row className="align-items-center mt-4">
+                <Row className="align-items-center g-1 mt-4">
                   <Col xs="auto">
                     <div className="block block-benefit">
                       <ShieldExclamationIcon/>
@@ -101,9 +101,16 @@ function Product(props) {
                 </Row>
                 <div className="mt-4">
                   Вартість:
-                  <h4>5100 грн</h4>
+                  <h4>{data.Price} грн</h4>
                 </div>
-                <ModalOrder buttonClassNames="mt-4"/>
+                <Row className="align-items-center g-1 mt-4">
+                  <Col xs="auto">
+                    <ModalOrder data={data}/>
+                  </Col>
+                  <Col xs="auto">
+                    <ModalConsultation/>
+                  </Col>
+                </Row>
               </Col>
             </Row>
           </Container>
@@ -219,20 +226,20 @@ function Product(props) {
               <Col lg={12}>
                 <Row className="gx-1">
                   {
-                    _.times(4, (blockIndex) => (
-                      <Col key={blockIndex}>
+                    ProductsList.filter((product) => product.Category === data.Category).slice(0, 4).map((product, productIndex) => (
+                      <Col lg={3} key={productIndex}>
                         <div className="block block-product">
                           <div className="block-image">
-                            <Link href="/catalog/product">
-                              <img src={ProductImage.src} alt={ProductImage.alt} width={ProductImage.width}
-                                   height={ProductImage.height}/>
+                            <Link href={`/catalog/${product.Slug}`}>
+                              <img src={product.Images[0].src} alt={product.Images[0].alt} width={product.Images[0].width}
+                                   height={product.Images[0].height}/>
                             </Link>
                           </div>
                           <div className="block-content text-center">
-                            <Link href="/catalog/product">
-                              <div className="block-title">Dion JSD-11, Люкс</div>
+                            <Link href={`/catalog/${product.Slug}`}>
+                              <div className="block-title">{product.Model}, {product.Title}</div>
                             </Link>
-                            <div className="block-price">5100 грн</div>
+                            <div className="block-price">{product.Price} грн</div>
                             <div className="block-benefits">
                               <div className="block block-benefits-item">
                                 10 л
@@ -256,4 +263,18 @@ function Product(props) {
   );
 }
 
-export default Product;
+export const getStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: 'blocking'
+  }
+}
+
+export const getStaticProps = async ({ res, params }) => {
+  return {
+    props: {
+      data: ProductsList.filter((product) => product.Slug === params.id)[0],
+    },
+    revalidate: 300,
+  };
+};

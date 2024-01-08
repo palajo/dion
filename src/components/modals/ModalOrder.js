@@ -107,7 +107,7 @@ function ModalConsultation({ buttonClassNames }) {
                       type="text"
                       className="form-control"
                       name="name"
-                      placeholder="Олексій.."
+                      placeholder="Олексій"
                       onChange={handleChange}
                       onBlur={handleBlur}
                       value={values.name}
@@ -124,7 +124,7 @@ function ModalConsultation({ buttonClassNames }) {
                       type="text"
                       className="form-control"
                       name="surname"
-                      placeholder="Стельмах.."
+                      placeholder="Стельмах"
                       onChange={handleChange}
                       onBlur={handleBlur}
                       value={values.surname}

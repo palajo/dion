@@ -20,6 +20,7 @@ import SectionReviews from '@/components/sections/SectionReviews';
 import ProductImage from '@/images/products/dion-jsd-11-lux.png';
 import HeroBackground from '@/images/backgrounds/background.mp4';
 import BathVideo from '@/images/backgrounds/bath.mp4';
+import { ProductsList } from '@/api/products.js';
 
 export default function Home({ data }) {
 
@@ -97,20 +98,20 @@ export default function Home({ data }) {
               <Col lg={12}>
                 <Row className="gx-1">
                   {
-                    _.times(4, (blockIndex) => (
-                      <Col key={blockIndex}>
+                    ProductsList.filter((product) => product.Featured === true).map((product, productIndex) => (
+                      <Col lg={3} key={productIndex}>
                         <div className="block block-product">
                           <div className="block-image">
-                            <Link href="/catalog/product">
-                              <img src={ProductImage.src} alt={ProductImage.alt} width={ProductImage.width}
-                                   height={ProductImage.height}/>
+                            <Link href={`/catalog/${product.Slug}`}>
+                              <img src={product.Images[0].src} alt={product.Images[0].alt} width={product.Images[0].width}
+                                   height={product.Images[0].height}/>
                             </Link>
                           </div>
                           <div className="block-content text-center">
-                            <Link href="/catalog/product">
-                              <div className="block-title">Dion JSD-11, Люкс</div>
+                            <Link href={`/catalog/${product.Slug}`}>
+                              <div className="block-title">{product.Model}, {product.Title}</div>
                             </Link>
-                            <div className="block-price">5100 грн</div>
+                            <div className="block-price">{product.Price} грн</div>
                             <div className="block-benefits">
                               <div className="block block-benefits-item">
                                 10 л
@@ -277,7 +278,6 @@ export default function Home({ data }) {
             </Row>
           </Container>
         </section>
-        <hr/>
         <SectionReviews/>
         <hr/>
         <section className="section pt-5 pb-5">
