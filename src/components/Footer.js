@@ -130,7 +130,7 @@ function Footer() {
                 <p>© Copyright 2024 — Dion. All rights Reserved.</p>
               </Col>
               <Col xs="auto" className="d-none d-lg-block">
-              <ul className="nav justify-content-end nav-copyright">
+                <ul className="nav justify-content-end nav-copyright">
                   <li className="nav-item">
                     <Link
                       href="/privacy-policy"

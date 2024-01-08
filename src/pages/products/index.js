@@ -42,7 +42,7 @@ function Index(props) {
                   Каталог продукції Dion
                 </h1>
                 <p className="text-medium">
-                  Обирайте бажане з 16 доступних моделей, дизайн на будь-який смак! <br className="d-none d-lg-block" />
+                  Обирайте бажане з 16 доступних моделей, дизайн на будь-який смак! <br className="d-none d-lg-block"/>
                   А ми доставимо ваш водонагрівач в межах 3 робочих днів
                 </p>
                 <ModalConsultation buttonClassNames="mt-3"/>

@@ -94,7 +94,8 @@ function SectionReviews(props) {
                       </div>
                     </div>
                     <p className="mt-3">
-                      Купив Dion - ніяких нарікань! Відмінна ефективність, простота в управлінні, дуже задоволений покупкою                    </p>
+                      Купив Dion - ніяких нарікань! Відмінна ефективність, простота в управлінні, дуже задоволений
+                      покупкою </p>
                   </div>
                   <div className="block block-rating">
                     <div className="stars">
@@ -121,7 +122,8 @@ function SectionReviews(props) {
                       </div>
                     </div>
                     <p className="mt-3">
-                      Газовий водонагрівач Dion - надійний помічник у побуті. Гаряча вода завжди в наявності, якість на висоті.                    </p>
+                      Газовий водонагрівач Dion - надійний помічник у побуті. Гаряча вода завжди в наявності, якість на
+                      висоті. </p>
                   </div>
                   <div className="block block-rating">
                     <div className="stars">
@@ -148,7 +150,7 @@ function SectionReviews(props) {
                       </div>
                     </div>
                     <p className="mt-3">
-                      Dion - це те, що потрібно для комфорту вдома. Простий монтаж, швидке нагрівання води.                    </p>
+                      Dion - це те, що потрібно для комфорту вдома. Простий монтаж, швидке нагрівання води. </p>
                   </div>
                   <div className="block block-rating">
                     <div className="stars">
@@ -175,7 +177,8 @@ function SectionReviews(props) {
                       </div>
                     </div>
                     <p className="mt-3">
-                      Замінила старий водонагрівач на Dion - і не пошкодувала! Зручно, економно, працює без нарікань                    </p>
+                      Замінила старий водонагрівач на Dion - і не пошкодувала! Зручно, економно, працює без
+                      нарікань </p>
                   </div>
                   <div className="block block-rating">
                     <div className="stars">
@@ -202,7 +205,8 @@ function SectionReviews(props) {
                       </div>
                     </div>
                     <p className="mt-3">
-                      Dion - надійний бренд. Забезпечує стабільну температуру води, досить компактна, проста в експлуатації                    </p>
+                      Dion - надійний бренд. Забезпечує стабільну температуру води, досить компактна, проста в
+                      експлуатації </p>
                   </div>
                   <div className="block block-rating">
                     <div className="stars">
@@ -257,7 +261,8 @@ function SectionReviews(props) {
                       </div>
                     </div>
                     <p className="mt-3">
-                      Dion - гарний вибір серед водонагрівачів. Функціональна, ефективна та економічна. Задоволений покупкою.
+                      Dion - гарний вибір серед водонагрівачів. Функціональна, ефективна та економічна. Задоволений
+                      покупкою.
                     </p>
                   </div>
                   <div className="block block-rating">

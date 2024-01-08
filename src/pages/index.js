@@ -56,7 +56,7 @@ export default function Home({ data }) {
                   за справедливою ціною
                 </h1>
                 <p className="text-medium">
-                  Вирішуємо проблему нагріву води в межах 3 робочих днів по Україні. <br className="d-none d-lg-block" />
+                  Вирішуємо проблему нагріву води в межах 3 робочих днів по Україні. <br className="d-none d-lg-block"/>
                   Надаємо 12 місяців гарантії та безкоштовно консультуємо
                 </p>
                 <Link href="/products">

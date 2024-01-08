@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Col, Container, Row } from 'react-bootstrap';
 import Link from 'next/link';
 import { Logo } from '@/images/Logo';
-import { PhoneIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/16/solid';
+import { Bars3Icon, PhoneIcon, XMarkIcon } from '@heroicons/react/16/solid';
 import { CSSTransition } from 'react-transition-group';
 
 import ModalConsultation from '@/components/modals/ModalConsultation';

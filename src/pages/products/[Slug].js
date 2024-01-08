@@ -10,8 +10,7 @@ import DefaultLayout from '@/layouts/DefaultLayout';
 import SectionReviews from '@/components/sections/SectionReviews';
 import ModalOrder from '@/components/modals/ModalOrder';
 import ModalConsultation from '@/components/modals/ModalConsultation';
-import BlockProduct from "@/components/blocks/BlockProduct";
-import { StarIcon } from '@heroicons/react/16/solid/index.js';
+import BlockProduct from '@/components/blocks/BlockProduct';
 
 export default function Product({ data, title }) {
   return (
@@ -19,7 +18,7 @@ export default function Product({ data, title }) {
       <Head>
         <title>{title} – Газовий водонагрівач</title>
         <meta name="description"
-              content="Надійні газові водонагрівачі по справедливій ціні. Dion - це якісний продукт з гарантією в 12 місяців. Зручність та комфорт у використанні, а також доставка по всій Україні."/>
+              content={data.Description}/>
         <meta name="keywords"
               content="Dion, Газові колонки, Газові колонки Dion, Водонагрівачі, Газові водонагрівачі Dion"/>
         <meta name="google-site-verification" content="wgGx83ZWitWZ6Ldvhx4SVTrRUaTG3DVIHy8lYxDcD_c"/>
@@ -200,9 +199,9 @@ export default function Product({ data, title }) {
 export const getStaticPaths = async () => {
   return {
     paths: [], // indicates that no page needs be created at build time
-    fallback: 'blocking' // indicates the type of fallback
-  }
-}
+    fallback: 'blocking', // indicates the type of fallback
+  };
+};
 
 export const getStaticProps = async ({ res, params }) => {
   try {
@@ -212,7 +211,7 @@ export const getStaticProps = async ({ res, params }) => {
     return {
       props: {
         data,
-        title
+        title,
       },
     };
   } catch (error) {

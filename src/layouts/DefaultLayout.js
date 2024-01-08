@@ -6,11 +6,11 @@ import Footer from '@/components/Footer.js';
 function DefaultLayout({ children }) {
   return (
     <>
-      <Header />
+      <Header/>
       <main>
         {children}
       </main>
-      <Footer />
+      <Footer/>
     </>
   );
 }

@@ -198,8 +198,8 @@ export const ProductsList = [
     Type: 'Димохідна',
     Volume: '8 л',
     Specifications: [
-      { Title: 'Модель', Value: 'JSD-08', },
-      { Title: 'Ном. теплова потужність', Value: '16 кВт', },
+      { Title: 'Модель', Value: 'JSD-08' },
+      { Title: 'Ном. теплова потужність', Value: '16 кВт' },
       { Title: 'Вихід гарячої води (ΔT=25°C)', Value: '8 л./хв.' },
       { Title: 'Коефіцієнт корисної дії', Value: '≥ 84%' },
       { Title: 'Габарити', Value: '590x340x150' },
@@ -250,8 +250,8 @@ export const ProductsList = [
     Type: 'Димохідна',
     Volume: '12 л',
     Specifications: [
-      { Title: 'Модель', Value: 'JSD-10', },
-      { Title: 'Ном. теплова потужність', Value: '22 кВт', },
+      { Title: 'Модель', Value: 'JSD-10' },
+      { Title: 'Ном. теплова потужність', Value: '22 кВт' },
       { Title: 'Вихід гарячої води (ΔT=25°C)', Value: '12 л./хв.' },
       { Title: 'Коефіцієнт корисної дії', Value: '≥ 84%' },
       { Title: 'Габарити', Value: '590x340x150' },
@@ -277,8 +277,8 @@ export const ProductsList = [
     Type: 'Димохідна',
     Volume: '11 л',
     Specifications: [
-      { Title: 'Модель', Value: 'JSD-11', },
-      { Title: 'Ном. теплова потужність', Value: '22 кВт', },
+      { Title: 'Модель', Value: 'JSD-11' },
+      { Title: 'Ном. теплова потужність', Value: '22 кВт' },
       { Title: 'Вихід гарячої води (ΔT=25°C)', Value: '11 л./хв.' },
       { Title: 'Коефіцієнт корисної дії', Value: '≥ 84%' },
       { Title: 'Габарити', Value: '580x310x230' },
@@ -454,8 +454,8 @@ export const ProductsList = [
     Type: 'Димохідна',
     Volume: '6 л',
     Specifications: [
-      { Title: 'Модель', Value: 'JSD-10', },
-      { Title: 'Ном. теплова потужність', Value: '9 кВт', },
+      { Title: 'Модель', Value: 'JSD-10' },
+      { Title: 'Ном. теплова потужність', Value: '9 кВт' },
       { Title: 'Вихід гарячої води (ΔT=25°C)', Value: '6 л./хв.' },
       { Title: 'Коефіцієнт корисної дії', Value: '≥ 84%' },
       { Title: 'Габарити', Value: '440x300x130' },

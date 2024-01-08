@@ -15,7 +15,7 @@ function ThankYou(props) {
       <Head>
         <title>Успішно! Ваше замовлення було оформленою – Dion</title>
         <meta name="description"
-              content="Надійні газові водонагрівачі по справедливій ціні. Dion - це якісний продукт з гарантією в 12 місяців. Зручність та комфорт у використанні, а також доставка по всій Україні."/>
+              content="Ваше замовлення було оформленою – Газові колонки Dion."/>
         <meta name="keywords"
               content="Dion, Газові колонки, Газові колонки Dion, Водонагрівачі, Газові водонагрівачі Dion"/>
         <meta name="google-site-verification" content="wgGx83ZWitWZ6Ldvhx4SVTrRUaTG3DVIHy8lYxDcD_c"/>
