@@ -37,12 +37,12 @@ export default function Product({ data, title }) {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" href="/catalog">
+                    <Link className="nav-link" href="/products">
                       Каталог
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link active" href="/catalog/[id]">
+                    <Link className="nav-link active" href="/products/[Slug]">
                       {data.Model}, {data.Title}
                     </Link>
                   </li>
@@ -243,9 +243,16 @@ export default function Product({ data, title }) {
   );
 }
 
-export const getServerSideProps = async ({ res, params }) => {
+export const getStaticPaths = async () => {
+  return {
+    paths: [], // indicates that no page needs be created at build time
+    fallback: 'blocking' // indicates the type of fallback
+  }
+}
+
+export const getStaticProps = async ({ res, params }) => {
   try {
-    const data = await ProductsList.filter((product) => product.Slug === params.id)[0];
+    const data = ProductsList.filter((product) => product.Slug === params.Slug)[0];
     const title = `${data.Model}, ${data.Title}`;
 
     return {

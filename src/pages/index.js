@@ -59,7 +59,7 @@ export default function Home({ data }) {
                   Вирішуємо проблему нагріву води в межах 3 робочих днів по Україні. <br/>
                   Надаємо 12 місяців гарантії та безкоштовно консультуємо
                 </p>
-                <Link href="/catalog">
+                <Link href="/products">
                   <button className="btn btn-primary btn-arrow mt-3">
                     Перейти до каталогу
                   </button>
@@ -90,7 +90,7 @@ export default function Home({ data }) {
                     </h2>
                   </Col>
                   <Col xs="auto">
-                    <Link className="link-with-arrow" href="/catalog">
+                    <Link className="link-with-arrow" href="/products">
                       Показати більше
                     </Link>
                   </Col>

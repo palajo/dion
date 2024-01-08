@@ -61,7 +61,7 @@ function Index(props) {
             <ArrowLongDownIcon stroke={1}/>
           </div>
         </section>
-        <section className="section pt-4 pb-4">
+        <section className="section pt-4 pb-4" id="premium">
           <Container>
             <Row className="gy-2">
               <Col lg={12}>
@@ -87,7 +87,7 @@ function Index(props) {
           </Container>
         </section>
         <hr/>
-        <section className="section pt-4 pb-4">
+        <section className="section pt-4 pb-4" id="photoPanel">
           <Container>
             <Row className="gy-2">
               <Col lg={12}>
@@ -113,7 +113,7 @@ function Index(props) {
           </Container>
         </section>
         <hr/>
-        <section className="section pt-4 pb-4">
+        <section className="section pt-4 pb-4" id="lux">
           <Container>
             <Row className="gy-2">
               <Col lg={12}>
@@ -139,7 +139,7 @@ function Index(props) {
           </Container>
         </section>
         <hr/>
-        <section className="section pt-4 pb-4">
+        <section className="section pt-4 pb-4" id="turbo">
           <Container>
             <Row className="gy-2">
               <Col lg={12}>

@@ -33,8 +33,8 @@ function Footer() {
                   </li>
                   <li className="nav-item">
                     <Link
-                      href="/catalog"
-                      className={`nav-link ${router.asPath.includes('/catalog') && 'active'}`}
+                      href="/products"
+                      className={`nav-link ${router.asPath.includes('/products') && 'active'}`}
                     >
                       Каталог
                     </Link>
@@ -54,7 +54,7 @@ function Footer() {
                 <ul className="nav flex-column">
                   <li className="nav-item">
                     <Link
-                      href="/catalog#premiumn"
+                      href="/products#premium"
                       className="nav-link"
                     >
                       Преміум
@@ -62,7 +62,7 @@ function Footer() {
                   </li>
                   <li className="nav-item">
                     <Link
-                      href="/catalog#photoPanel"
+                      href="/products#photoPanel"
                       className="nav-link"
                     >
                       З фото-панеллю
@@ -70,7 +70,7 @@ function Footer() {
                   </li>
                   <li className="nav-item">
                     <Link
-                      href="/catalog#lux"
+                      href="/products#lux"
                       className="nav-link"
                     >
                       Люкс
@@ -78,7 +78,7 @@ function Footer() {
                   </li>
                   <li className="nav-item">
                     <Link
-                      href="/catalog#turbo"
+                      href="/products#turbo"
                       className="nav-link"
                     >
                       Турбо (Парапетні)

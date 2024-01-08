@@ -77,7 +77,7 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className={`nav-link ${router.asPath.includes('/catalog') ? 'active' : ''}`} href="/catalog">
+                <Link className={`nav-link ${router.asPath.includes('/products') ? 'active' : ''}`} href="/products">
                   Каталог
                 </Link>
               </li>
