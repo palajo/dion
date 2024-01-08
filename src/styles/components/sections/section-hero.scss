@@ -62,11 +62,21 @@ section.section.section-hero {
 }
 
 @media screen and (max-width: 767px) {
-  section.section.hero-banner {
-    padding: calc(84px + 36px) 0 128px;
+  section.section.section-hero {
+    padding: calc(60px + 36px) 0 156px;
 
     p.text-medium {
       font-size: 16px;
+    }
+
+    .block.block-rating {
+      flex-direction: column;
+      gap: 5px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 }

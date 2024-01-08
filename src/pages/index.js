@@ -56,7 +56,7 @@ export default function Home({ data }) {
                   за справедливою ціною
                 </h1>
                 <p className="text-medium">
-                  Вирішуємо проблему нагріву води в межах 3 робочих днів по Україні. <br/>
+                  Вирішуємо проблему нагріву води в межах 3 робочих днів по Україні. <br className="d-none d-lg-block" />
                   Надаємо 12 місяців гарантії та безкоштовно консультуємо
                 </p>
                 <Link href="/products">
@@ -80,7 +80,7 @@ export default function Home({ data }) {
           <Container>
             <Row className="gy-2">
               <Col lg={12}>
-                <Row className="justify-content-between align-items-center">
+                <Row className="justify-content-between align-items-center gy-1">
                   <Col lg={6}>
                     <div className="section-subtitle">
                       Популярні продукти
@@ -97,7 +97,7 @@ export default function Home({ data }) {
                 </Row>
               </Col>
               <Col lg={12}>
-                <Row className="gx-1">
+                <Row className="gx-1 gy-1">
                   {
                     ProductsList.filter((product) => product.Featured === true).map((product, productIndex) => (
                       <Col lg={3} key={productIndex}>
@@ -122,7 +122,7 @@ export default function Home({ data }) {
                 </h2>
               </Col>
               <Col lg={6}>
-                <Row className="gy-2">
+                <Row className="gy-1 gy-lg-2">
                   <Col lg={12}>
                     <div className="block block-security">
                       <div className="block-image">
@@ -190,10 +190,10 @@ export default function Home({ data }) {
         </section>
         <hr/>
         <section className="section pt-5 overflow-hidden">
-          <Container className="mb-5">
+          <Container className="mb-4 mb-lg-5">
             <Row>
               <Col lg={12}>
-                <Row className="align-items-center">
+                <Row className="align-items-center gy-3">
                   <Col lg={6}>
                     <div className="section-subtitle">
                       Наші досягнення
@@ -205,8 +205,8 @@ export default function Home({ data }) {
                     </p>
                   </Col>
                   <Col lg={6}>
-                    <Row className="justify-content-center gx-1">
-                      <Col lg={4}>
+                    <Row className="justify-content-center gx-1 gy-3">
+                      <Col xs={6} lg={4}>
                         <div className="block block-statistics">
                           <div className="block-image">
                             <TruckIcon/>
@@ -217,7 +217,7 @@ export default function Home({ data }) {
                           </div>
                         </div>
                       </Col>
-                      <Col lg={4}>
+                      <Col xs={6} lg={4}>
                         <div className="block block-statistics">
                           <div className="block-image">
                             <ClockIcon/>
@@ -228,7 +228,7 @@ export default function Home({ data }) {
                           </div>
                         </div>
                       </Col>
-                      <Col lg={4}>
+                      <Col xs={6} lg={4}>
                         <div className="block block-statistics">
                           <div className="block-image">
                             <UserGroupIcon/>
@@ -262,7 +262,7 @@ export default function Home({ data }) {
         <hr/>
         <section className="section pt-5 pb-5" id="contacts">
           <Container>
-            <Row className="gy-2 justify-content-between">
+            <Row className="gy-3 gy-lg-2 justify-content-between">
               <Col lg={7}>
                 <h2>Контакти</h2>
                 <Row className="gy-2">

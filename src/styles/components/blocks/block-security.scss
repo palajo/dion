@@ -28,8 +28,20 @@
   }
 }
 
-.slider.slider-reviews {
-  .swiper-slide {
-    height: auto;
+@media screen and (max-width: 767px) {
+  .block.block-security {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+
+    padding: 24px 36px;
+
+    .block-image {
+      svg {
+        width: 48px;
+        height: 48px;
+      }
+    }
   }
 }

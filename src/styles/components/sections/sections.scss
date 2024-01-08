@@ -36,4 +36,20 @@ section.section {
   }
 }
 
+@media screen and (max-width: 767px) {
+  section.section {
+    .section-subtitle {
+      gap: 12px;
+      font-size: 14px;
+      margin-bottom: 12px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+
 @import './section-hero';

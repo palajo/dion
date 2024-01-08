@@ -42,7 +42,7 @@ function Index(props) {
                   Каталог продукції Dion
                 </h1>
                 <p className="text-medium">
-                  Обирайте бажане з 16 доступних моделей, дизайн на будь-який смак! <br/>
+                  Обирайте бажане з 16 доступних моделей, дизайн на будь-який смак! <br className="d-none d-lg-block" />
                   А ми доставимо ваш водонагрівач в межах 3 робочих днів
                 </p>
                 <ModalConsultation buttonClassNames="mt-3"/>
@@ -73,7 +73,7 @@ function Index(props) {
                 </h2>
               </Col>
               <Col lg={12}>
-                <Row className="gx-1">
+                <Row className="gx-1 gy-1">
                   {
                     ProductsList.filter((product) => product.Category === 'Преміум').map((product, productIndex) => (
                       <Col lg={3} key={productIndex}>
@@ -99,7 +99,7 @@ function Index(props) {
                 </h2>
               </Col>
               <Col lg={12}>
-                <Row className="gx-1">
+                <Row className="gx-1 gy-1">
                   {
                     ProductsList.filter((product) => product.Category === 'З фото-панеллю').map((product, productIndex) => (
                       <Col lg={3} key={productIndex}>
@@ -125,7 +125,7 @@ function Index(props) {
                 </h2>
               </Col>
               <Col lg={12}>
-                <Row className="gx-1">
+                <Row className="gx-1 gy-1">
                   {
                     ProductsList.filter((product) => product.Category === 'Люкс').map((product, productIndex) => (
                       <Col lg={3} key={productIndex}>
@@ -151,7 +151,7 @@ function Index(props) {
                 </h2>
               </Col>
               <Col lg={12}>
-                <Row className="gx-1">
+                <Row className="gx-1 gy-1">
                   {
                     ProductsList.filter((product) => product.Category === 'Турбо').map((product, productIndex) => (
                       <Col lg={3} key={productIndex}>

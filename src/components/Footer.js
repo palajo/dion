@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { LogoWhite } from '@/images/Logo.js';
+import ModalConsultation from '@/components/modals/ModalConsultation';
 
 function Footer() {
   const router = useRouter();
@@ -19,7 +20,7 @@ function Footer() {
             </div>
           </Col>
           <Col lg={9}>
-            <Row className="justify-content-lg-end gx-lg-4 gx-3 gy-3">
+            <Row className="justify-content-lg-end gx-lg-4 gx-2 gy-3">
               <Col xs={6} lg="auto">
                 <h5>Меню</h5>
                 <ul className="nav flex-column">
@@ -86,7 +87,7 @@ function Footer() {
                   </li>
                 </ul>
               </Col>
-              <Col xs={6} lg="auto">
+              <Col xs={12} lg="auto">
                 <h5>Контакти</h5>
                 <ul className="nav flex-column">
                   <li className="nav-item">
@@ -116,9 +117,7 @@ function Footer() {
                 </ul>
               </Col>
               <Col xs={12} lg="auto">
-                <button className="btn btn-primary">
-                  Безкоштовна консультація
-                </button>
+                <ModalConsultation buttonClassNames="w-100"/>
               </Col>
             </Row>
           </Col>
@@ -144,7 +143,6 @@ function Footer() {
               </Col>
             </Row>
           </Col>
-
         </Row>
       </Container>
     </footer>

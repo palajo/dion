@@ -34,23 +34,23 @@ function Header() {
     <>
       <header>
         <Container>
-          <Row className="align-items-center">
-            <Col lg={4}>
+          <Row className="align-items-center justify-content-between">
+            <Col lg={4} className="d-none">
               <Link className="link-with-icon" href="tel:+38 (050) 330 36 10">
                 <PhoneIcon width={24} height={24}/>
                 +38 (050) 330 36 10
               </Link>
             </Col>
-            <Col lg={4} className="text-center">
+            <Col xs="auto" lg={4} className="text-center">
               <div className="logo">
                 <Link href="/">
                   <Logo/>
                 </Link>
               </div>
             </Col>
-            <Col lg={4}>
+            <Col xs="auto" lg={4}>
               <Row className="justify-content-end align-items-center gx-2">
-                <Col xs="auto">
+                <Col xs="auto" className="d-none">
                   <ModalConsultation/>
                 </Col>
                 <Col xs="auto">

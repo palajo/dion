@@ -52,7 +52,7 @@ export default function Product({ data, title }) {
         </section>
         <section className="section pt-1">
           <Container>
-            <Row className="gy-2 gx-4 align-items-center">
+            <Row className="gy-2 gx-lg-4 align-items-center">
               <Col lg={6}>
                 <div className="block block-product-image">
                   <img src={data.Images[0].src} alt={data.Images[0].alt} width={data.Images[0].width}
@@ -104,11 +104,11 @@ export default function Product({ data, title }) {
                   <h4>{data.Price} грн</h4>
                 </div>
                 <Row className="align-items-center g-1 mt-4">
-                  <Col xs="auto">
-                    <ModalOrder product={data}/>
+                  <Col md="auto">
+                    <ModalOrder product={data} buttonClassNames="w-100"/>
                   </Col>
-                  <Col xs="auto">
-                    <ModalConsultation/>
+                  <Col md="auto">
+                    <ModalConsultation buttonClassNames="w-100"/>
                   </Col>
                 </Row>
               </Col>
@@ -224,7 +224,7 @@ export default function Product({ data, title }) {
                 </h2>
               </Col>
               <Col lg={12}>
-                <Row className="gx-1">
+                <Row className="gx-1 gy-1">
                   {
                     ProductsList.filter((product) => product.Category === data.Category).slice(0, 4).map((product, productIndex) => (
                       <Col lg={3} key={productIndex}>

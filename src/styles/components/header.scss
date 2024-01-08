@@ -60,5 +60,12 @@ header {
 @media screen and (max-width: 767px) {
   header {
     padding: 12px 0;
+
+    .logo {
+      svg,
+      img {
+        height: 32px;
+      }
+    }
   }
 }

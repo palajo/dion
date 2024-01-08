@@ -12,7 +12,7 @@ function SectionReviews(props) {
       <Container>
         <Row className="gy-2">
           <Col lg={12}>
-            <Row className="justify-content-between align-items-center">
+            <Row className="justify-content-between align-items-center gy-1">
               <Col lg={6}>
                 <div className="section-subtitle">
                   Відгуки
@@ -34,7 +34,7 @@ function SectionReviews(props) {
             </p>
             <Swiper
               spaceBetween={16}
-              slidesPerView={1.1}
+              slidesPerView={1}
               speed={800}
               autoplay={{
                 delay: 5000,
