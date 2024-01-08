@@ -35,7 +35,7 @@ function Header() {
       <header>
         <Container>
           <Row className="align-items-center justify-content-between">
-            <Col lg={4} className="d-none">
+            <Col lg={4} className="d-none d-lg-block">
               <Link className="link-with-icon" href="tel:+38 (050) 330 36 10">
                 <PhoneIcon width={24} height={24}/>
                 +38 (050) 330 36 10
@@ -50,7 +50,7 @@ function Header() {
             </Col>
             <Col xs="auto" lg={4}>
               <Row className="justify-content-end align-items-center gx-2">
-                <Col xs="auto" className="d-none">
+                <Col xs="auto" className="d-none d-lg-block">
                   <ModalConsultation/>
                 </Col>
                 <Col xs="auto">
