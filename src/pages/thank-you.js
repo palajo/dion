@@ -36,7 +36,7 @@ function ThankYou(props) {
                   Ми в найшвидших термінх передамо його в обробку. <br className="d-none d-lg-block"/>
                   Якщо у вас залишились будь-які запитання – ми будемо раді відповісти вам на кожне
                 </p>
-                <Row className="mt-2 g-1">
+                <Row className="justify-content-center mt-2 g-1">
                   <Col xs="auto">
                     <Link href="/">
                       <button className="btn btn-primary btn-arrow">

@@ -80,7 +80,7 @@ function ModalConsultation({ product, buttonClassNames }) {
                 setTimeout(() => {
                   setSubmitSuccess(false);
                   router.push('/thank-you');
-                }, 3000);
+                }, 0);
               })
                 .catch((err) => {
                   console.log(err);
