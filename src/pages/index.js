@@ -14,14 +14,16 @@ import {
   TruckIcon,
   UserGroupIcon,
 } from '@heroicons/react/24/solid/index.js';
+import { ProductsList } from '@/api/products.js';
 
 import DefaultLayout from '@/layouts/DefaultLayout';
 import FormConsultation from '@/components/forms/FormConsultation.js';
 import SectionReviews from '@/components/sections/SectionReviews';
+import BlockProduct from '@/components/blocks/BlockProduct.js';
+
 import HeroBackground from '@/images/backgrounds/background.mp4';
 import BathVideo from '@/images/backgrounds/bath.mp4';
-import { ProductsList } from '@/api/products.js';
-import BlockProduct from '@/components/blocks/BlockProduct.js';
+import Oleksandr from '@/images/Oleksandr.png';
 
 export default function Home({ data }) {
 
@@ -203,9 +205,18 @@ export default function Home({ data }) {
                       А що ж може бути кращого, ніж гаряча ванна або ж душ після робочого дня? <br/>
                       Ми дбаємо про те, щоб у вас ніколи не виникала проблеми гарячої води
                     </p>
+                    <div className="block block-author mt-4">
+                      <div className="block-image">
+                        <img src={Oleksandr.src} alt={Oleksandr.alt} width={Oleksandr.width} height={Oleksandr.height}/>
+                      </div>
+                      <div className="block-content">
+                        <h5>Олександр Тищенко</h5>
+                        <p>Директор</p>
+                      </div>
+                    </div>
                   </Col>
                   <Col lg={6}>
-                    <Row className="justify-content-center gx-1 gy-3">
+                    <Row className="justify-content-lg-center gx-1 gy-3">
                       <Col xs={6} lg={4}>
                         <div className="block block-statistics">
                           <div className="block-image">
