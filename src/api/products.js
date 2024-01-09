@@ -377,7 +377,7 @@ export const ProductsList = [
     Slug: 'dion-jsd-08d-turbo',
     Images: [TurboSide, TurboFront],
     Type: 'Парапетна (Турбо)',
-    Volume: '10 л', Specifications: [
+    Volume: '8 л', Specifications: [
       { Title: 'Модель', Value: 'JSD-08D' },
       { Title: 'Ном. теплова потужність', Value: '16 кВт' },
       { Title: 'Вихід гарячої води (ΔT=25°C)', Value: '8 л./хв.' },
