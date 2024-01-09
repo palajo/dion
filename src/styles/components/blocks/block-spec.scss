@@ -8,3 +8,10 @@
   border-radius: 8px;
   background: rgba($primary, 0.1);
 }
+
+@media screen and (max-width: 767px) {
+  .block.block-spec {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
