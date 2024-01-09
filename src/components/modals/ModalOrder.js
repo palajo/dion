@@ -6,6 +6,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { event } from 'nextjs-google-analytics';
 import { useRouter } from 'next/router';
+import { OrdersList } from '@/api/orders';
 
 function ModalConsultation({ product, buttonClassNames }) {
   const router = useRouter();
@@ -46,6 +47,7 @@ function ModalConsultation({ product, buttonClassNames }) {
                 address: Yup.string().required(`Обов'язкове поле`),
               })
             }
+
             onSubmit={(values) => {
               const title = `${product.Model}, ${product.Title}`;
 
@@ -53,6 +55,7 @@ function ModalConsultation({ product, buttonClassNames }) {
                 FullName: `${values.name} ${values.surname}`,
                 Phone: values.phone,
                 Address: values.address,
+                Date: new Date(),
                 OrderItem: {
                   Title: title,
                   Quantity: 1,
@@ -71,6 +74,8 @@ function ModalConsultation({ product, buttonClassNames }) {
                 quantity: values.quantity,
               }, 'user_ba47DZoCxBAsJimzfB4a2').then((res) => {
                 setSubmitSuccess(true);
+
+                OrdersList.push(payload);
 
                 event('purchase', {
                   category: 'purchase',

@@ -5,6 +5,7 @@ import { Col, Row } from 'react-bootstrap';
 import InputMask from 'react-input-mask';
 import emailjs from 'emailjs-com';
 import { event } from 'nextjs-google-analytics';
+import { ConsultationsList } from '@/api/consultations';
 
 function FormConsultation() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -27,7 +28,9 @@ function FormConsultation() {
           Name: values.name,
           Phone: values.phone,
           Question: values.question,
+          Date: new Date(),
         };
+
 
         emailjs.send('service_drwt285', 'template_gfps2xh', {
           name: values.name,
@@ -36,6 +39,8 @@ function FormConsultation() {
         }, 'user_ba47DZoCxBAsJimzfB4a2')
           .then((res) => {
             setSubmitSuccess(true);
+
+            ConsultationsList.push(payload);
 
             event('consultation', {
               category: 'consultation',
