@@ -15,8 +15,10 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <GoogleAnalytics trackPageViews gaMeasurementId="G-CVME35P22W"
-                       gtagUrl="https://www.googletagmanager.com/gtag/js?id=G-CVME35P22W"/>
+      <GoogleAnalytics
+        trackPageViews gaMeasurementId="AW-527128950"
+        gtagUrl="https://www.googletagmanager.com/gtag/js?id=AW-527128950"
+      />
       <Component {...pageProps} />
     </>
   );

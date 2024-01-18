@@ -5,7 +5,6 @@ import { Col, Row } from 'react-bootstrap';
 import InputMask from 'react-input-mask';
 import emailjs from 'emailjs-com';
 import { event } from 'nextjs-google-analytics';
-import { ConsultationsList } from '@/api/consultations';
 
 function FormConsultation() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -31,27 +30,19 @@ function FormConsultation() {
           Date: new Date(),
         };
 
-        if (payload.Phone.length > 0) {
-          event('consultation', {
-            category: 'consultation',
-            label: 'lead asked for a consultation',
-          });
-        }
-
 
         emailjs.send('service_drwt285', 'template_gfps2xh', {
           name: values.name,
           phone: values.phone,
           question: values.question,
         }, 'user_ba47DZoCxBAsJimzfB4a2')
-          .then((res) => {
+          .then(() => {
             setSubmitSuccess(true);
 
-            ConsultationsList.push(payload);
-
-            setTimeout(() => {
-              setSubmitSuccess(false);
-            }, 10000);
+            event('consultation', {
+              category: 'Submit lead form',
+              label: 'Consultation',
+            });
           })
           .catch((err) => {
             console.log(err);

@@ -25,8 +25,7 @@ import HeroBackground from '@/images/backgrounds/background.mp4';
 import BathVideo from '@/images/backgrounds/bath.mp4';
 import Oleksandr from '@/images/Oleksandr.png';
 
-export default function Home({ data }) {
-
+export default function Home() {
   return (
     <>
       <Head>

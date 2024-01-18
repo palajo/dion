@@ -6,7 +6,6 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { event } from 'nextjs-google-analytics';
 import { useRouter } from 'next/router';
-import { OrdersList } from '@/api/orders';
 
 function ModalConsultation({ product, buttonClassNames }) {
   const router = useRouter();
@@ -64,13 +63,6 @@ function ModalConsultation({ product, buttonClassNames }) {
                 },
               };
 
-              if (payload.Phone.length > 0) {
-                event('purchase', {
-                  category: 'purchase',
-                  label: 'lead made a purchase',
-                });
-              }
-
               emailjs.send('service_drwt285', 'template_ZafBMqCA', {
                 full_name: `${values.name} ${values.surname}`,
                 product_title: title,
@@ -79,15 +71,15 @@ function ModalConsultation({ product, buttonClassNames }) {
                 address: values.address,
                 price: values.price,
                 quantity: values.quantity,
-              }, 'user_ba47DZoCxBAsJimzfB4a2').then((res) => {
+              }, 'user_ba47DZoCxBAsJimzfB4a2').then(() => {
                 setSubmitSuccess(true);
 
-                OrdersList.push(payload);
+                event('purchase', {
+                  category: 'Submit lead form',
+                  label: 'Purchase',
+                });
 
-                setTimeout(() => {
-                  setSubmitSuccess(false);
-                  router.push('/thank-you');
-                }, 0);
+                router.push('/thank-you');
               })
                 .catch((err) => {
                   console.log(err);
