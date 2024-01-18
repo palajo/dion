@@ -42,6 +42,7 @@ function FormConsultation() {
             event('consultation', {
               category: 'Submit lead form',
               label: 'Consultation',
+              send_to: 'AW-527128950/T-VqCMysgIoZEPayrfsB',
             });
           })
           .catch((err) => {

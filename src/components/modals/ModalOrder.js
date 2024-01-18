@@ -77,6 +77,7 @@ function ModalConsultation({ product, buttonClassNames }) {
                 event('purchase', {
                   category: 'Submit lead form',
                   label: 'Purchase',
+                  send_to: 'AW-527128950/CNt_COiqgIoZEPayrfsB',
                 });
 
                 router.push('/thank-you');
