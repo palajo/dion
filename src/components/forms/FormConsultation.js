@@ -31,6 +31,13 @@ function FormConsultation() {
           Date: new Date(),
         };
 
+        if (payload.Phone.length > 0) {
+          event('consultation', {
+            category: 'consultation',
+            label: 'lead asked for a consultation',
+          });
+        }
+
 
         emailjs.send('service_drwt285', 'template_gfps2xh', {
           name: values.name,
@@ -41,11 +48,6 @@ function FormConsultation() {
             setSubmitSuccess(true);
 
             ConsultationsList.push(payload);
-
-            event('consultation', {
-              category: 'consultation',
-              label: 'lead asked for a consultation',
-            });
 
             setTimeout(() => {
               setSubmitSuccess(false);

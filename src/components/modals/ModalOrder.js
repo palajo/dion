@@ -64,6 +64,13 @@ function ModalConsultation({ product, buttonClassNames }) {
                 },
               };
 
+              if (payload.Phone.length > 0) {
+                event('purchase', {
+                  category: 'purchase',
+                  label: 'lead made a purchase',
+                });
+              }
+
               emailjs.send('service_drwt285', 'template_ZafBMqCA', {
                 full_name: `${values.name} ${values.surname}`,
                 product_title: title,
@@ -76,11 +83,6 @@ function ModalConsultation({ product, buttonClassNames }) {
                 setSubmitSuccess(true);
 
                 OrdersList.push(payload);
-
-                event('purchase', {
-                  category: 'purchase',
-                  label: 'lead made a purchase',
-                });
 
                 setTimeout(() => {
                   setSubmitSuccess(false);
