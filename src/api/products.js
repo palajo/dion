@@ -248,6 +248,7 @@ export const ProductsList = [
     Slug: 'dion-jsd-12-comfort',
     Images: [ComfortSide, ComfortFront],
     Type: 'Димохідна',
+    Featured: true,
     Volume: '12 л',
     Specifications: [
       { Title: 'Модель', Value: 'JSD-12' },
