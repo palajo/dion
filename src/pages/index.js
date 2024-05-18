@@ -310,7 +310,7 @@ export default function Home() {
                       <div className="block-content">
                         <MapPinIcon width={24} height={24}/>
                         <Link href="tel:+38 (050) 330 36 10">
-                          м. Львів, вул. Моринецька 8
+                          м. Львів, вул. Шевченка 8а
                         </Link>
                       </div>
                     </div>

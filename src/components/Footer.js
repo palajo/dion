@@ -111,7 +111,7 @@ function Footer() {
                       href="#"
                       className="nav-link"
                     >
-                      Львів, вул. Моринецька 8
+                      м. Львів, вул. Шевченка 8а
                     </Link>
                   </li>
                 </ul>

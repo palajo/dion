@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { StarIcon } from '@heroicons/react/16/solid/index';
 
 function SectionReviews(props) {
@@ -57,9 +57,6 @@ function SectionReviews(props) {
                 <div className="block block-review">
                   <div>
                     <div className="block block-author">
-                      <div className="block-image">
-                        <div className="image-placeholder"/>
-                      </div>
                       <div className="block-content">
                         <h5>Ірина</h5>
                         <p>Харків</p>
@@ -85,9 +82,6 @@ function SectionReviews(props) {
                 <div className="block block-review">
                   <div>
                     <div className="block block-author">
-                      <div className="block-image">
-                        <div className="image-placeholder"/>
-                      </div>
                       <div className="block-content">
                         <h5>Олександр</h5>
                         <p>Львів</p>
@@ -113,9 +107,6 @@ function SectionReviews(props) {
                 <div className="block block-review">
                   <div>
                     <div className="block block-author">
-                      <div className="block-image">
-                        <div className="image-placeholder"/>
-                      </div>
                       <div className="block-content">
                         <h5>Наталія</h5>
                         <p>Київ</p>
@@ -141,9 +132,6 @@ function SectionReviews(props) {
                 <div className="block block-review">
                   <div>
                     <div className="block block-author">
-                      <div className="block-image">
-                        <div className="image-placeholder"/>
-                      </div>
                       <div className="block-content">
                         <h5>Максим</h5>
                         <p>Дніпро</p>
@@ -168,9 +156,6 @@ function SectionReviews(props) {
                 <div className="block block-review">
                   <div>
                     <div className="block block-author">
-                      <div className="block-image">
-                        <div className="image-placeholder"/>
-                      </div>
                       <div className="block-content">
                         <h5>Вікторія</h5>
                         <p>Одеса</p>
@@ -196,9 +181,6 @@ function SectionReviews(props) {
                 <div className="block block-review">
                   <div>
                     <div className="block block-author">
-                      <div className="block-image">
-                        <div className="image-placeholder"/>
-                      </div>
                       <div className="block-content">
                         <h5>Павло</h5>
                         <p>Херсон</p>
@@ -224,9 +206,6 @@ function SectionReviews(props) {
                 <div className="block block-review">
                   <div>
                     <div className="block block-author">
-                      <div className="block-image">
-                        <div className="image-placeholder"/>
-                      </div>
                       <div className="block-content">
                         <h5>Юлія</h5>
                         <p>Запоріжжя</p>
@@ -252,9 +231,6 @@ function SectionReviews(props) {
                 <div className="block block-review">
                   <div>
                     <div className="block block-author">
-                      <div className="block-image">
-                        <div className="image-placeholder"/>
-                      </div>
                       <div className="block-content">
                         <h5>Андрій</h5>
                         <p>Чернівці</p>
