@@ -72,15 +72,17 @@ function ModalConsultation({ product, buttonClassNames }) {
                 price: values.price,
                 quantity: values.quantity,
               }, 'user_ba47DZoCxBAsJimzfB4a2').then(() => {
-                setSubmitSuccess(true);
-
                 event('purchase', {
                   category: 'Submit lead form',
                   label: 'Purchase',
                   send_to: 'AW-527128950/CNt_COiqgIoZEPayrfsB',
                 });
 
-                router.push('/thank-you');
+                setSubmitSuccess(true);
+
+                setTimeout(() => {
+                  router.push('/thank-you');
+                }, 1000)
               })
                 .catch((err) => {
                   console.log(err);

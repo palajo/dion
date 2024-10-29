@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { GoogleAnalytics } from 'nextjs-google-analytics';
 import Hotjar from '@hotjar/browser';
+import { GoogleAnalytics } from 'nextjs-google-analytics';
 
+// styles
 import '@/styles/styles.scss';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/grid';
@@ -16,7 +16,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <GoogleAnalytics
-        trackPageViews gaMeasurementId="AW-527128950"
+        trackPageViews
+        gaMeasurementId="AW-527128950"
         gtagUrl="https://www.googletagmanager.com/gtag/js?id=AW-527128950"
       />
       <Component {...pageProps} />

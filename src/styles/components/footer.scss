@@ -7,32 +7,10 @@ footer {
   width: 100%;
   padding: 72px 0 36px;
 
-  background: $gray-900;
-  color: $gray-300;
-
-  h5 {
-    color: $gray-600;
-  }
+  border-top: 1px solid $gray-50;
 
   hr {
     margin: 256px 0 20px;
-    border-color: $gray-800;
-  }
-
-  ul.nav {
-    li.nav-item {
-      a.nav-link {
-        color: $gray-300;
-
-        &.active {
-          color: $white;
-        }
-
-        &:hover {
-          color: $white;
-        }
-      }
-    }
   }
 }
 

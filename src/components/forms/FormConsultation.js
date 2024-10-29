@@ -23,27 +23,20 @@ function FormConsultation() {
         })
       }
       onSubmit={(values) => {
-        const payload = {
-          Name: values.name,
-          Phone: values.phone,
-          Question: values.question,
-          Date: new Date(),
-        };
-
-
         emailjs.send('service_drwt285', 'template_gfps2xh', {
           name: values.name,
           phone: values.phone,
           question: values.question,
         }, 'user_ba47DZoCxBAsJimzfB4a2')
           .then(() => {
-            setSubmitSuccess(true);
-
             event('consultation', {
-              category: 'Submit lead form',
+              category: 'Consultation',
               label: 'Consultation',
               send_to: 'AW-527128950/T-VqCMysgIoZEPayrfsB',
             });
+
+            setSubmitSuccess(true);
+
           })
           .catch((err) => {
             console.log(err);

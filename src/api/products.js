@@ -16,7 +16,6 @@ import PremiumSliverFront from '@/images/products/dion-jsd-10-premium-sliver-fro
 import PremiumSliverSide from '@/images/products/dion-jsd-10-premium-sliver-side.png';
 import ComfortFront from '@/images/products/dion-jsd-10-comfort-black-front.png';
 import ComfortSide from '@/images/products/dion-jsd-10-comfort-black-side.png';
-import LuxSide from '@/images/products/dion-jsd-11-lux.png';
 import TurboFront from '@/images/products/dion-jsd-10-turbo-front.png';
 import TurboSide from '@/images/products/dion-jsd-10-turbo-side.png';
 import HalfTurboFront from '@/images/products/dion-jsd-10-halfturbo-front.png';

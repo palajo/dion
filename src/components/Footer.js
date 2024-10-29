@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { LogoWhite } from '@/images/Logo.js';
+import { Logo } from '@/images/Logo.js';
 import ModalConsultation from '@/components/modals/ModalConsultation';
 
 function Footer() {
@@ -15,7 +15,7 @@ function Footer() {
           <Col lg={3}>
             <div className="logo">
               <Link href="/">
-                <LogoWhite/>
+                <Logo/>
               </Link>
             </div>
           </Col>
@@ -111,7 +111,7 @@ function Footer() {
                       href="#"
                       className="nav-link"
                     >
-                      м. Львів, вул. Шевченка 8а
+                      м. Львів, вул. Моринецька 8а
                     </Link>
                   </li>
                 </ul>
