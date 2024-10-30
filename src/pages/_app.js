@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import Hotjar from '@hotjar/browser';
-import { GoogleAnalytics } from 'nextjs-google-analytics';
 import { useRouter } from 'next/router';
 import TagManager from 'react-gtm-module';
 

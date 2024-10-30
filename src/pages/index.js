@@ -61,7 +61,14 @@ export default function Home() {
                   Надаємо 12 місяців гарантії та безкоштовно консультуємо
                 </p>
                 <Link href="/products">
-                  <button className="btn btn-primary btn-arrow mt-3">
+                  <button className="btn btn-primary btn-arrow mt-3" onClick={() => {
+                    window.dataLayer.push({
+                      event: 'shop_now_button_click',
+                      category: 'Button',
+                      action: 'Click',
+                      label: 'Shop now button click',
+                    });
+                  }}>
                     Перейти до каталогу
                   </button>
                 </Link>

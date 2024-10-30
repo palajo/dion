@@ -14,6 +14,7 @@ function ModalConsultation({ product, buttonClassNames }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [loading, setLoading] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   return (
@@ -47,6 +48,8 @@ function ModalConsultation({ product, buttonClassNames }) {
             }
 
             onSubmit={(values) => {
+              setLoading(true);
+
               emailjs.send('service_drwt285', 'template_ZafBMqCA', {
                 full_name: `${values.name} ${values.surname}`,
                 product_title: `${product.Model}, ${product.Title}`,
@@ -72,6 +75,8 @@ function ModalConsultation({ product, buttonClassNames }) {
                 .catch((err) => {
                   console.log(err);
                 });
+
+              setLoading(false);
             }}
             enableReinitialize
           >
@@ -174,8 +179,12 @@ function ModalConsultation({ product, buttonClassNames }) {
                     </div>
                   </Col>
                   <Col xs={12}>
-                    <button className={`btn btn-primary mt-2 w-100 ${submitSuccess && 'disabled'}`} type="submit">
-                      Підтвердити замовлення
+                    <button
+                      className={`btn btn-primary mt-2 w-100 ${submitSuccess && 'disabled'}`}
+                      type="submit"
+                      disabled={submitSuccess || loading}
+                    >
+                      {submitSuccess ? 'Успішно!' : 'Підтвердити замовлення'}
                     </button>
                   </Col>
                   {
