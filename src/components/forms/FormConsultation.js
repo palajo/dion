@@ -29,10 +29,11 @@ function FormConsultation() {
           question: values.question,
         }, 'user_ba47DZoCxBAsJimzfB4a2')
           .then(() => {
-            event('consultation', {
+            window.dataLayer.push({
+              event: 'consultation',
               category: 'Consultation',
-              label: 'Consultation',
-              send_to: 'AW-527128950/T-VqCMysgIoZEPayrfsB',
+              action: 'Submit lead form',
+              label: 'Consultation request',
             });
 
             setSubmitSuccess(true);

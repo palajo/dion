@@ -4,7 +4,6 @@ import InputMask from 'react-input-mask';
 import emailjs from 'emailjs-com';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { event } from 'nextjs-google-analytics';
 import { useRouter } from 'next/router';
 
 function ModalConsultation({ product, buttonClassNames }) {
@@ -48,41 +47,27 @@ function ModalConsultation({ product, buttonClassNames }) {
             }
 
             onSubmit={(values) => {
-              const title = `${product.Model}, ${product.Title}`;
-
-              const payload = {
-                FullName: `${values.name} ${values.surname}`,
-                Phone: values.phone,
-                Address: values.address,
-                Date: new Date(),
-                OrderItem: {
-                  Title: title,
-                  Quantity: 1,
-                  Price: product.Price,
-                  TotalPrice: values.quantity * values.price,
-                },
-              };
-
               emailjs.send('service_drwt285', 'template_ZafBMqCA', {
                 full_name: `${values.name} ${values.surname}`,
-                product_title: title,
+                product_title: `${product.Model}, ${product.Title}`,
                 total_price: values.quantity * values.price,
                 phone: values.phone,
                 address: values.address,
                 price: values.price,
                 quantity: values.quantity,
               }, 'user_ba47DZoCxBAsJimzfB4a2').then(() => {
-                event('purchase', {
-                  category: 'Submit lead form',
+                window.dataLayer.push({
+                  event: 'purchase',
+                  category: 'Purchase',
+                  action: 'Submit lead form',
                   label: 'Purchase',
-                  send_to: 'AW-527128950/CNt_COiqgIoZEPayrfsB',
                 });
 
                 setSubmitSuccess(true);
 
                 setTimeout(() => {
                   router.push('/thank-you');
-                }, 1000)
+                }, 1000);
               })
                 .catch((err) => {
                   console.log(err);
