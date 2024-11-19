@@ -4,12 +4,12 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Link from 'next/link';
 
 import DefaultLayout from '@/layouts/DefaultLayout';
-import ModalConsultation from '@/components/modals/ModalConsultation.js';
-import { PhoneIcon } from '@heroicons/react/16/solid/index.js';
-import { ClockIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/solid/index.js';
-import FormConsultation from '@/components/forms/FormConsultation.js';
+import ModalConsultation from '@/components/modals/ModalConsultation';
+import { PhoneIcon } from '@heroicons/react/16/solid';
+import { ClockIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/solid';
+import FormConsultation from '@/components/forms/FormConsultation';
 
-function ThankYou(props) {
+function ThankYou() {
   return (
     <>
       <Head>
@@ -113,7 +113,7 @@ function ThankYou(props) {
                 </Row>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.457310669429!2d23.988310315883016!3d49.852653738137874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add95b7309467%3A0xb1954af61f9b389f!2z0LLRg9C70LjRhtGPINCc0L7RgNC40L3QtdGG0YzQutCwLCDQm9GM0LLRltCyLCDQm9GM0LLRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1sru!2sua!4v1658936612130!5m2!1sru!2sua"
-                  allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="mt-4"/>
+                  loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="mt-4"/>
               </Col>
               <Col lg={4}>
                 <div className="block block-form">

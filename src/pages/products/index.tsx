@@ -1,17 +1,16 @@
 import React from 'react';
 import Head from 'next/head';
 import { Col, Container, Row } from 'react-bootstrap';
-import { StarIcon } from '@heroicons/react/16/solid/index.js';
+import { StarIcon } from '@heroicons/react/16/solid';
 import { ArrowLongDownIcon } from '@heroicons/react/24/solid';
 
 import DefaultLayout from '@/layouts/DefaultLayout';
 import ModalConsultation from '@/components/modals/ModalConsultation';
 
-import HeroBackground from '@/images/backgrounds/kitchen.mp4';
-import { ProductsList } from '@/api/products.js';
-import BlockProduct from '@/components/blocks/BlockProduct.js';
+import { ProductsList } from '@/api/products';
+import BlockProduct from '@/blocks/BlockProduct';
 
-function Index(props) {
+function Catalog() {
   return (
     <>
       <Head>
@@ -52,13 +51,13 @@ function Index(props) {
           <div className="section-image">
             <video autoPlay loop muted playsInline>
               <source
-                src={HeroBackground}
+                src="/backgrounds/kitchen.mp4"
                 type="video/mp4"
               />
             </video>
           </div>
           <div className="arrow-down">
-            <ArrowLongDownIcon stroke={1}/>
+            <ArrowLongDownIcon stroke="1"/>
           </div>
         </section>
         <section className="section pt-4 pb-4" id="premium">
@@ -169,4 +168,4 @@ function Index(props) {
   );
 }
 
-export default Index;
+export default Catalog;

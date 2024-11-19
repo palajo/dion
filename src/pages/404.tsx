@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import DefaultLayout from '@/layouts/DefaultLayout';
 
-function Error(props) {
+function Error() {
   return (
     <>
       <Head>

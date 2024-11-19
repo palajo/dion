@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import FormConsultation from '../forms/FormConsultation.js';
+import FormConsultation from '../forms/FormConsultation';
 
-function ModalConsultation({ buttonClassNames }) {
+function ModalConsultation({ buttonClassNames }: { buttonClassNames?: string }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);

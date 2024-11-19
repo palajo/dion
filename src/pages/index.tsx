@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { Col, Container, Row } from 'react-bootstrap';
-import { PhoneIcon, StarIcon } from '@heroicons/react/16/solid/index.js';
+import { PhoneIcon, StarIcon } from '@heroicons/react/16/solid';
 import Link from 'next/link';
 import {
   ClockIcon,
@@ -13,17 +13,16 @@ import {
   PaintBrushIcon,
   TruckIcon,
   UserGroupIcon,
-} from '@heroicons/react/24/solid/index.js';
-import { ProductsList } from '@/api/products.js';
+} from '@heroicons/react/24/solid';
+import { ProductsList } from '@/api/products';
 
 import DefaultLayout from '@/layouts/DefaultLayout';
-import FormConsultation from '@/components/forms/FormConsultation.js';
+import FormConsultation from '@/components/forms/FormConsultation';
 import SectionReviews from '@/components/sections/SectionReviews';
-import BlockProduct from '@/components/blocks/BlockProduct.js';
+import BlockProduct from '@/blocks/BlockProduct';
 
-import HeroBackground from '@/images/backgrounds/background.mp4';
-import BathVideo from '@/images/backgrounds/bath.mp4';
 import Oleksandr from '@/images/Oleksandr.png';
+import { sendGTMEvent } from '@next/third-parties/google';
 
 export default function Home() {
   return (
@@ -62,12 +61,7 @@ export default function Home() {
                 </p>
                 <Link href="/products">
                   <button className="btn btn-primary btn-arrow mt-3" onClick={() => {
-                    window.dataLayer.push({
-                      event: 'shop_now_button_click',
-                      category: 'Button',
-                      action: 'Click',
-                      label: 'Shop now button click',
-                    });
+                    sendGTMEvent({ event: 'shop_now_button_click', value: '10' });
                   }}>
                     Перейти до каталогу
                   </button>
@@ -78,7 +72,7 @@ export default function Home() {
           <div className="section-image">
             <video autoPlay loop muted playsInline>
               <source
-                src={HeroBackground}
+                src="/backgrounds/background.mp4"
                 type="video/mp4"
               />
             </video>
@@ -141,7 +135,8 @@ export default function Home() {
                           Для всіх типів приміщення
                         </h5>
                         <p>
-                          В наявності Димохідні та Парапетні (турбовані) газові водонагрівчі. Ми з радістю вас проконсультуємо та оберемо водонагрівач саме для вашої оселі.
+                          В наявності Димохідні та Парапетні (турбовані) газові водонагрівчі. Ми з радістю вас
+                          проконсультуємо та оберемо водонагрівач саме для вашої оселі.
                         </p>
                       </div>
                     </div>
@@ -156,7 +151,8 @@ export default function Home() {
                           4 Ступені безпеки
                         </h5>
                         <p>
-                          Газові водонагрівачі оснащені захистом від зникнення вогню, надмірного тиску та перегріву, нестачі тяги.
+                          Газові водонагрівачі оснащені захистом від зникнення вогню, надмірного тиску та перегріву,
+                          нестачі тяги.
                         </p>
                       </div>
                     </div>
@@ -171,7 +167,8 @@ export default function Home() {
                           Гарантія якості та обслуговування
                         </h5>
                         <p>
-                          Ми відповідально ставимося до людей, що нам довіряють. Тому надаємо всі гарантії, а в разі чого – якісне сервісне обслуговування, або ж заміну.
+                          Ми відповідально ставимося до людей, що нам довіряють. Тому надаємо всі гарантії, а в разі
+                          чого – якісне сервісне обслуговування, або ж заміну.
                         </p>
                       </div>
                     </div>
@@ -186,7 +183,8 @@ export default function Home() {
                           Зручний та лаконічний дизайн
                         </h5>
                         <p>
-                          Dion – про лаконічність. Ми обрали шлях до простоти, ефективності та зручності в щоденному користуванні!
+                          Dion – про лаконічність. Ми обрали шлях до простоти, ефективності та зручності в щоденному
+                          користуванні!
                         </p>
                       </div>
                     </div>
@@ -213,7 +211,8 @@ export default function Home() {
                     </p>
                     <div className="block block-author mt-4">
                       <div className="block-image">
-                        <img src={Oleksandr.src} alt={Oleksandr.alt} width={Oleksandr.width} height={Oleksandr.height}/>
+                        <img src={Oleksandr.src} alt="Dion – Олександр Тищенко" width={Oleksandr.width}
+                             height={Oleksandr.height}/>
                       </div>
                       <div className="block-content">
                         <h5>Олександр Тищенко</h5>
@@ -267,7 +266,7 @@ export default function Home() {
               <Col lg={12}>
                 <video autoPlay loop muted playsInline style={{ width: '100%', height: 'auto' }}>
                   <source
-                    src={BathVideo}
+                    src="/backgrounds/bath.mp4"
                     type="video/mp4"
                   />
                 </video>
@@ -338,7 +337,7 @@ export default function Home() {
                 </Row>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.457310669429!2d23.988310315883016!3d49.852653738137874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add95b7309467%3A0xb1954af61f9b389f!2z0LLRg9C70LjRhtGPINCc0L7RgNC40L3QtdGG0YzQutCwLCDQm9GM0LLRltCyLCDQm9GM0LLRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1sru!2sua!4v1658936612130!5m2!1sru!2sua"
-                  allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="mt-4"/>
+                  loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="mt-4"/>
               </Col>
               <Col lg={4}>
                 <div className="block block-form">

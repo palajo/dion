@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { Logo } from '@/images/Logo.js';
+import { Logo } from '@/images/Logo';
 import ModalConsultation from '@/components/modals/ModalConsultation';
 
 function Footer() {

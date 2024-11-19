@@ -10,9 +10,9 @@ import DefaultLayout from '@/layouts/DefaultLayout';
 import SectionReviews from '@/components/sections/SectionReviews';
 import ModalOrder from '@/components/modals/ModalOrder';
 import ModalConsultation from '@/components/modals/ModalConsultation';
-import BlockProduct from '@/components/blocks/BlockProduct';
+import BlockProduct from '@/blocks/BlockProduct';
 
-export default function Product({ data, title }) {
+export default function Product({ data, title }: { data: any, title: string }) {
   return (
     <>
       <Head>
@@ -124,7 +124,7 @@ export default function Product({ data, title }) {
                 <table>
                   <tbody>
                   {
-                    data.Specifications.map((row, rowIndex) => (
+                    data.Specifications.map((row: any, rowIndex: number) => (
                       <tr key={rowIndex}>
                         <th><span>{row.Title}</span></th>
                         <td>{row.Value}</td>
@@ -203,10 +203,10 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ res, params }) => {
+export const getStaticProps = async ({ res, params }: { res: any, params: any }) => {
   try {
     const data = ProductsList.filter((product) => product.Slug === params.Slug)[0];
-    const title = `${data.Model}, ${data.Title}`;
+    const title = `${data?.Model}, ${data?.Title}`;
 
     return {
       props: {

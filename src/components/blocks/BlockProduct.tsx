@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-function BlockProduct({ product }) {
+function BlockProduct({ product }: { product: any }) {
   return (
     <div className="block block-product">
       <div className="block-image">

@@ -3,9 +3,9 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
-import { StarIcon } from '@heroicons/react/16/solid/index';
+import { StarIcon } from '@heroicons/react/16/solid';
 
-function SectionReviews(props) {
+function SectionReviews() {
   return (
     <section className="section pt-5 pb-5">
       <Container>
