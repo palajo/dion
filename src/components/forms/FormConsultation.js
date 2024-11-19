@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { Col, Row } from 'react-bootstrap';
 import InputMask from 'react-input-mask';
 import emailjs from 'emailjs-com';
+import { sendGTMEvent } from '@next/third-parties/google';
 
 function FormConsultation() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -28,13 +29,7 @@ function FormConsultation() {
           question: values.question,
         }, 'user_ba47DZoCxBAsJimzfB4a2')
           .then(() => {
-            window.dataLayer.push({
-              event: 'consultation',
-              category: 'Consultation',
-              action: 'Submit lead form',
-              label: 'Consultation request',
-            });
-
+            sendGTMEvent({ event: 'consultation', category: 'Consultation', action: 'Submit lead form' });
             setSubmitSuccess(true);
 
           })

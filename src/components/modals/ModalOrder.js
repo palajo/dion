@@ -5,6 +5,7 @@ import emailjs from 'emailjs-com';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
+import { sendGTMEvent } from '@next/third-parties/google.js';
 
 function ModalConsultation({ product, buttonClassNames }) {
   const router = useRouter();
@@ -62,12 +63,7 @@ function ModalConsultation({ product, buttonClassNames }) {
                 .then(() => {
                   setSubmitSuccess(true);
 
-                  window.dataLayer.push({
-                    event: 'purchase',
-                    category: 'Purchase',
-                    action: 'Submit lead form',
-                    label: 'Purchase',
-                  });
+                  sendGTMEvent({ event: 'purchase', category: 'Purchase', action: 'Submit lead form' });
 
                   setTimeout(() => {
                     router.push('/thank-you');
