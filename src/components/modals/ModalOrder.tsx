@@ -62,7 +62,7 @@ function ModalConsultation({ product, buttonClassNames }: { product: any, button
               }, 'user_ba47DZoCxBAsJimzfB4a2')
                 .then(() => {
                   setSubmitSuccess(true);
-                  sendGTMEvent({ event: 'purchase', value: '300' });
+                  sendGTMEvent({ event: 'conversion_event_purchase', value: '300' });
 
                   setTimeout(() => {
                     router.push('/thank-you');
