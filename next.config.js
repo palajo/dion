@@ -3,7 +3,6 @@ import withVideos from 'next-videos';
 
 const nextConfig = {
   reactStrictMode: false,
-  swcMinify: true,
   images: {
     remotePatterns: [
       {

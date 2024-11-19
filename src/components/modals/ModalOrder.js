@@ -58,20 +58,21 @@ function ModalConsultation({ product, buttonClassNames }) {
                 address: values.address,
                 price: values.price,
                 quantity: values.quantity,
-              }, 'user_ba47DZoCxBAsJimzfB4a2').then(() => {
-                window.dataLayer.push({
-                  event: 'purchase',
-                  category: 'Purchase',
-                  action: 'Submit lead form',
-                  label: 'Purchase',
-                });
+              }, 'user_ba47DZoCxBAsJimzfB4a2')
+                .then(() => {
+                  setSubmitSuccess(true);
 
-                setSubmitSuccess(true);
+                  window.dataLayer.push({
+                    event: 'purchase',
+                    category: 'Purchase',
+                    action: 'Submit lead form',
+                    label: 'Purchase',
+                  });
 
-                setTimeout(() => {
-                  router.push('/thank-you');
-                }, 1000);
-              })
+                  setTimeout(() => {
+                    router.push('/thank-you');
+                  }, 1000);
+                })
                 .catch((err) => {
                   console.log(err);
                 });

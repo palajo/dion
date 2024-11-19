@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 import { Col, Row } from 'react-bootstrap';
 import InputMask from 'react-input-mask';
 import emailjs from 'emailjs-com';
-import { event } from 'nextjs-google-analytics';
 
 function FormConsultation() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
