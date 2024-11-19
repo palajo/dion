@@ -17,6 +17,20 @@ const ConsentBanner = () => {
     localStorage.setItem('cookie-consent', 'accepted');
     setShow(false);
     console.log("Cookies Accepted");
+
+    // Push pageview event to dataLayer (Google Tag Manager)
+    window.dataLayer.push({
+      event: 'pageview',
+      page: window.location.href,
+    });
+
+    // Initialize Google Analytics consent (gtag)
+    gtag('consent', 'update', {
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted',
+      'analytics_storage': 'granted',
+    });
   };
 
   const handleReject = () => {
@@ -24,6 +38,20 @@ const ConsentBanner = () => {
     localStorage.setItem('cookie-consent', 'rejected');
     setShow(false);
     console.log("Cookies Rejected");
+
+    // Push pageview event to dataLayer (Google Tag Manager)
+    window.dataLayer.push({
+      event: 'pageview',
+      page: window.location.href,
+    });
+
+    // Initialize Google Analytics consent (gtag)
+    gtag('consent', 'update', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+    });
   };
 
   if (!show) return null;
