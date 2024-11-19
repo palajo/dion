@@ -13,9 +13,9 @@ function ThankYou() {
   return (
     <>
       <Head>
-        <title>Успішно! Ваше замовлення було оформленою – Dion</title>
+        <title>Успішно! Ваше замовлення було оформлено! – Dion</title>
         <meta name="description"
-              content="Ваше замовлення було оформленою – Газові колонки Dion."/>
+              content="Ваше замовлення було оформлено! – Газові водонагрівачі Dion."/>
         <meta name="keywords"
               content="Dion, Газові колонки, Газові колонки Dion, Водонагрівачі, Газові водонагрівачі Dion"/>
         <meta name="google-site-verification" content="wgGx83ZWitWZ6Ldvhx4SVTrRUaTG3DVIHy8lYxDcD_c"/>
