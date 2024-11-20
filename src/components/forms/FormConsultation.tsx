@@ -29,7 +29,7 @@ function FormConsultation() {
           question: values.question,
         }, 'user_ba47DZoCxBAsJimzfB4a2')
           .then(() => {
-            sendGTMEvent({ event: 'conversion_event_submit_lead_form', value: '100' });
+            sendGTMEvent({ event: 'conversion_event_submit_lead_form', value: '150' });
             setSubmitSuccess(true);
 
           })
